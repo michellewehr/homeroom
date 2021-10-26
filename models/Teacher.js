@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
@@ -7,45 +7,45 @@ class Teacher extends Model { };
 Teacher.init(
    {
       id: {
-         type: Datatypes.INTEGER,
+         type: DataTypes.INTEGER,
          allowNull: false,
          autoIncrement: true,
          primaryKey: true
       },
 
       first_name: {
-         type: Datatypes.STRING,
+         type: DataTypes.STRING,
          allowNull: false,
       },
 
       last_name: {
-         type: Datatypes.STRING,
+         type: DataTypes.STRING,
          allowNull: false,
       },
 
       email: {
-         type: Datatypes.STRING,
+         type: DataTypes.STRING,
          allowNull: false,
-         unique: true,
+         // unique: true,
          validate: {
             isEmail: true
          }
       },
 
       password: {
-         type: Datatypes.STRING,
+         type: DataTypes.STRING,
          validate: {
             len: [8]
          }
       },
 
       grade_taught: {
-         type: Datatypes.STRING,
+         type: DataTypes.STRING,
          allowNull: false
       },
 
       school: {
-         type: Datatypes.STRING,
+         type: DataTypes.STRING,
          allowNull: false
       }
    },

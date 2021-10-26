@@ -1,3 +1,4 @@
+const sequelize = require('../config/connection');
 const seedTeachers = require('./teacher-seeds');
 const seedSubjects = require('./subject-seeds');
 const seedStudents = require('./student-seeds');
@@ -5,7 +6,6 @@ const seedLessonPlan = require('./lesson-plan-seeds');
 const seedAttendance = require('./attendance-seeds');
 const seedGrades = require('./grade-seeds');
 
-const sequelize = require('../config/connection');
 
 const seedAll = async () => {
     await sequelize.sync({force: true});
@@ -32,4 +32,4 @@ const seedAll = async () => {
     process.exit(0);
 }
 
-seedAll();
+seedAll().catch(err => console.log(err))

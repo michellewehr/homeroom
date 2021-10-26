@@ -238,6 +238,6 @@ const gradeData = [
 ];
 
 
-const seedGrades = () => Subject.bulkCreate(gradeData);
+const seedGrades = () => Grade.bulkCreate(gradeData);
 
 module.exports = seedGrades;

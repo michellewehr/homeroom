@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require('sequelize');
+const { Model, Dat, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Lesson_Plan extends Model { };
@@ -6,14 +6,14 @@ class Lesson_Plan extends Model { };
 Lesson_Plan.init(
    {
       id: {
-         type: Datatypes.INTEGER,
+         type: DataTypes.INTEGER,
          allowNull: false,
          autoIncrement: true,
          primaryKey: true
       },
 
       lesson_date: {
-         type: Datatypes.DATEONLY,
+         type: DataTypes.DATEONLY,
          allowNull: false,
          validate: {
             isDate: true
@@ -21,7 +21,7 @@ Lesson_Plan.init(
       },
 
       subject_name: {
-         type: Datatypes.STRING,
+         type: DataTypes.INTEGER,
          allowNull: false,
          references: {
             model: 'subject',
@@ -30,22 +30,22 @@ Lesson_Plan.init(
       },
 
       lesson_name: {
-         type: Datatypes.STRING,
+         type: DataTypes.STRING,
          allowNull: false,
       },
 
       lesson_activity: {
-         type: Datatypes.BOOLEAN,
+         type: DataTypes.BOOLEAN,
          allowNull: false,
       },
 
       assessment: {
-         type: Datatypes.STRING,
+         type: DataTypes.STRING,
          allowNull: true
       },
 
       materials: {
-         type: Datatypes.STRING,
+         type: DataTypes.STRING,
          allowNull: true
       }
    },
@@ -58,4 +58,4 @@ Lesson_Plan.init(
    }
 )
 
-module.exports = LessonPlan;
+module.exports = Lesson_Plan;
