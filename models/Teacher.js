@@ -40,7 +40,7 @@ Teacher.init(
       },
 
       grade_taught: {
-         type: Datatypes.INTEGER,
+         type: Datatypes.STRING,
          allowNull: false
       },
 
