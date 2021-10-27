@@ -18,7 +18,9 @@ Assignment.belongsTo(Subject)
 Assignment.hasOne(Grade);
 Grade.belongsTo(Assignment);
 
-Grade.belongsTo(Student);
+Grade.belongsTo(Student, {
+    foreignKey: 'student_id'
+});
 Student.hasMany(Grade);
 
 

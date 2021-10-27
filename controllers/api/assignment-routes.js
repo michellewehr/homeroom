@@ -1,14 +1,14 @@
 const router = require('express').Router();
-const { Assignment } = require('../../models');
+const { Assignment, Subject } = require('../../models');
 
 
 router.get('/', (req, res) => {
     console.log('hi');
     Assignment.findAll({
-        include: {
-            model: 'subject', 
+        include: [{
+            model: Subject,
             attributes: ['subject_name']
-        }
+        }]
     })
     .then(dbAssignmentData => {
         console.log(dbAssignmentData)
