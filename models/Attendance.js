@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Attendance extends Model { };
+class Attendance extends Model {};
 
 Attendance.init(
    {
@@ -11,7 +11,6 @@ Attendance.init(
          autoIncrement: true,
          primaryKey: true
       },
-
       student_id: {
          type: DataTypes.INTEGER,
          allowNull: false,
@@ -20,7 +19,6 @@ Attendance.init(
             key: 'id'
          }
       },
-
       // * format with utility function
       date: {
          type: DataTypes.DATEONLY,

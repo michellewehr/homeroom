@@ -11,7 +11,6 @@ Grade.init(
          autoIncrement: true,
          primaryKey: true
       },
-
       student_id: {
          type: DataTypes.INTEGER,
          allowNull: false,

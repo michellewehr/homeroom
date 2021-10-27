@@ -11,7 +11,6 @@ Lesson_Plan.init(
          autoIncrement: true,
          primaryKey: true
       },
-
       lesson_date: {
          type: DataTypes.DATEONLY,
          allowNull: false,

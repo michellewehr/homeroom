@@ -1,4 +1,4 @@
-const { Attendance } = require('../models')
+const { Attendance, Student } = require('../models')
 
 const sequelize = require('../config/connection')
 
@@ -54,7 +54,7 @@ const AttendanceData = [
         present: true
     },
     {
-        fstudent_id: 11,
+        student_id: 11,
         date: new Date(),
         present: true
     },

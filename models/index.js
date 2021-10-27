@@ -6,8 +6,10 @@ const Subject = require('./Subject');
 const Teacher = require('./Teacher');
 
 
-//
-// Teacher.hasMany(Student);
+Teacher.hasMany(Student);
+Student.hasMany(Grade);
+LessonPlan.hasMany(Grade);
+Subject.hasMany(LessonPlan);
 
 // LessonPlan.hasOne(Subject);
 
@@ -17,12 +19,8 @@ const Teacher = require('./Teacher');
 // });
 
 
-// Student.hasMany(Grade);
-
-
 // Grade.hasOne(LessonPlan);
 
-// LessonPlan.hasMany(Grade);
 
 
 

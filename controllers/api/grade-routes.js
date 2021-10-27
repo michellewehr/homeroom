@@ -4,15 +4,10 @@ const { Subject, LessonPlan, Grade } = require('../../models');
 
 router.get('/', (req, res) => {
     Grade.findAll({
-        include:[ 
-            {
-            model: LessonPlan,
-            include: {
-                model: Subject,
-                attributes: ['subject_name']
-            }
-        }
-    ]
+        // include:{
+        //     model: LessonPlan,
+        //     attributes: 'lesson_plan_id'
+        // }
     })
     .then(dbGradeData => res.json(dbGradeData))
     .catch(err => {
