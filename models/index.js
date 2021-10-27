@@ -36,3 +36,14 @@ module.exports = {
     Teacher,
     
 }
+
+
+module.exports = {
+    Assignment,
+    Grade,
+    LessonPlan,
+    Student,
+    Subject,
+    Teacher,
+    
+}
