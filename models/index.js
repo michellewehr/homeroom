@@ -10,18 +10,27 @@ Teacher.hasMany(Subject);
 Subject.belongsTo(Teacher);
 //1 to many
 Subject.hasMany(LessonPlan);
-LessonPlan.belongsTo(Subject);
+LessonPlan.belongsTo(Subject, {
+    foreignKey: 'subject_id'
+});
 
 Subject.hasMany(Assignment);
-Assignment.belongsTo(Subject)
+Assignment.belongsTo(Subject, {
+    foreignKey: 'subject_id'
+})
 
 Assignment.hasOne(Grade);
-Grade.belongsTo(Assignment);
+Grade.belongsTo(Assignment, {
+    foreignKey: 'assignment_id'
+});
 
 Grade.belongsTo(Student, {
     foreignKey: 'student_id'
 });
 Student.hasMany(Grade);
+
+
+
 
 
 
