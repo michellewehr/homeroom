@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Assignment, Subject } = require('../../models');
 
-
+//works now!
 router.get('/', (req, res) => {
     console.log('hi');
     Assignment.findAll({
