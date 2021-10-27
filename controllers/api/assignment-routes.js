@@ -6,7 +6,8 @@ router.get('/', (req, res) => {
     console.log('hi');
     Assignment.findAll({
         include: {
-            model: 'subject'
+            model: 'subject', 
+            attributes: ['subject_name']
         }
     })
     .then(dbAssignmentData => {

@@ -7,21 +7,22 @@ const Assignment = require('./Assignment')
 
 //1-to-many
 Teacher.hasMany(Subject);
+Subject.belongsTo(Teacher);
 //1 to many
 Subject.hasMany(LessonPlan);
+LessonPlan.belongsTo(Subject);
 
-LessonPlan.hasOne(Assignment);
-
+Subject.hasMany(Assignment);
 Assignment.belongsTo(Subject);
 
-Assignment.belongsTo(Student);
-
 Assignment.hasOne(Grade);
+Grade.belongsTo(Assignment);
 
 Grade.belongsTo(Student);
 
 
-// // Grade.hasOne(LessonPlan);
+Assignment.hasOne(Student);
+
 
 
 
