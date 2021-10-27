@@ -8,6 +8,7 @@ const teacherData = [
         last_name: "Kyle",
         email: "mariakyle1@gmail.com",
         password: "12345678",
+        subject_id: 2,
         grade_taught: "1",
         school: "Hartford Public School"
     },
@@ -16,6 +17,7 @@ const teacherData = [
         last_name: "Anthony",
         email: "johnanthony@gmail.com",
         password: "12345678",
+        subject_id: 1,
         grade_taught: "2",
         school: "Hartford Public School"
     },
@@ -24,6 +26,7 @@ const teacherData = [
         last_name: "Martinez",
         email: "josemartinez@gmail.com",
         password: "12345678",
+        subject_id: 7,
         grade_taught: "2",
         school: "Silas Dean Elementary school"
     },
@@ -32,6 +35,7 @@ const teacherData = [
         last_name: "Osman",
         email: "mohammedosman@gmail.com",
         password: "12345678",
+        subject_id: 3,
         grade_taught: "k",
         school: "New Britain Kindergarten",
     },
@@ -40,6 +44,7 @@ const teacherData = [
         last_name: "Chen",
         email: "lichen@gmail.com",
         password: "12345678",
+        subject_id: 2,
         grade_taught: "5",
         school: "Hartford Private School"
     },
@@ -48,6 +53,7 @@ const teacherData = [
         last_name: "Pavel",
         email: "anyapavel@gmail.com",
         password: "12345678",
+        subject_id: 11,
         grade_taught: "5",
         school: " Community Day Charter School"
     },
@@ -56,6 +62,7 @@ const teacherData = [
         last_name: "Roberto",
         email: "carlosroberto@gmail.com",
         password: "12345678",
+        subject_id: 5,
         grade_taught: "3",
         school: "Hartford Public School"
     },
@@ -64,6 +71,7 @@ const teacherData = [
         last_name: "Mark",
         email: "tommark@gmail.com",
         password: "12345678",
+        subject_id: 8,
         grade_taught: "4",
         school: "Connecticut Special School"
     },
@@ -72,6 +80,7 @@ const teacherData = [
         last_name: "Brown",
         email: "jessicabrown@gmail.com",
         password: "12345678",
+        subject_id: 1,
         grade_taught: "5",
         school: "Hanmer Elementary School"
     }

@@ -11,37 +11,24 @@ Student.init(
          autoIncrement: true,
          primaryKey: true
       },
-
       first_name: {
          type: DataTypes.STRING,
-         allowNull: false,
+         allowNull: false
       },
-
       last_name: {
          type: DataTypes.STRING,
-         allowNull: false,
+         allowNull: false
       },
-
       guardian: {
          type: DataTypes.STRING,
          allowNull: false
       },
-
       guardian_email: {
          type: DataTypes.STRING,
-         allowNull: true,
          validate: {
-            isEmail: true
-         }
-      },
-      // grade: {
-      //    type: DataTypes.INTEGER,
-      //    allowNull: true,
-      //    references: {
-      //       model: 'grade',
-      //       key: 'grade'
-      //    }
-      // }
+            len: [8]
+         } 
+      }
    },
    {
       sequelize,

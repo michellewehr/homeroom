@@ -1,31 +1,18 @@
-const Grade = require('./Grade');
-const LessonPlan = require('./LessonPlan');
-const Student = require('./Student');
 const Subject = require('./Subject');
 const Teacher = require('./Teacher');
-const Assignment = require('./Assignment')
+const Student = require('./Student');
 
+Subject.hasOne(Teacher, {
+    foreignKey: 'subject_id',
+}),
 
-Teacher.hasMany(Student);
-// Student.hasMany(Grade);
-// Subject.hasMany(LessonPlan);
-// LessonPlan.hasOne(Subject);
-// LessonPlan.hasOne(Assignment);
-// Student.hasMany(Grade);
-
-// // Grade.hasOne(LessonPlan);
-
-
-
-
+Teacher.belongsTo(Subject, {
+    foreignKey: 'subject_id',
+})
 
 
 module.exports = {
-    Assignment,
-    Grade,
-    LessonPlan,
-    Student,
     Subject,
     Teacher,
-    
+    Student,
 }

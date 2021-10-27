@@ -14,7 +14,7 @@ Subject.init(
 
       subject_name: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: true
       }
    },
    {
