@@ -1,10 +1,14 @@
 const router = require('express').Router();
-const { LessonPlan } = require('../../models');
+const { LessonPlan, Subject } = require('../../models');
 
 
 router.get('/', (req, res) => {
     console.log('hi');
     LessonPlan.findAll({
+            include: {
+                model: Subject,
+                attributes: 'subject_name'
+            }
     })
     .then(dbLessonPlanData => {
         console.log(dbLessonPlanData)
