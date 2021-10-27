@@ -5,10 +5,10 @@ const { LessonPlan, Grade } = require('../../models');
 router.get('/', (req, res) => {
     console.log('hi');
     Grade.findAll({
-        // include:{
-        //     model: LessonPlan,
-        //     attributes: 'lesson_plan_id'
-        // }
+        include:{
+            model: 'student',
+            attributes: 'first_name'
+        }
     })
     .then(dbGradeData => {
         console.log(dbGradeData)

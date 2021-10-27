@@ -5,7 +5,9 @@ const { Assignment } = require('../../models');
 router.get('/', (req, res) => {
     console.log('hi');
     Assignment.findAll({
-       
+        include: {
+            model: 'subject'
+        }
     })
     .then(dbAssignmentData => {
         console.log(dbAssignmentData)

@@ -15,9 +15,13 @@ Assignment.init(
         type: DataTypes.STRING,
         allowNull: false,
      }, 
-     subject_id: {
-         type: DataTypes.INTEGER,
-         allowNull: false
+   //   subject_id: {
+   //       type: DataTypes.INTEGER,
+   //       allowNull: false
+   //   }, 
+     lessonPlan_id: {
+      type: DataTypes.INTEGER,
+            allowNull: true
      }
    },
    {

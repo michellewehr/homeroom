@@ -34,13 +34,6 @@ Lesson_Plan.init(
          type: DataTypes.STRING,
          allowNull: false,
       },
-      // assignment_id: {
-      //    type: DataTypes.INTEGER,
-      //    allowNull: true,
-      //    references: {
-      //       model: 'assignment'
-      //    }
-      // },
       materials: {
          type: DataTypes.STRING,
          allowNull: true

@@ -38,7 +38,6 @@ Teacher.init(
          type: DataTypes.STRING,
          allowNull: false
       },
-
       school: {
          type: DataTypes.STRING,
          allowNull: false
