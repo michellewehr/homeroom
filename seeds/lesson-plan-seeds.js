@@ -9,7 +9,6 @@ const LessonPlanData = [
         subject_id: 1,
         lesson_name: 'Chapter 5: Intro',
         lesson_activity: 'read book and act out play',
-        assessment: 'Homework',
         materials: 'questions'
     },
     {
@@ -17,7 +16,6 @@ const LessonPlanData = [
         subject_id: 2,
         lesson_name: 'Chapter 9: Frogs',
         lesson_activity: 'do butterfly craft',
-        assessment: 'Classwork',
         materials: 'questions'
     }
 ]

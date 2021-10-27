@@ -34,10 +34,13 @@ Lesson_Plan.init(
          type: DataTypes.STRING,
          allowNull: false,
       },
-      assessment: {
-         type: DataTypes.STRING,
-         allowNull: true
-      },
+      // assignment_id: {
+      //    type: DataTypes.INTEGER,
+      //    allowNull: true,
+      //    references: {
+      //       model: 'assignment'
+      //    }
+      // },
       materials: {
          type: DataTypes.STRING,
          allowNull: true

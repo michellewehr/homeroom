@@ -3,8 +3,8 @@ const seedTeachers = require('./teacher-seeds');
 const seedSubjects = require('./subject-seeds');
 const seedStudents = require('./student-seeds');
 const seedLessonPlan = require('./lesson-plan-seeds');
-const seedAttendance = require('./attendance-seeds');
 const seedGrades = require('./grade-seeds');
+const seedAssignment = require('./assignment-seeds')
 
 
 const seedAll = async () => {
@@ -13,19 +13,17 @@ const seedAll = async () => {
 
     await seedTeachers();
     console.log('--------------');
-    
-    await seedSubjects();
-    console.log('--------------');
 
     await seedStudents();
+    
+    await seedSubjects();
     console.log('--------------');
 
     await seedLessonPlan();
     console.log('--------------');
 
-    await seedAttendance();
-    console.log('--------------');
-
+    await seedAssignment();
+    
     await seedGrades();
     console.log('--------------');
     

@@ -11,25 +11,25 @@ Grade.init(
          autoIncrement: true,
          primaryKey: true
       },
-      student_id: {
-         type: DataTypes.INTEGER,
-         allowNull: false,
-         references: {
-            model: 'student',
-            key: 'id'
-         }
-      },
-      lesson_plan_id: {
+      Assignment_id: {
          type: DataTypes.INTEGER,
          allowNull: true,
          references: {
-            model: 'lesson_plan',
+            model: 'assignment',
             key: 'id'
          }
       },
-      grade: {
-         type: DataTypes.DOUBLE,
-         allowNull: true,
+     student_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+           model: 'student',
+           key: 'id'
+        }
+      },
+      number_grade: {
+         type: DataTypes.DECIMAL,
+         allowNull: false
       }
    },
    {

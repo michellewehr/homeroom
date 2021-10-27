@@ -33,8 +33,15 @@ Student.init(
          validate: {
             isEmail: true
          }
-      }
-      // * if there is more time, add phone number with regex validation
+      },
+      // grade: {
+      //    type: DataTypes.INTEGER,
+      //    allowNull: true,
+      //    references: {
+      //       model: 'grade',
+      //       key: 'grade'
+      //    }
+      // }
    },
    {
       sequelize,
