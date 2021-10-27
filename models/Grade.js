@@ -12,7 +12,7 @@ Grade.init(
          primaryKey: true
       },
 
-      first_name: {
+      student_id: {
          type: DataTypes.INTEGER,
          allowNull: false,
          references: {
@@ -20,26 +20,7 @@ Grade.init(
             key: 'id'
          }
       },
-
-      last_name: {
-         type: DataTypes.INTEGER,
-         allowNull: false,
-         references: {
-            model: 'student',
-            key: 'id'
-         }
-      },
-
-      subject: {
-         type: DataTypes.INTEGER,
-         allowNull: false,
-         references: {
-            model: 'subject',
-            key: 'id'
-         }
-      },
-
-      lesson_plan_name: {
+      lesson_plan_id: {
          type: DataTypes.INTEGER,
          allowNull: true,
          references: {
@@ -47,12 +28,10 @@ Grade.init(
             key: 'id'
          }
       },
-
       grade: {
          type: DataTypes.DOUBLE,
          allowNull: true,
       }
-
    },
    {
       sequelize,

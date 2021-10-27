@@ -4,182 +4,152 @@ const sequelize = require('../config/connection')
 
 const AttendanceData = [
     {
-        first_name: 1,
-        last_name: 1,
+        student_id: 1,
         date: new Date(),
         present: true
     },
     {
-        first_name: 2,
-        last_name: 2,
+        student_id: 2,
         date: new Date(),
         present: true
     },
     {
-        first_name: 3,
-        last_name: 3,
+        student_id: 3,
         date: new Date(),
         present: true
     },
     {
-        first_name: 4,
-        last_name: 4,
+        student_id: 4,
         date: new Date(),
         present: true
     },
     {
-        first_name: 5,
-        last_name: 5,
+        student_id: 5,
         date: new Date(),
         present: true
     },
     {
-        first_name: 6,
-        last_name: 6,
+        student_id: 6,
         date: new Date(),
         present: false
     },
     {
-        first_name: 7,
-        last_name: 7,
+        student_id: 7,
         date: new Date(),
         present: false
     },
     {
-        first_name: 8,
-        last_name: 8,
+        student_id: 8,
         date: new Date(),
         present: true
     },
     {
-        first_name: 9,
-        last_name: 9,
+        student_id: 9,
         date: new Date(),
         present: true
     },
     {
-        first_name: 10,
-        last_name: 10,
+        student_id: 10,
         date: new Date(),
         present: true
     },
     {
-        first_name: 11,
-        last_name: 11,
+        fstudent_id: 11,
         date: new Date(),
         present: true
     },
     {
-        first_name: 12,
-        last_name: 12,
+        student_id: 12,
         date: new Date(),
         present: true
     },
     {
-        first_name: 13,
-        last_name: 13,
+        student_id: 13,
         date: new Date(),
         present: false
     },
     {
-        first_name: 14,
-        last_name: 14,
+        student_id: 14,
         date: new Date(),
         present: true
     },
     {
-        first_name: 15,
-        last_name: 15,
+        student_id: 15,
         date: new Date(),
         present: true
     },
     {
-        first_name: 16,
-        last_name: 16,
+        student_id: 16,
         date: new Date(),
         present: false
     },
     {
-        first_name: 17,
-        last_name: 17,
+        student_id: 17,
         date: new Date(),
         present: true
     },
     {
-        first_name: 18,
-        last_name: 18,
+        student_id: 18,
         date: new Date(),
         present: true
     },
     {
-        first_name: 19,
-        last_name: 19,
+        student_id: 19,
         date: new Date(),
         present: true
     },
     {
-        first_name: 20,
-        last_name: 20,
+        student_id: 20,
         date: new Date(),
         present: true
     },
     {
-        first_name: 21,
-        last_name: 21,
+        student_id: 21,
         date: new Date(),
         present: false
     },
     {
-        first_name: 22,
-        last_name: 22,
+        student_id: 22,
         date: new Date(),
         present: true
     },
     {
-        first_name: 23,
-        last_name: 23,
+        student_id: 23,
         date: new Date(),
         present: true
     },
     {
-        first_name: 24,
-        last_name: 24,
+        student_id: 24,
         date: new Date(),
         present: true
     },
     {
-        first_name: 25,
-        last_name: 25,
+        student_id: 25,
         date: new Date(),
         present: true
     },
     {
-        first_name: 26,
-        last_name: 26,
+        student_id: 26,
         date: new Date(),
         present: true
     },
     {
-        first_name: 27,
-        last_name: 27,
+        student_id: 27,
         date: new Date(),
         present: true
     },
     {
-        first_name: 28,
-        last_name: 28,
+        student_id: 28,
         date: new Date(),
         present: true
     },
     {
-        first_name: 29,
-        last_name: 29,
+        student_id: 29,
         date: new Date(),
         present: false
     },
     {
-        first_name: 30,
-        last_name: 30,
+        student_id: 30,
         date: new Date(),
         present: false
     }

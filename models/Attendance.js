@@ -12,16 +12,7 @@ Attendance.init(
          primaryKey: true
       },
 
-      first_name: {
-         type: DataTypes.INTEGER,
-         allowNull: false,
-         references: {
-            model: 'student',
-            key: 'id'
-         }
-      },
-
-      last_name: {
+      student_id: {
          type: DataTypes.INTEGER,
          allowNull: false,
          references: {

@@ -6,17 +6,17 @@ const sequelize = require('../config/connection')
 const LessonPlanData = [
     {
         lesson_date: new Date(),
-        subject_name: 1,
+        subject_id: 1,
         lesson_name: 'Chapter 5: Intro',
-        lesson_activity: true,
+        lesson_activity: 'read book and act out play',
         assessment: 'Homework',
         materials: 'questions'
     },
     {
         lesson_date: new Date(),
-        subject_name: 2,
+        subject_id: 2,
         lesson_name: 'Chapter 9: Frogs',
-        lesson_activity: true,
+        lesson_activity: 'do butterfly craft',
         assessment: 'Classwork',
         materials: 'questions'
     }

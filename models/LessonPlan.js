@@ -19,8 +19,7 @@ Lesson_Plan.init(
             isDate: true
          }
       },
-
-      subject_name: {
+      subject_id: {
          type: DataTypes.INTEGER,
          allowNull: false,
          references: {
@@ -28,22 +27,18 @@ Lesson_Plan.init(
             key: 'id'
          }
       },
-
       lesson_name: {
          type: DataTypes.STRING,
          allowNull: false,
       },
-
       lesson_activity: {
-         type: DataTypes.BOOLEAN,
+         type: DataTypes.STRING,
          allowNull: false,
       },
-
       assessment: {
          type: DataTypes.STRING,
          allowNull: true
       },
-
       materials: {
          type: DataTypes.STRING,
          allowNull: true

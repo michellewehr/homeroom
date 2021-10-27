@@ -5,234 +5,201 @@ const sequelize = require('../config/connection');
 // There are 30 students 
 const gradeData = [
     {
-        first_name: 1,
-        last_name: 1,
+        student_id: 1,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 69.5
     },
     {
-        first_name: 1,
-        last_name: 1,
+        student_id: 1,
         subject: 2,
-        lesson_plan_name: 2,
+        lesson_plan_id: 2,
         grade: 79.5
     },
     {
-        first_name: 1,
-        last_name: 1,
+        student_id: 1,
         subject: 3,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 71.5
     },
     {
-        first_name: 2,
-        last_name: 2,
+        student_id: 2,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 79.5
     },
     {
-        first_name: 3,
-        last_name: 3,
+        student_id: 3,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 99.5
     },
     {
-        first_name: 4,
-        last_name: 4,
+        student_id: 4,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 100
     },
     {
-        first_name: 5,
-        last_name: 5,
+        student_id: 5,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 91.1
     },
     {
-        first_name: 6,
-        last_name: 6,
+        student_id: 6,
         subject: 1,
-        lesson_plan_name: 2,
+        lesson_plan_id: 2,
         grade: 12.9
     },
     {
-        first_name: 7,
-        last_name: 7,
+        student_id: 7,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 74.5
     },
     {
-        first_name: 8,
-        last_name: 8,
+        student_id: 8,
         subject: 1,
-        lesson_plan_name: 2,
+        lesson_plan_id: 2,
         grade: 65.3
     },
     {
-        first_name: 9,
-        last_name: 9,
+        student_id: 9,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 82.6
     },
     {
-        first_name: 10,
-        last_name: 10,
+        student_id: 10,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 72
     },
     {
-        first_name: 11,
-        last_name: 11,
+        student_id: 11,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 23.9
     },
     {
-        first_name: 12,
-        last_name: 12,
+        student_id: 12,
         subject: 1,
-        lesson_plan_name: 2,
+        lesson_plan_id: 2,
         grade: 71.8
     },
     {
-        first_name: 13,
-        last_name: 13,
+        student_id: 13,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 99.1
     },
     {
-        first_name: 14,
-        last_name: 14,
+        student_id: 14,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 96.4
     },
     {
-        first_name: 15,
-        last_name: 15,
+        student_id: 15,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 89.2
     },
     {
-        first_name: 16,
-        last_name: 16,
+        student_id: 16,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 89
     },
     {
-        first_name: 17,
-        last_name: 17,
+        student_id: 17,
         subject: 1,
-        lesson_plan_name: 2,
+        lesson_plan_id: 2,
         grade: 74.2
     },
     {
-        first_name: 18,
-        last_name: 18,
+        student_id: 18,
         subject: 1,
-        lesson_plan_name: 2,
+        lesson_plan_id: 2,
         grade: 80.2
     },
     {
-        first_name: 19,
-        last_name: 19,
+        student_id: 19,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 96.2
     },
     {
-        first_name: 20,
-        last_name: 20,
+        student_id: 20,
         subject: 1,
-        lesson_plan_name: 2,
+        lesson_plan_id: 2,
         grade: 100
     },
     {
-        first_name: 21,
-        last_name: 21,
+        student_id: 21,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 100
     },
     {
-        first_name: 22,
-        last_name: 22,
+        student_id: 22,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 100
     },
     {
-        first_name: 23,
-        last_name: 23,
+        student_id: 23,
         subject: 1,
-        lesson_plan_name: 2,
+        lesson_plan_id: 2,
         grade: 55.1
     },
     {
-        first_name: 24,
-        last_name: 24,
+        student_id: 24,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 59.6
     },
     {
-        first_name: 25,
-        last_name: 25,
+        student_id: 25,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 0
     },
     {
-        first_name: 26,
-        last_name: 26,
+        student_id: 26,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 39.1
     },
     {
-        first_name: 27,
-        last_name: 27,
+        student_id: 27,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 60
     },
     {
-        first_name: 28,
-        last_name: 28,
+        student_id: 28,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 67.2
     },
     {
-        first_name: 29,
-        last_name: 29,
+        student_id: 29,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 82
     },
     {
-        first_name: 30,
-        last_name: 30,
+        student_id: 30,
         subject: 1,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 79.6
     },
     {
-        first_name: 30,
-        last_name: 30,
+        student_id: 30,
         subject: 6,
-        lesson_plan_name: 1,
+        lesson_plan_id: 1,
         grade: 79.6
     }
 ];
