@@ -6,15 +6,21 @@ const Teacher = require('./Teacher');
 const Assignment = require('./Assignment')
 
 //1-to-many
-Teacher.hasMany(Subject);
+
+Teacher.hasMany(Subject, {
+    foreignKey: 'subject_id',
+    onDelete: 'SET NULL'
+});
+
 Subject.belongsTo(Teacher);
+
 //1 to many
 Subject.hasMany(LessonPlan);
 LessonPlan.belongsTo(Subject, {
     foreignKey: 'subject_id'
 });
 
-Subject.hasMany(Assignment);
+// Subject.hasMany(Assignment); // * this association was duplicating the subject_id FK
 Assignment.belongsTo(Subject, {
     foreignKey: 'subject_id'
 })
@@ -27,7 +33,9 @@ Grade.belongsTo(Assignment, {
 Grade.belongsTo(Student, {
     foreignKey: 'student_id'
 });
+
 Student.hasMany(Grade);
+
 
 
 
@@ -45,7 +53,7 @@ module.exports = {
     Student,
     Subject,
     Teacher,
-    
+
 }
 
 
@@ -56,5 +64,5 @@ module.exports = {
     Student,
     Subject,
     Teacher,
-    
+
 }

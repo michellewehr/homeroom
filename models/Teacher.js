@@ -37,11 +37,11 @@ Teacher.init(
       grade_taught: {
          type: DataTypes.STRING,
          allowNull: false
-      },
-      school: {
-         type: DataTypes.STRING,
-         allowNull: false
       }
+      // school: {
+      //    type: DataTypes.STRING,
+      //    allowNull: false
+      // }
    },
    {
       // * password hashing hook

@@ -12,13 +12,13 @@ Assignment.init(
          primaryKey: true
       },
       assignment_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-     }, 
-     subject_id: {
+         type: DataTypes.STRING,
+         allowNull: false,
+      },
+      subject_id: {
          type: DataTypes.INTEGER,
          allowNull: false
-     }, 
+      },
    },
    {
       sequelize,
