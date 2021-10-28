@@ -1,24 +1,51 @@
 const router = require('express').Router();
 const { LessonPlan, Subject } = require('../../models');
 
-//works to include subject! :) 
+// list all lesson plans ordered by date and subject
 router.get('/', (req, res) => {
-    console.log('hi');
     LessonPlan.findAll({
-            include: [{
-                model: Subject,
-                attributes: ['subject_name']
-            }]
+        order: [
+            ['lesson_date', 'ASC'],
+            ['subject_id', 'ASC']
+        ],
+        include: [{
+            model: Subject,
+            attributes: ['subject_name'],
+        }]
     })
-    .then(dbLessonPlanData => {
-        console.log(dbLessonPlanData)
-        res.json(dbLessonPlanData)
+        .then(dbLessonPlanData => {
+            console.log(dbLessonPlanData)
+            res.json(dbLessonPlanData)
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+});
+
+// get one lesson plan by id
+router.get('/:id', (req, res) => {
+    LessonPlan.findOne({
+        where: {
+            id: req.params.id
+        },
+        include: [{
+            model: Subject,
+            attributes: ['subject_name'],
+        }]
     })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
-})
+        .then(dbLessonPlanData => {
+            if (!dbLessonPlanData) {
+                res.status(404).json({ msg: 'This lesson plan does not exist. Why not create a new one?' });
+                return;
+            }
+            res.json(dbLessonPlanData)
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 // router.post('/', (req, res) => {
 //     Post.create({
