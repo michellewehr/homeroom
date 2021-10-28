@@ -1,0 +1,219 @@
+* {
+  font-family: "Playfair Display", serif;
+}
+
+.icon {
+  height: 100px;
+  width: auto;
+  margin-left: 1.5rem;
+}
+
+.hero {
+  background-image: url("./images/student.jpg");
+  height: 90vh;
+  background-size: cover;
+  position: relative;
+}
+
+.blurb {
+  position: absolute;
+  top: 10rem;
+  left: 10rem;
+  width: 30%;
+  background-color: rgba(92, 105, 96, 0.098);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  text-align: center;
+  color: black;
+}
+.blurb a {
+  text-decoration: inherit;
+  color: inherit;
+  color: #7b9494;
+  font-size: 2.5rem;
+}
+
+.blurb a:hover {
+  color: #9fcaca;
+}
+.blurb .login,
+.blurb .signup {
+  background-color: #f6eabe;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+}
+.blurb-pic {
+  height: 8rem;
+}
+.welcome-heading {
+  font-size: 3rem;
+  padding-bottom: 1rem;
+  color: black;
+}
+.subtitle {
+  color: rgb(36, 35, 35);
+}
+
+.homepage-nav-link {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.signup-background {
+  background-image: url(./images/chalkboard-hand.png);
+  background-position: center;
+  height: 85vh;
+  background-size: cover;
+  position: relative;
+}
+
+.signup-container {
+  background-color: #c8e3d4;
+  border-radius: 10px;
+  padding: 1.5rem;
+  position: relative;
+  top: 5rem;
+  right: 9rem;
+}
+
+.login-heading {
+  text-align: center;
+  padding-top: 3rem;
+  color: rgba(255, 255, 255, 0.406);
+  font-size: 3rem;
+}
+.create-lessonplan-container,
+.login-container {
+  background-color: #c8e3d4;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 2rem;
+}
+
+.login-background {
+  background-image: url(./images/plain-chalkboard.jpg);
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+}
+
+.logoutBtn {
+  border: none;
+  background: none;
+}
+
+/* Dashboard by Subject */
+.subject-container {
+  margin-top: 2rem;
+}
+.subject-block {
+  padding: 2rem;
+  margin: 2rem;
+  height: 15vh;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.row .add-subject {
+  width: 50%;
+  margin: auto;
+  height: 8vh;
+  border-radius: 10px;
+}
+
+.subject1,
+.option1 {
+  background-color: #87aaaa;
+}
+.subject2,
+.option2 {
+  background-color: #c8e3d4;
+}
+.subject3,
+.option3 {
+  background-color: #f6eabe;
+}
+.subject4,
+.option4 {
+  background-color: #f6d7a7;
+}
+
+/* dashboard like nav bar */
+.dashboard-container {
+  margin-top: 2rem;
+}
+.option-block {
+  margin-top: 5rem;
+  height: 40vh;
+  text-align: center;
+  border-radius: 10px;
+  margin: 1rem;
+}
+
+.option-block h3 {
+  padding: 1.5rem;
+}
+.optionIcon {
+  height: 7rem;
+}
+
+.dashboard-container a {
+  color: inherit;
+  text-decoration: inherit;
+}
+.dashboard-container a:hover {
+  color: #7b9494;
+}
+
+.heading {
+  margin-left: 3rem;
+  padding-top: 3rem;
+}
+.subheading {
+  margin-left: 3rem;
+  padding: 1rem;
+}
+
+.class-roster-container p {
+  border: 0.5px solid black;
+  margin: 0;
+  line-height: 2rem;
+}
+
+.col-name {
+  font-weight: bold;
+  text-align: center;
+  background-color: #7b9494;
+}
+
+.less-col-name {
+  font-weight: bold;
+  text-align: center;
+  background-color: #c8e3d4;
+  border: 1px solid black;
+  line-height: 2rem;
+}
+
+.addGrade-container {
+  background-color: #f6eabe;
+  padding: 1rem;
+}
+.viewLessRow {
+  border: 1px solid black;
+}
+.subjGradeBookCol {
+  background-color: #f6eabe;
+}
+.finalGradeCol {
+  background-color: #c8e3d4;
+}
+
+.attNameCol {
+  background-color: #f6d7a7;
+}
+.dayOfWeekCol {
+  background-color: #f6eabe;
+}
