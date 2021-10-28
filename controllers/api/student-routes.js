@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Student, Grade } = require('../../models');
+const { Student, Grade, Assignment } = require('../../models');
 
 // list all students by last name alphabetically
 router.get('/', (req, res) => {
@@ -15,6 +15,33 @@ router.get('/', (req, res) => {
             res.status(500).json(err);
         })
 });
+
+// list all students with assignments and grades
+router.get('/grades', (req, res) => {
+    Student.findAll({
+        order: [['last_name', 'ASC']],
+        include: [{
+            model: Grade,
+            attributes: ['number_grade'],
+            include: [
+                {
+                    model: Assignment,
+                    attributes: ['assignment_name']
+                }
+            ]
+        }],
+    })
+        .then(dbStudentData => {
+            console.log(dbStudentData)
+            res.json(dbStudentData)
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+});
+
+
 
 // get one student by id
 router.get('/:id', (req, res) => {

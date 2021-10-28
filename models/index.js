@@ -34,6 +34,8 @@ Grade.belongsTo(Student, {
     foreignKey: 'student_id'
 });
 
+Student.hasMany(Assignment);
+
 Student.hasMany(Grade);
 
 

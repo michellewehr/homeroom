@@ -20,6 +20,11 @@ const gradeData = [
         number_grade: 88.8
     },
     {
+        assignment_id: 5,
+        student_id: 2,
+        number_grade: 92
+    },
+    {
         assignment_id: 1,
         student_id: 3,
         number_grade: 67.4
