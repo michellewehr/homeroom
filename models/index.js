@@ -20,6 +20,7 @@ Assignment.belongsTo(Subject, {
 })
 
 Assignment.hasOne(Grade);
+
 Grade.belongsTo(Assignment, {
     foreignKey: 'assignment_id'
 });
@@ -28,7 +29,7 @@ Grade.belongsTo(Student, {
     foreignKey: 'student_id'
 });
 Student.hasMany(Grade);
-
+ 
 
 
 
