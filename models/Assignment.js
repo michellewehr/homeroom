@@ -1,29 +1,32 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, DECIMAL } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Subject extends Model { };
+class Assignment extends Model { };
 
-Subject.init(
+Assignment.init(
    {
       id: {
          type: DataTypes.INTEGER,
-         autoIncrement: true,
          allowNull: false,
+         autoIncrement: true,
          primaryKey: true
       },
-
-      subject_name: {
+      assignment_name: {
          type: DataTypes.STRING,
+         allowNull: false,
+      },
+      subject_id: {
+         type: DataTypes.INTEGER,
          allowNull: false
-      }
+      },
    },
    {
       sequelize,
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'subject'
+      modelName: 'assignment'
    }
 )
 
-module.exports = Subject;
+module.exports = Assignment;

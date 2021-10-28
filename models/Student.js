@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Student extends Model { };
@@ -6,35 +6,34 @@ class Student extends Model { };
 Student.init(
    {
       id: {
-         type: Datatypes.INTEGER,
+         type: DataTypes.INTEGER,
          allowNull: false,
          autoIncrement: true,
          primaryKey: true
       },
 
       first_name: {
-         type: Datatypes.STRING,
+         type: DataTypes.STRING,
          allowNull: false,
       },
 
       last_name: {
-         type: Datatypes.STRING,
+         type: DataTypes.STRING,
          allowNull: false,
       },
 
       guardian: {
-         type: Datatypes.STRING,
+         type: DataTypes.STRING,
          allowNull: false
       },
 
       guardian_email: {
-         type: Datatypes.STRING,
+         type: DataTypes.STRING,
          allowNull: true,
          validate: {
             isEmail: true
          }
       }
-      // * if there is more time, add phone number with regex validation
    },
    {
       sequelize,

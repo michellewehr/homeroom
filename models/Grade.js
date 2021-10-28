@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Grade extends Model { };
@@ -6,53 +6,31 @@ class Grade extends Model { };
 Grade.init(
    {
       id: {
-         type: Datatypes.INTEGER,
+         type: DataTypes.INTEGER,
          allowNull: false,
          autoIncrement: true,
          primaryKey: true
       },
-
-      first_name: {
-         type: Datatypes.STRING,
+      assignment_id: {
+         type: DataTypes.INTEGER,
+         allowNull: true,
+         references: {
+            model: 'assignment',
+            key: 'id'
+         }
+      },
+      student_id: {
+         type: DataTypes.INTEGER,
          allowNull: false,
          references: {
             model: 'student',
             key: 'id'
          }
       },
-
-      last_name: {
-         type: Datatypes.STRING,
-         allowNull: false,
-         references: {
-            model: 'student',
-            key: 'id'
-         }
-      },
-
-      subject: {
-         type: Datatypes.STRING,
-         allowNull: false,
-         references: {
-            model: 'subject',
-            key: 'id'
-         }
-      },
-
-      lesson_plan_name: {
-         type: Datatypes.STRING,
-         allowNull: true,
-         references: {
-            model: 'lesson_plan',
-            key: 'id'
-         }
-      },
-
-      grade: {
-         type: Datatypes.DECIMAL,
-         allowNull: true,
+      number_grade: {
+         type: DataTypes.DOUBLE,
+         allowNull: false
       }
-
    },
    {
       sequelize,
