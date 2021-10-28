@@ -46,4 +46,17 @@ router.get('/:id', (req, res) => {
         });
 });
 
+// add an assignment
+router.post('/', ({ body }, res) => {
+    Assignment.create({
+        assignment_name: body.assignment_name,
+        subject_id: body.subject_id
+    })
+        .then(dbAssignmentData => res.json({ msg: `Successfully added ${body.assignment_name}!` }))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 module.exports = router;

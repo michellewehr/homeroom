@@ -54,4 +54,19 @@ router.get('/:id', (req, res) => {
         });
 });
 
+// add a grade
+router.post('/', ({ body }, res) => {
+    Grade.create({
+        assignment_id: body.assignment_id,
+        student_id: body.student_id,
+        number_grade: body.number_grade
+    })
+        .then(dbGradeData => res.json({ msg: `Successfully added grade of ${body.number_grade}!` }))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+
 module.exports = router;
