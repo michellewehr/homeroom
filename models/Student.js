@@ -33,7 +33,7 @@ Student.init(
          validate: {
             isEmail: true
          }
-      },
+      }
    },
    {
       sequelize,
