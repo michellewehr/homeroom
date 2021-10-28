@@ -47,17 +47,20 @@ router.get('/:id', (req, res) => {
         });
 });
 
-// router.post('/', (req, res) => {
-//     Post.create({
-//       student_id: req.body.student_id,
-//       lesson_plan_id: req.body.lesson_plan_id,
-//       grade: req.session.grade
-//     })
-//       .then(dbGradeData => res.json(dbGradeData))
-//       .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//       });
-//   });
+// add a lesson plan
+router.post('/', ({ body }, res) => {
+    LessonPlan.create({
+        lesson_date: body.lesson_date,
+        subject_id: body.subject_id,
+        lesson_name: body.lesson_name,
+        lesson_activity: body.lesson_activity,
+        materials: body.materials
+    })
+        .then(dbLessonPlanData => res.json({ msg: `Successfully added new lesson plan!` }))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 module.exports = router;

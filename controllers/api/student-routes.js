@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Student } = require('../../models');
+const { Student, Grade } = require('../../models');
 
 // list all students by last name alphabetically
 router.get('/', (req, res) => {
@@ -37,17 +37,19 @@ router.get('/:id', (req, res) => {
         });
 });
 
-// router.post('/', (req, res) => {
-//     Post.create({
-//       student_id: req.body.student_id,
-//       lesson_plan_id: req.body.lesson_plan_id,
-//       grade: req.session.grade
-//     })
-//       .then(dbGradeData => res.json(dbGradeData))
-//       .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//       });
-//   });
+// add a student
+router.post('/', ({ body }, res) => {
+    Student.create({
+        first_name: body.first_name,
+        last_name: body.last_name,
+        guardian: body.guardian,
+        guardian_email: body.guardian_email
+    })
+        .then(dbStudentData => res.json({ msg: `Successfully added ${body.first_name} ${body.last_name}!` }))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 module.exports = router;
