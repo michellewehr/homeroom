@@ -34,6 +34,14 @@ Student.init(
             isEmail: true
          }
       },
+      // student_grades: {
+      //    type: DataTypes.INTEGER,
+      //    allowNull: true,
+      //    references: {
+      //       model: 'grade',
+      //       key: 'id'
+      //    }
+      // }
    },
    {
       sequelize,

@@ -4,7 +4,7 @@ const { Student, Grade, Assignment } = require('../../models');
 
 
 //works with include students AND assignments!! :) 
-router.get('/', (req, res) => {
+router.get('/:subjectId', (req, res) => {
     console.log('hi');
     Grade.findAll({
         include: [{
@@ -13,6 +13,9 @@ router.get('/', (req, res) => {
         },  
         {
         model: Assignment, 
+        where: {
+            subject_id: req.params.subjectId 
+        },
         attributes: ['assignment_name']
       }]
     })

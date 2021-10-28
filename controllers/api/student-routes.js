@@ -1,11 +1,20 @@
 const router = require('express').Router();
-const { Student } = require('../../models');
+const { Student, Grade } = require('../../models');
+const sequelize = require('sequelize');
 
 
 router.get('/', (req, res) => {
     console.log('hi');
     Student.findAll({
-    })
+        // include: [{
+        //     model: Grade,
+        //     where: {
+        //         student_id: {$col: 'Student.id'}
+        //     }, 
+        //     attributes: ['number_grade']
+        // }]
+   
+})
     .then(dbStudentData => {
         console.log(dbStudentData)
         res.json(dbStudentData)
