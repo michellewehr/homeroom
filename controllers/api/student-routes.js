@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Student, Grade } = require('../../models');
+const { Student, Grade, Assignment, Subject } = require('../../models');
 
 // list all students by last name alphabetically
 router.get('/', (req, res) => {
@@ -16,6 +16,36 @@ router.get('/', (req, res) => {
         })
 });
 
+// list all students with assignments and grades
+router.get('/grades/:subject', (req, res) => {
+    Student.findAll({
+        order: [['last_name', 'ASC']],
+        include: [{
+            model: Grade,
+            attributes: ['number_grade'],
+            include: [
+                {
+                    model: Assignment,
+                    attributes: ['assignment_name', 'subject_id'],
+                    where: {
+                        subject_id: req.params.subject
+                    }
+                }
+            ]
+        }],
+    })
+        .then(dbStudentData => {
+            console.log(dbStudentData)
+            res.json(dbStudentData)
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+});
+
+
+
 // get one student by id
 router.get('/:id', (req, res) => {
     Student.findOne({
@@ -24,7 +54,6 @@ router.get('/:id', (req, res) => {
         }
     })
         .then(dbStudentData => {
-            // * we can take this data check and make it a utility function later for cleaner code
             if (!dbStudentData) {
                 res.status(404).json({ msg: 'This student does not exist, at least on this side of the universe.' });
                 return;

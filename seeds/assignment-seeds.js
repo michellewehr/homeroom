@@ -19,9 +19,12 @@ const assignmentData = [
     {
         assignment_name: 'assessment#4',
         subject_id: 2
+    },
+    {
+        assignment_name: 'assessment#5',
+        subject_id: 2
     }
 ];
-
 
 const seedAssignment = () => Assignment.bulkCreate(assignmentData);
 
