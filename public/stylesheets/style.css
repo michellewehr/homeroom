@@ -9,7 +9,7 @@
 }
 
 .hero {
-  background-image: url("./images/student.jpg");
+  background-image: url("../assets/images/student.jpg");
   height: 90vh;
   background-size: cover;
   position: relative;
@@ -62,7 +62,7 @@
 }
 
 .signup-background {
-  background-image: url(./images/chalkboard-hand.png);
+  background-image: url(../assets/images/chalkboard-hand.png);
   background-position: center;
   height: 85vh;
   background-size: cover;
@@ -93,7 +93,7 @@
 }
 
 .login-background {
-  background-image: url(./images/plain-chalkboard.jpg);
+  background-image: url(../assets/images/plain-chalkboard.jpg);
   height: 100vh;
   background-size: cover;
   position: relative;
