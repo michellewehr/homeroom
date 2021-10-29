@@ -177,8 +177,14 @@
   padding: 1rem;
 }
 
-.class-roster-container p,
-a {
+.class-roster-container p {
+  border: 0.5px solid black;
+  margin: 0;
+  line-height: 2rem;
+}
+.guardianEmail {
+  color: inherit;
+  text-decoration: inherit;
   border: 0.5px solid black;
   margin: 0;
   line-height: 2rem;
