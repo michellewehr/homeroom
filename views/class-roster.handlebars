@@ -1,0 +1,66 @@
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/dashboard">
+            <img class="icon" src="../assets/images/smaller-homeroom-icon.png" width="30" height="30" alt="">
+          </a>
+          <a class="navbar-brand" href="#">
+              <h1>HomeRoom</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a href="/login" class="nav-link homepage-nav-link">Class Roster</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="/signup" class="nav-link homepage-nav-link">Lesson Plans</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="/signup" class="nav-link homepage-nav-link">Grade Book</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="/signup" class="nav-link homepage-nav-link">Attendance</a>
+                  </li>
+                  <li class="nav-item">
+                      <button class="nav-link homepage-nav-link logoutBtn">Log Out</button>
+                  </li>
+              </ul>
+          </div>
+        </div>
+      </nav>
+    
+      <section>
+          <h3 class="heading">Class Roster</h3>
+          <br>
+          <div class="container class-roster-container">
+              <div class="row">
+                  <p class="lastName col col-name">Last Name</p>
+                  <p class="firstName col col-name">First name</p>
+                  <p class="guardian col col-name">Guardian</p>
+                  <p class="email col col-name">Guardian Email</p>
+              </div>
+  
+            {{#each students as |student| }}
+              <div class="row">
+                  <p class="lastName col">{{student.last_name}}</p>
+                  <p class="firstName col">{{student.first_name}}</p>
+                  <p class="guardian col ">{{student.guardian}}</p>
+                  <p class="email col ">{{student.guardian_email}}</p>
+              </div>
+            {{/each}}
+
+              <div class="row">
+                <input type="text" placeholder="Last Name" name="lastName" class="lastName col">
+                <input type="text" name="firstName" placeholder="First Name" class="firstName col">
+                <input type="text" name="guardian" placeholder="Guardian Name" class="guardian col">
+                <input type="email" class="email col" placeholder="email@domain.com" name="email" id="">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+
+      </section>
