@@ -1,0 +1,42 @@
+    {{> navbar}}
+  
+  <section>
+          <h3 class="heading">Create Lesson Plan:</h3>
+          <form action="">
+            <div class="container create-lessonplan-container">
+                <form class="container">
+                    <div class="form-group">
+                        <label for="lessonDate">Lesson Date:</label>
+                        <input type="date" class="form-control" name="lessonDate" id="lessonDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <select type="" class="form-control" name="subject" id="subject">
+                            <option selected="selected" disabled="true">--Please Select --</option>
+                            <option value="languageArts">Language Arts</option>
+                            <option value="math">Math</option>
+                            <option value="science">Science</option>
+                            <option value="socialStudies">Social socialStudies</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="lessonName">Lesson Name:</label>
+                        <input type="text" class="form-control" name="lessonName" id="lessonName" placeholder="ex) Reading Comprehension with The Very Hungry Caterpillar">
+                    </div>
+                    <div class="form-group">
+                        <label for="objective">Learning Objective:</label>
+                        <input type="text" name="assessment" class="form-control" id="objective" placeholder="ex) Complete a worksheet about the book.">
+                    </div>
+                    <div class="form-group">
+                        <label for="activity">Structure/Activity:</label>
+                        <textarea type="text" class="form-control" name="activity" id="activity" placeholder="ex) Read the Very Hungry Caterpillar and make butterfly crafts."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="materials">Materials:</label>
+                        <input type="text" name="materials" class="form-control" id="materials" placeholder="ex) Book, construction paper, glue sticks, markers...">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                </div>
+            </form>
+      </section>

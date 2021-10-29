@@ -1,0 +1,27 @@
+  {{> navbar}}
+      <section class="single-lesson-sect">
+                <div class="row singleHeading">
+                    <h3 class="single-lesson-heading col">{{lesson.subject.subject_name}}</h3 class="heading">
+                    <h4 class="subheading col" style="text-align: end; padding-right: 4rem;">{{lesson.lesson_date}}</h4>
+                </div>
+             
+                   <div class="row single-lesson">
+                        <div class="col">
+                            <h5 class="subheading">{{lesson.lesson_name}}</h5>
+                        </div>
+                        <div class="col">
+                            <h5 class="subheading singleHeading ">Learning Objective: <span class="span">{{lesson.lesson_objective}}</span></h5>
+=                        </div>
+                    </div>
+
+                    <div class="row single-lesson">
+                        <div class="col">
+                            <h5 class="subheading singleHeading ">Activity/Structure:</h5>
+                            <p>{{lesson.lesson_activity}}</p>
+                        </div>
+                        <div class="col">
+                            <h5 class="subheading singleHeading ">Materials:</h5>
+                            <p>{{lesson.materials}}</p>
+                        </div>
+                    </div>
+      </section>

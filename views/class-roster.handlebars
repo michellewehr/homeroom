@@ -1,0 +1,32 @@
+  {{> navbar}}
+    
+      <section>
+          <h3 class="heading">Class Roster</h3>
+          <br>
+          <div class="container class-roster-container">
+              <div class="row">
+                  <p class="lastName col col-name">Last Name</p>
+                  <p class="firstName col col-name">First name</p>
+                  <p class="guardian col col-name">Guardian</p>
+                  <p class="email col col-name">Guardian Email</p>
+              </div>
+  
+            {{#each students as |student| }}
+              <div class="row">
+                  <p class="lastName col">{{student.last_name}}</p>
+                  <p class="firstName col">{{student.first_name}}</p>
+                  <p class="guardian col ">{{student.guardian}}</p>
+                  <a class="email col guardianEmail"  href="mailto:{{student.guardian_email}}" class="email col">{{student.guardian_email}}</a>
+              </div>
+            {{/each}}
+
+              <div class="row">
+                <input type="text" placeholder="Last Name" name="lastName" class="lastName col">
+                <input type="text" name="firstName" placeholder="First Name" class="firstName col">
+                <input type="text" name="guardian" placeholder="Guardian Name" class="guardian col">
+                <input type="email" class="email col" placeholder="email@domain.com" name="email" id="">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+
+      </section>

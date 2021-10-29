@@ -10,23 +10,23 @@ const gradeData = [
         number_grade: 70
     },
     {
-        assignment_id: 3,
-        student_id: 1,
+        assignment_id: 1,
+        student_id: 2,
         number_grade: 82.5
-    },
-    {
-        assignment_id: 4,
-        student_id: 2,
-        number_grade: 88.8
-    },
-    {
-        assignment_id: 5,
-        student_id: 2,
-        number_grade: 92
     },
     {
         assignment_id: 1,
         student_id: 3,
+        number_grade: 88.8
+    },
+    {
+        assignment_id: 2,
+        student_id: 1,
+        number_grade: 92
+    },
+    {
+        assignment_id: 2,
+        student_id: 2,
         number_grade: 67.4
     },
     {
@@ -35,10 +35,50 @@ const gradeData = [
         number_grade: 93.1
     },
     {
-        assignment_id: 2,
+        assignment_id: 3,
+        student_id: 1,
+        number_grade: 99
+    },
+    {
+        assignment_id: 3,
+        student_id: 2,
+        number_grade: 99
+    },
+    {
+        assignment_id: 3,
         student_id: 3,
         number_grade: 99
-    }
+    },
+    {
+        assignment_id: 4,
+        student_id: 1,
+        number_grade: 99
+    },
+    {
+        assignment_id: 4,
+        student_id: 2,
+        number_grade: 99
+    },
+    {
+        assignment_id: 4,
+        student_id: 3,
+        number_grade: 99
+    },
+    {
+        assignment_id: 5,
+        student_id: 1,
+        number_grade: 99
+    },
+    {
+        assignment_id: 5,
+        student_id: 2,
+        number_grade: 99
+    },
+    {
+        assignment_id: 5,
+        student_id: 3,
+        number_grade: 99
+    },
 ];
 
 
