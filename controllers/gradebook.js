@@ -17,7 +17,11 @@ router.get('/', (req, res) => {
             });
     });
 
-
+//renders add grade page
+    router.get('/addgrade', (req, res) => {
+        res.render('addGrade')
+    })
+    
 
 // list all students with assignments and grades
 router.get('/:subject', (req, res) => {
@@ -65,19 +69,6 @@ router.get('/:subject', (req, res) => {
             })
         })
 });
-
-//get call for assignments
-router.get('/:subject', (req, res) => {
-    Assignment.findAll({
-        where: {
-            subject_id: req.params.subject
-        }
-    })
-    .then(dbAssignmentData => {
-        const assignments = dbAssignmentData.map(assignment => assignment.get({plain: true}));
-        res.render('specific-gradebook', {assignments});
-    })
-})
 
 
 
