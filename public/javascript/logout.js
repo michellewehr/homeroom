@@ -3,7 +3,7 @@ async function logout() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     });
-  
+  console.log('ewurypwey')
     if (response.ok) {
       document.location.replace('/');
     } else {

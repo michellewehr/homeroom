@@ -19,7 +19,6 @@ router.get('/', (req, res) => {
         }
         const teacher = dbTeacherData.map(data => data.get({plain: true}))
         console.log(teacher)
-        console.log('===========')
         res.render('dashboard', {
             teacher,
             loggedIn: true

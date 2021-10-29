@@ -5,7 +5,6 @@ const { Teacher } = require('../../models');
 router.get('/', (req, res) => {
     Teacher.findAll({})
         .then(dbTeacherData => {
-            console.log(dbTeacherData)
             res.json(dbTeacherData)
         })
         .catch(err => {
