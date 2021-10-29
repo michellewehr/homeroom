@@ -25,14 +25,30 @@
         <h3 class="heading">Math Grade Book</h3>
         <br>
         <div class="container class-roster-container">
-            {{#each students as |student|}}
-            <div class="row">
-                <p class=" col col-name subjGradeBookCol">{{student.last_name}}</p>
-                <p class=" col col-name subjGradeBookCol">{{student.first_name}}</p>
-                {{#each student.grades.assignment}} 
-               <p class=" col col-name subjGradeBookCol">{{assignment_name}}</p>
+             <div class="row">
+                <p class=" col col-name subjGradeBookCol">Last Name</p>
+                <p class=" col col-name subjGradeBookCol">First Name</p>
+                {{!-- {{#each students as |student|}}
+                {{#each this.grades}}
+                {{#each this.assignment}}
+                <p class="col col-name assessGradeBookCol">{{this.assignment_name}}</p>
                 {{/each}}
-                <p class=" col col-name finalGradeCol">need to calculate</p>
+                {{/each}}
+                {{/each}} --}}
+                {{#each studentsAndAssignments.assignments as |assignment|}}
+                <p class="col col-name assessGradeBookCol">{{assignment.assignment_name}}</p>
+                {{/each}}
+                <p class="col col-name finalGradeCol">Final Grade</p>
+            </div>
+            {{#each studentsAndAssignments.students as |student|}}
+            <div class="row">
+                <p class="col">{{student.last_name}}</p>
+                <p class="col">{{student.first_name}}</p>
+                {{#each this.grades}}
+               <p class="col">{{this.number_grade}}
+                 {{/each}}
+               </p>
+               <p class="col">Calc</p>
             </div>
            {{/each}}
     </section>

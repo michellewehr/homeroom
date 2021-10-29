@@ -37,16 +37,44 @@ router.get('/:subject', (req, res) => {
             ]
         }],
     })
-        .then(dbStudentData => {
-            const students = dbStudentData.map(student => student.get({ plain: true }));
-            
-            res.render('specific-gradebook', {students});
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
+        .then(function (dbStudentData) {
+            Assignment.findAll({
+                where: {
+                    subject_id: req.params.subject
+                }
+            })
+            .then(dbAssignmentData => {
+                const students = dbStudentData.map(student => student.get({ plain: true }));
+                const assignments = dbAssignmentData.map(assignment => assignment.get({plain: true}));
+                const studentsAndAssignments = {
+                    students,
+                    assignments
+                }
+                console.log(studentsAndAssignments)
+                res.render('specific-gradebook', {studentsAndAssignments});
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            })
         })
 });
+
+//get call for assignments
+router.get('/:subject', (req, res) => {
+    Assignment.findAll({
+        where: {
+            subject_id: req.params.subject
+        }
+    })
+    .then(dbAssignmentData => {
+        const assignments = dbAssignmentData.map(assignment => assignment.get({plain: true}));
+        res.render('specific-gradebook', {assignments});
+    })
+})
+
+
+
 
 
 
