@@ -124,20 +124,19 @@
   border-radius: 10px;
 }
 
-.subject1,
+.subject:nth-child(1),
 .option1 {
   background-color: #87aaaa;
 }
-.subject2,
+.subject:nth-child(2),
 .option2 {
   background-color: #c8e3d4;
 }
-.subject3,
+.subject:nth-child(3),
 .option3 {
   background-color: #f6eabe;
 }
-.subject4,
-.option4 {
+.subject:nth-child(4) {
   background-color: #f6d7a7;
 }
 

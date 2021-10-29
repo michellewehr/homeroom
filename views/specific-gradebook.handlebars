@@ -1,0 +1,39 @@
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/dashboard">
+            <img class="icon" src="../assets/images/smaller-homeroom-icon.png" width="30" height="30" alt="">
+          </a>
+          <a class="navbar-brand" href="/dashboard">
+              <h1>HomeRoom</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto">
+               
+              </ul>
+          </div>
+        </div>
+      </nav>
+
+      <section>
+        <h3 class="heading">Math Grade Book</h3>
+        <br>
+        <div class="container class-roster-container">
+            {{#each students as |student|}}
+            <div class="row">
+                <p class=" col col-name subjGradeBookCol">{{student.last_name}}</p>
+                <p class=" col col-name subjGradeBookCol">{{student.first_name}}</p>
+                {{#each student.grades.assignment}} 
+               <p class=" col col-name subjGradeBookCol">{{assignment_name}}</p>
+                {{/each}}
+                <p class=" col col-name finalGradeCol">need to calculate</p>
+            </div>
+           {{/each}}
+    </section>
+
