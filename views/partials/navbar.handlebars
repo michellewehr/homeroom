@@ -16,8 +16,9 @@
               <ul class="navbar-nav ms-auto">
                 {{#if loggedIn}}
                  <li class="nav-item">
-                      <a href="/" class="nav-link homepage-nav-link">Logout</a>
+                      <button class="logoutBtn">logout</button>
                   </li>
+                <script src="/javascript/logout.js"></script>
                 {{/if}}
                   {{#unless loggedIn}}
                   <li class="nav-item">
