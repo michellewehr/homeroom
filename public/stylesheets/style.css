@@ -2,7 +2,8 @@
   font-family: "Playfair Display", serif;
 }
 
-.icon {
+.icon,
+.add {
   height: 100px;
   width: auto;
   margin-left: 1.5rem;
@@ -247,6 +248,7 @@
   font-size: smaller;
 }
 
+<<<<<<< HEAD
 .shake {
   transition: transform 0.1s, scale 0.1s ;
 }
@@ -256,3 +258,31 @@
   scale: 1.01;
 }
 
+=======
+.adda {
+  background: none;
+  color: inherit;
+  border: none;
+  padding-top: 1.5rem;
+  outline: inherit;
+  text-align: end;
+  margin-right: 5rem;
+  text-decoration: inherit;
+}
+
+.gradebookTitle {
+  margin-left: 5rem;
+}
+
+.gradebookTitle,
+.addButon {
+  margin-bottom: 3rem;
+}
+.addGrade {
+  display: inline;
+  margin-right: 1rem;
+}
+.subjFilter {
+  margin-left: 5rem;
+}
+>>>>>>> 9f0cdb1bda8392ac410f62eb68a97f57d41d9d14

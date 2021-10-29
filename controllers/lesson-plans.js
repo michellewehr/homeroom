@@ -27,6 +27,10 @@ router.get('/', (req, res) => {
         })
 });
 
+router.get('/addLessonPlan', (req, res) => {
+    res.render('addLessonPlan');
+})
+
 // get one lesson plan by id
 router.get('/:id', (req, res) => {
     console.log('ho')

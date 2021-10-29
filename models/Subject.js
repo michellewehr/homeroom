@@ -15,6 +15,10 @@ Subject.init(
       subject_name: {
          type: DataTypes.STRING,
          allowNull: false
+      },
+      icon_url: {
+         type: DataTypes.STRING,
+         allowNull: true
       }
    },
    {
