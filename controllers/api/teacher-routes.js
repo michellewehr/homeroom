@@ -16,15 +16,23 @@ router.get('/', (req, res) => {
 
 
 
-// create teacher (user)
-router.post('/', ({ body }, res) => {
+// sign up
+router.post('/', (req, res) => {
     Teacher.create({
-        first_name: body.first_name,
-        last_name: body.last_name,
-        email: body.email,
-        password: body.password
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        password: req.body.password
     })
-        .then(dbStudentData => res.json({ msg: `Successfully added ${body.first_name} ${body.last_name}!` }))
+    .then(dbTeacherData => {
+        req.session.save(() => {
+          req.session.id = dbTeacherData.id;
+          req.session.first_name = dbTeacherData.first_name;
+          req.session.loggedIn = true;
+    
+          res.json(dbTeacherData)
+        })
+      })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
