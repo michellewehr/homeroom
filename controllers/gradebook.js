@@ -41,7 +41,13 @@ router.get('/:subject', (req, res) => {
             Assignment.findAll({
                 where: {
                     subject_id: req.params.subject
-                }
+                },
+                include: [{
+                    model: Subject,
+                    attributes: [['id', 'subject_id'], 'subject_name'],
+                }],
+                attributes: ['id', 'assignment_name'],
+                order: [['subject_id', 'ASC']]
             })
             .then(dbAssignmentData => {
                 const students = dbStudentData.map(student => student.get({ plain: true }));

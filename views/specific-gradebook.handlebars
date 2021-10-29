@@ -22,19 +22,13 @@
       </nav>
 
       <section>
-        <h3 class="heading">Math Grade Book</h3>
+        <h3 class="heading"> {{studentsAndAssignments.assignments.[0].subject.subject_name}}
+           Grade Book</h3>
         <br>
         <div class="container class-roster-container">
              <div class="row">
                 <p class=" col col-name subjGradeBookCol">Last Name</p>
                 <p class=" col col-name subjGradeBookCol">First Name</p>
-                {{!-- {{#each students as |student|}}
-                {{#each this.grades}}
-                {{#each this.assignment}}
-                <p class="col col-name assessGradeBookCol">{{this.assignment_name}}</p>
-                {{/each}}
-                {{/each}}
-                {{/each}} --}}
                 {{#each studentsAndAssignments.assignments as |assignment|}}
                 <p class="col col-name assessGradeBookCol">{{assignment.assignment_name}}</p>
                 {{/each}}
