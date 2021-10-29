@@ -1,26 +1,4 @@
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/dashboard">
-            <img class="icon" src="../assets/images/smaller-homeroom-icon.png" width="30" height="30" alt="">
-          </a>
-          <a class="navbar-brand" href="/dashboard">
-              <h1>HomeRoom</h1></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ms-auto">
-               
-              </ul>
-          </div>
-        </div>
-      </nav>
-
+  {{> navbar}}
       <section>
         <div class="row">
           <h3 class="heading gradebookTitle col"> {{studentsAndAssignments.assignments.[0].subject.subject_name}}
