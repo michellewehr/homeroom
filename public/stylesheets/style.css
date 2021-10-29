@@ -177,7 +177,8 @@
   padding: 1rem;
 }
 
-.class-roster-container p {
+.class-roster-container p,
+a {
   border: 0.5px solid black;
   margin: 0;
   line-height: 2rem;
@@ -216,4 +217,27 @@
 }
 .dayOfWeekCol {
   background-color: #f6eabe;
+}
+
+.single-lesson p {
+  margin-left: 3rem;
+  padding: 1rem;
+}
+.single-lesson-heading {
+  font-size: 2rem;
+  margin-left: 3rem;
+  padding: 1rem;
+}
+.single-lesson-sect {
+  background-color: #f6eabe;
+  border-radius: 10px;
+  margin: 2rem;
+}
+
+.singleHeading {
+  color: #5e7a7a;
+}
+.single-lesson span {
+  color: black;
+  font-size: smaller;
 }

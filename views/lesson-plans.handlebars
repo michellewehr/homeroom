@@ -1,0 +1,69 @@
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/dashboard">
+            <img class="icon" src="../assets/images/smaller-homeroom-icon.png" width="30" height="30" alt="">
+          </a>
+          <a class="navbar-brand" href="/dashboard">
+              <h1>HomeRoom</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto">
+             
+              </ul>
+          </div>
+        </div>
+      </nav>
+ 
+ 
+ <section class="viewLessons">
+     <h3 class="heading">View Lesson Plans: </h3>
+     <label for="filterBySubj">
+         <h5 class="subheading">Filter By Subject</h5>
+     </label>
+     <select name="filterBySubj" class="subjFilter" id="filterBySubj">
+            <option disabled="true" selected>--Please Select --</option>
+            <option value="languageArts">Language Arts</option>
+            <option value="math">Math</option>
+            <option value="science">Science</option>
+            <option value="socialStudies">Social Studies</option>
+    </select>
+    <button type="submit" class="btn selectSubjFilter" style="border: 1px solid black;">Filter</button>
+     
+     <div class="container">
+         
+         <div class="row ">
+             <div class="col less-col-name date">
+                 <p>Date</p>
+                </div>
+                <div class="col less-col-name lessSubj">
+                    <p>Subject</p>
+                </div>
+                <div class="col less-col-name lessonName">
+                    <p>Lesson Name</p>
+                </div>
+            
+         </div>
+         {{#each lessons as |lesson|}}
+         <div class="row viewLessRow">
+             <div class="col date">
+                 <p>{{lesson.lesson_date}}</p>
+                </div>
+                <div class="col lessSubj">
+                    <a href="/toFilterBySubj" style="text-decoration: inherit; color: inherit;">{{lesson.subject.subject_name}}</a>
+                </div>
+                <div class="col lessName">
+                    <a href="/lesson-plans/{{lesson.id}}" style="text-decoration: inherit; color: inherit;">{{lesson.lesson_name}}</a>
+                </div> 
+         </div>
+         {{/each}}
+     </div>
+ </section>
+ 
+
+      <script src = '/javascript/lessonplans.js'></script>

@@ -30,6 +30,10 @@ Lesson_Plan.init(
          type: DataTypes.STRING,
          allowNull: false,
       },
+      lesson_objective: {
+         type: DataTypes.STRING,
+         allowNull: false
+      },
       lesson_activity: {
          type: DataTypes.STRING,
          allowNull: false,
