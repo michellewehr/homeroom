@@ -1,8 +1,9 @@
+    {{#if loggedIn}}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/dashboard">
             <img class="icon" src="../assets/images/smaller-homeroom-icon.png" width="30" height="30" alt="">
           </a>
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/dashboard">
               <h1>HomeRoom</h1></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -14,17 +15,20 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ms-auto">
-                
+                <li class="nav-item">
+                      <a href="/login" class="nav-link homepage-nav-link">logout</a>
+                  </li>
               </ul>
           </div>
         </div>
       </nav>
 
+        
       <section class="dashboard-section">
-          <h3 class="heading">Welcome !</h3>
+          <h3 class="heading">Welcome {{teacher.first_name}}!</h3>
           <div class="container dashboard-container">
               <div class="row">
-                  <a class="col-sm" href="/class-roster" >
+                  <a class="col-sm shake" href="/class-roster" >
                       <div class="option-block option1">
                           <br>
                           <h3>Class Roster</h3>
@@ -32,7 +36,7 @@
                           <img class="optionIcon" src="../assets/images/classroster.png" alt="">
                       </div>
                   </a>
-                  <a class="col-sm" href="/lesson-plans">
+                  <a class="col-sm shake" href="/lesson-plans">
                       <div class="option-block option2">
                           <br>
                         <h3>Lesson Plans</h3>
@@ -40,7 +44,7 @@
                         <img class="optionIcon" src="../assets/images/lessonplans.png" alt="">
                       </div>
                   </a>
-                  <a class="col-sm" href="/grades">
+                  <a class="col-sm shake" href="/grades">
                       <div class="option-block option3">
                   <br>
                           <h3>Grade Book</h3>
@@ -51,3 +55,6 @@
               </div>
           </div>
       </section>
+
+      <script src="/javascript/login.js"></script>
+      {{/if}}

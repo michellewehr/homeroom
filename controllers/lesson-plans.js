@@ -16,7 +16,10 @@ router.get('/', (req, res) => {
     })
         .then(dbLessonPlanData => {
             const lessons = dbLessonPlanData.map(lesson => lesson.get({ plain: true}));
-            res.render('lesson-plans', {lessons});
+            res.render('lesson-plans', {
+                lessons,
+                loggedIn: true
+            });
         })
         .catch(err => {
             console.log(err);

@@ -1,8 +1,8 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">
             <img class="icon" src="../assets/images/smaller-homeroom-icon.png" width="30" height="30" alt="">
-          </a>
-          <a class="navbar-brand" href="/">
+        </a>
+        <a class="navbar-brand" href="/">
               <h1>HomeRoom</h1></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -13,14 +13,14 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ms-auto">
+              {{!-- <ul class="navbar-nav ms-auto">
                   <li class="nav-item">
                       <a href="/login" class="nav-link homepage-nav-link">Login</a>
                   </li>
                   <li class="nav-item">
                       <a href="/signup" class="nav-link homepage-nav-link">Sign Up</a>
                   </li>
-              </ul>
+              </ul> --}}
           </div>
         </div>
       </nav>
@@ -38,5 +38,11 @@
               </div>
             <br>    
             <button type="submit" class="btn btn-secondary">Submit</button>
-          </form>
+            <p class="p-2">
+              Don't have an account?
+            <a href="/signup">signup</a>
+            </p>
+        </form>
       </section>
+
+      <script src="/javascript/login.js"></script>

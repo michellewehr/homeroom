@@ -246,3 +246,13 @@
   color: black;
   font-size: smaller;
 }
+
+.shake {
+  transition: transform 0.1s, scale 0.1s ;
+}
+
+.shake:hover {
+  transform: rotate(1deg);
+  scale: 1.01;
+}
+
