@@ -4,8 +4,6 @@ const argon2 = require('argon2');
 
 class Teacher extends Model {
    async checkPassword(loginPassword) {
-      console.log('LOG 5 inside the function');
-      console.log(this.password, loginPassword + 'inside function line 8');
       return await argon2.verify(this.password, loginPassword);
    };
 };

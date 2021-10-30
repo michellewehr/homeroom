@@ -3,8 +3,10 @@ async function logout() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     });
-  console.log('ewurypwey')
+    console.log('before logout.ok++++++++++++++=')
+
     if (response.ok) {
+      console.log('logout.ok++++++++++++++=')
       document.location.replace('/');
     } else {
       alert(response.statusText);

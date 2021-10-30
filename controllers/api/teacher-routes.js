@@ -28,12 +28,12 @@ router.post('/', async (req, res) => {
     password: hashedPassword
   })
     .then(dbTeacherData => {
-      console.log(dbTeacherData.password + 'line 31');
       req.session.save(() => {
         req.session.id = dbTeacherData.id;
         req.session.first_name = dbTeacherData.first_name;
         req.session.loggedIn = true;
       })
+      res.json({message: 'You are now logged in'})
     })
     .catch(err => {
       res.status(500).json({
@@ -53,16 +53,10 @@ router.post('/login', (req, res) => {
       res.status(404).json({ message: 'No user with that email address!' });
       return;
     }
-
-    console.log(dbTeacherData + 'line 57 LOG 1');
-    console.log(dbTeacherData.password + 'line 58 LOG 2');
-
     // console.log(await dbTeacherData.checkPassword(req.body.password) + 'LOG 4 line 61');
     if (await dbTeacherData.checkPassword(req.body.password)) {
-      console.log('if the function is true line 64');
       res.json({ user: dbTeacherData, message: 'You are now logged in!' });
     } else {
-      console.log('if the function is false line 67');
       res.status(404).json({ message: 'Password incorrect!' });
       return;
     }
