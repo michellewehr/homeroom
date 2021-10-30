@@ -15,6 +15,7 @@ console.log(document.querySelector('#lessonDate').value);
     // })
 
 
+    // TODO: look into dateonly-- maybe problem there with post?
 // add lesson plan
 async function addLessonPlanHandler(event) {
     event.preventDefault();
@@ -25,16 +26,16 @@ async function addLessonPlanHandler(event) {
     const subject = document.querySelector('#subject')
     const subject_id = subject.options[subject.selectedIndex].dataset.subjectId
     const lesson_name = document.querySelector('#lessonName').value.trim();
-    const objective = document.querySelector('#objective').value.trim();
+    const lesson_objective = document.querySelector('#objective').value.trim();
     const lesson_activity = document.querySelector('#activity').value.trim();
     const materials = document.querySelector('#materials').value.trim();
 
     
-    if (lesson_date && subject && subject_id && lesson_name && objective && lesson_activity && materials) {
+    if (lesson_date && subject && subject_id && lesson_name && lesson_objective && lesson_activity && materials) {
     const res = await fetch('/api/lessonplans', {
         method: 'post',
         body: JSON.stringify({
-            lesson_date, subject_id, lesson_name, objective, lesson_activity, materials
+            lesson_date, subject_id, lesson_name, lesson_objective, lesson_activity, materials
         }),
         headers: {
             'Content-Type': 'application/json'
