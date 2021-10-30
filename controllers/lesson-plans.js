@@ -28,6 +28,28 @@ router.get('/addLessonPlan', (req, res) => {
     res.render('addLessonPlan');
 })
 
+//get lesson by user selection filter by subject
+router.get('/filterSub/:userSelection', (req, res) => {
+    LessonPlan.findAll({
+        where: {
+            subject_id: req.params.userSelection
+        },
+        include: [{
+            model: Subject,
+            attributes: ['subject_name'],
+        }]
+    })
+        .then(dbLessonPlanData => {
+            const lessons = dbLessonPlanData.map(lesson => lesson.get({plain: true}))
+            res.render('lessonsBySubj', {lessons})
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+})
+
+
 // get one lesson plan by id
 router.get('/:id', (req, res) => {
     console.log('ho')
