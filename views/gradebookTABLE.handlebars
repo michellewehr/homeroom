@@ -1,0 +1,30 @@
+  {{> navbar}}
+       <div class="row">
+          <h3 class="heading gradebookTitle col"> {{studentsAndAssignments.assignments.[0].subject.subject_name}}
+             Grade Book</h3>
+             <a href="/grades/addgrade" class="adda col"><h4 class="addGrade">Add Grade</h4><img src="/assets/images/addagain.png" class="addBtn" style="height: 5rem; width: auto;" alt=""></a>
+          </div>
+
+
+      <section>
+          <table>
+              <tr>
+                  <th class="col-name subjGradeBookCol">Last Name</th>
+                  <th class="col-name subjGradeBookCol">FirstName</th>
+                  {{#each studentsAndAssignments.assignments as |assignment|}}
+                  <th class="col-name assessGradeBookCol">{{assignment.assignment_name}}</th>
+                  {{/each}}
+                  <th class="col-name finalGradeCol">Final Grade</th>
+              </tr>
+              {{#each studentsAndAssignments.students as |student|}}
+              <tr>
+                  <td>{{student.last_name}}</td>
+                  <td>{{student.first_name}}</td>
+                 {{#each this.grades}}
+                 <td>{{this.number_grade}}</td>
+                 {{/each}}
+                  <td>Calc</td>
+              </tr>
+              {{/each}}
+          </table>
+

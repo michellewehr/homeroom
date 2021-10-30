@@ -61,7 +61,8 @@ router.get('/:subject', (req, res) => {
                     assignments
                 }
                 console.log(studentsAndAssignments)
-                res.render('specific-gradebook', {studentsAndAssignments});
+                res.render('gradebookTABLE', {studentsAndAssignments});
+                // res.render('specific-gradebook', {studentsAndAssignments});
             })
             .catch(err => {
                 console.log(err);

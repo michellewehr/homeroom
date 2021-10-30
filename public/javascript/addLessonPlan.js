@@ -24,7 +24,7 @@ async function addLessonPlanHandler(event) {
     //gets user inputs-- works
     const lesson_date = document.querySelector('#lessonDate').value;
     const subject = document.querySelector('#subject')
-    const subject_id = subject.options[subject.selectedIndex].dataset.subjectId
+    const subject_id = subject.options[subject.selectedIndex].value;
     const lesson_name = document.querySelector('#lessonName').value.trim();
     const lesson_objective = document.querySelector('#objective').value.trim();
     const lesson_activity = document.querySelector('#activity').value.trim();
@@ -32,7 +32,7 @@ async function addLessonPlanHandler(event) {
 
     
     if (lesson_date && subject && subject_id && lesson_name && lesson_objective && lesson_activity && materials) {
-    const res = await fetch('/api/lessonplans', {
+    const res = await fetch('api/lessonplans/', {
         method: 'post',
         body: JSON.stringify({
             lesson_date, subject_id, lesson_name, lesson_objective, lesson_activity, materials
@@ -49,4 +49,4 @@ async function addLessonPlanHandler(event) {
 }
 }
 
-document.querySelector('.addLesson').addEventListener('submit', addLessonPlanHandler);
+document.querySelector('.submitAddLeson').addEventListener('click', addLessonPlanHandler);

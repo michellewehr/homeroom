@@ -274,3 +274,15 @@
 .subjFilter {
   margin-left: 5rem;
 }
+
+table {
+  border: 1px solid black;
+  margin-left: 5rem;
+}
+table tr {
+  border-bottom: 1px solid black;
+}
+
+table td {
+  border-left: 1px solid black;
+}
