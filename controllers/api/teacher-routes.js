@@ -1,70 +1,91 @@
 const router = require('express').Router();
 const { Teacher } = require('../../models');
-
+const argon2 = require('argon2');
+const { validatePassword } = require('../../utils/helpers');
 
 router.get('/', (req, res) => {
-    Teacher.findAll({})
-        .then(dbTeacherData => {
-            res.json(dbTeacherData)
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+  Teacher.findAll({})
+    .then(dbTeacherData => {
+      res.json(dbTeacherData)
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
-
-
 // sign up
-router.post('/', (req, res) => {
-    Teacher.create({
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email: req.body.email,
-        password: req.body.password
-    })
+router.post('/', async (req, res) => {
+  let hashedPassword = await argon2.hash(req.body.password, {
+    type: argon2.argon2id,
+    hashLength: 50
+  });
+
+  Teacher.create({
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email: req.body.email,
+    password: hashedPassword
+  })
     .then(dbTeacherData => {
-        req.session.save(() => {
-          req.session.id = dbTeacherData.id;
-          req.session.first_name = dbTeacherData.first_name;
-          req.session.loggedIn = true;
-    
-          res.json(dbTeacherData)
-        })
+      console.log(dbTeacherData.password + 'line 31');
+      req.session.save(() => {
+        req.session.id = dbTeacherData.id;
+        req.session.first_name = dbTeacherData.first_name;
+        req.session.loggedIn = true;
       })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    })
+    .catch(err => {
+      res.status(500).json({
+        msg: `Something went wrong: ${err}`,
+      });
+    });
 });
 
 router.post('/login', (req, res) => {
-    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
-    Teacher.findOne({
-      where: {
-        email: req.body.email
-      }
-    }).then(dbTeacherData => {
-      if (!dbTeacherData) {
-        res.status(400).json({ message: 'No user with that email address!' });
-        return;
-      }
-  
-    //   const validPassword = dbTeacherData.checkPassword(req.body.password);
-  
-    //   if (!validPassword) {
-    //     res.status(400).json({ message: 'Incorrect password!' });
-    //     return;
-    //   }
-  
-    //   req.session.save(() => {
-    //     req.session.user_id = dbUserData.id;
-    //     req.session.username = dbUserData.username;
-    //     req.session.loggedIn = true;
-    
-        res.json({ user: dbTeacherData, message: 'You are now logged in!' });
-      });
-    });
+  // proceed to find teacher via email address
+  Teacher.findOne({
+    where: {
+      email: req.body.email
+    }
+  }).then(async dbTeacherData => {
+    if (!dbTeacherData) {
+      res.status(404).json({ message: 'No user with that email address!' });
+      return;
+    }
+
+    console.log(dbTeacherData + 'line 57 LOG 1');
+    console.log(dbTeacherData.password + 'line 58 LOG 2');
+
+    // console.log(await dbTeacherData.checkPassword(req.body.password) + 'LOG 4 line 61');
+    if (await dbTeacherData.checkPassword(req.body.password)) {
+      console.log('if the function is true line 64');
+      res.json({ user: dbTeacherData, message: 'You are now logged in!' });
+    } else {
+      console.log('if the function is false line 67');
+      res.status(404).json({ message: 'Password incorrect!' });
+      return;
+    }
+  })
+    .catch(err => { console.log(err) });
+});
+
+
+
+//   const validPassword = dbTeacherData.checkPassword(req.body.password);
+
+//   if (!validPassword) {
+//     res.status(400).json({ message: 'Incorrect password!' });
+//     return;
+//   }
+
+// req.session.save(() => {
+//   req.session.user_id = dbUserData.id;
+//   req.session.username = dbUserData.username;
+//   req.session.loggedIn = true;
+
+// });
+// });
 //   });
 
 router.post('/logout', (req, res) => {

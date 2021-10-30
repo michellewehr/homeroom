@@ -56,7 +56,10 @@ router.post('/', ({ body }, res) => {
         lesson_activity: body.lesson_activity,
         materials: body.materials
     })
-        .then(dbLessonPlanData => res.json({ msg: `Successfully added new lesson plan!` }))
+        .then(dbLessonPlanData => {
+            res.status(201);
+            res.json({ msg: `Successfully added new lesson plan!` })
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

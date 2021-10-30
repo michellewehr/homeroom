@@ -61,7 +61,12 @@ router.post('/', ({ body }, res) => {
         student_id: body.student_id,
         number_grade: body.number_grade
     })
-        .then(dbGradeData => res.json({ msg: `Successfully added grade of ${body.number_grade}!` }))
+        .then(dbGradeData => {
+            res.status(201);
+            res.json({
+                msg: `Successfully added grade of ${body.number_grade}!`
+            })
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

@@ -1,8 +1,14 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const bcrypt = require('bcrypt');
+const argon2 = require('argon2');
 
-class Teacher extends Model { };
+class Teacher extends Model {
+   async checkPassword(loginPassword) {
+      console.log('LOG 5 inside the function');
+      console.log(this.password, loginPassword + 'inside function line 8');
+      return await argon2.verify(this.password, loginPassword);
+   };
+};
 
 Teacher.init(
    {
@@ -36,7 +42,14 @@ Teacher.init(
       }
    },
    {
-      // * password hashing hook
+      // hooks: {
+      //    async beforeCreate(newTeacherData) {
+      //       newTeacherData.password = await argon2.hash(newTeacherData.password, {
+      //          type: argon2.argon2id,
+      //          hashLength: 50
+      //       });
+      //    },
+      // },
       sequelize,
       timestamps: false,
       freezeTableName: true,

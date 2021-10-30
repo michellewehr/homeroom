@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/michellewehr/homeroom#readme",
   "dependencies": {
+    "argon2": "^0.28.2",
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",
