@@ -16,15 +16,19 @@
                   {{/each}}
                   <th class="col-name finalGradeCol">Final Grade</th>
               </tr>
-              {{#each studentsAndAssignments.students as |student|}}
+                 {{#each studentsAndAssignments.students as |student|}}
               <tr>
                   <td>{{student.last_name}}</td>
                   <td>{{student.first_name}}</td>
+
                  {{#each this.grades}}
-                 <td>{{this.number_grade}}</td>
+                 <td>
+                     {{this.number_grade}}
+                 </td>
                  {{/each}}
                   <td>Calc</td>
               </tr>
-              {{/each}}
+                 {{/each}}
+            
           </table>
 
