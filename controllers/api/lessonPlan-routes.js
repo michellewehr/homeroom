@@ -76,6 +76,7 @@ router.post('/', ({ body }, res) => {
         lesson_date: body.lesson_date,
         subject_id: body.subject_id,
         lesson_name: body.lesson_name,
+        objective: body.objective,
         lesson_activity: body.lesson_activity,
         materials: body.materials
     })
