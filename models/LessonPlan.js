@@ -13,7 +13,7 @@ Lesson_Plan.init(
       },
       lesson_date: {
          type: DataTypes.DATEONLY,
-         allowNull: false,
+         allowNull: true,
          validate: {
             isDate: true
          }

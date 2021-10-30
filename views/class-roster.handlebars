@@ -21,12 +21,14 @@
             {{/each}}
 
               <div class="row">
-                <input type="text" placeholder="Last Name" name="lastName" class="lastName col">
-                <input type="text" name="firstName" placeholder="First Name" class="firstName col">
-                <input type="text" name="guardian" placeholder="Guardian Name" class="guardian col">
-                <input type="email" class="email col" placeholder="email@domain.com" name="email" id="">
+                <input type="text" placeholder="Last Name" name="lastName" class="lastName col" id="lastName">
+                <input type="text" name="firstName" placeholder="First Name" class="firstName col" id="firstName">
+                <input type="text" name="guardian" placeholder="Guardian Name" class="guardian col" id="guardian">
+                <input type="email" class="email col" placeholder="email@domain.com" name="email" id="guardianEmail">
             </div>
             <br>
-            <button type="submit" class="btn btn-secondary">Submit</button>
+            <button type="submit" class="btn btn-secondary addStudent">Save</button>
 
       </section>
+
+      <script src="/javascript/addStudent.js"></script>
