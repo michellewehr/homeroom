@@ -1,5 +1,7 @@
 const path = require('path');
 const sequelize = require('./config/connection');
+
+const cookieParser = require('cookie-parser')
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session')
@@ -8,6 +10,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
+app.use(cookieParser())
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,5 +38,8 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
+    app.listen(PORT, () =>{
+       console.log('Now listening')
+       console.log("===========================")
+    });
 });

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Teacher } = require('../../models');
 const argon2 = require('argon2');
-const { validatePassword } = require('../../utils/helpers');
+// const { validatePassword } = require('../../utils/helpers');
 
 router.get('/', (req, res) => {
   Teacher.findAll({})
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
     .then(dbTeacherData => {
       req.session.save(() => {
         req.session.id = dbTeacherData.id;
-        req.session.first_name = dbTeacherData.first_name;
+        req.session.email = dbTeacherData.email;
         req.session.loggedIn = true;
       })
       res.json({message: 'You are now logged in'})
@@ -43,23 +43,47 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    return res.status(400).json({msg: 'already logged in'})
+  }
   // proceed to find teacher via email address
   Teacher.findOne({
     where: {
       email: req.body.email
     }
   }).then(async dbTeacherData => {
+
+
+
     if (!dbTeacherData) {
       res.status(404).json({ message: 'No user with that email address!' });
       return;
     }
-    // console.log(await dbTeacherData.checkPassword(req.body.password) + 'LOG 4 line 61');
-    if (await dbTeacherData.checkPassword(req.body.password)) {
-      res.json({ user: dbTeacherData, message: 'You are now logged in!' });
-    } else {
+
+    const passwordIsCorrect = await dbTeacherData.checkPassword(req.body.password)
+    
+    if (!passwordIsCorrect) {
       res.status(404).json({ message: 'Password incorrect!' });
       return;
     }
+
+    req.session.save(() => {
+      req.session.user_id = dbTeacherData.id;
+      req.session.email = dbTeacherData.email;
+      req.session.loggedIn = true;
+    })
+
+    
+    if (req.session.views) {
+      req.session.views++
+    } else {
+      req.session.views = 1
+    }
+
+    console.log(req.session)
+    console.log('EEEEEEEEEEEEEEEEE')
+    res.json({ user: dbTeacherData, message: 'You are now logged in!' });
+
   })
     .catch(err => { console.log(err) });
 });
@@ -83,7 +107,7 @@ router.post('/login', (req, res) => {
 //   });
 
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.id) {
     req.session.destroy(() => {
       res.status(204).end();
     });
