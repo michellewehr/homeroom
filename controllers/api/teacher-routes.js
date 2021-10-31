@@ -18,10 +18,10 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
 
   let userPassword = req.body.password;
-  // validate password as at least 8 chars, with at least one uppercase/lowercase/numeric/special char
   if (!validatePasswordConstraints(userPassword)) {
     res.status(400).json({
-      msg: `Your password must be at least 8 characters and contain at least 1 number, uppercase, lowercase, and special character. Try again.`
+      msg: `Your password must be at least 8 characters and contain at least 1 number, uppercase, lowercase, and special character.
+            Try again.`
     });
     return;
   };
@@ -54,7 +54,7 @@ router.post('/', async (req, res) => {
 
 router.post('/login', (req, res) => {
   if (req.session.loggedIn) {
-    return res.status(400).json({ msg: 'already logged in' })
+    return res.status(400).json({ msg: 'Already logged in.' })
   }
   // proceed to find teacher via email address
   Teacher.findOne({
@@ -62,8 +62,6 @@ router.post('/login', (req, res) => {
       email: req.body.email
     }
   }).then(async dbTeacherData => {
-
-
 
     if (!dbTeacherData) {
       res.status(404).json({ message: 'No user with that email address!' });
@@ -83,7 +81,6 @@ router.post('/login', (req, res) => {
       req.session.loggedIn = true;
     })
 
-
     if (req.session.views) {
       req.session.views++
     } else {
@@ -93,28 +90,9 @@ router.post('/login', (req, res) => {
     console.log(req.session)
     console.log('EEEEEEEEEEEEEEEEE')
     res.json({ user: dbTeacherData, message: 'You are now logged in!' });
-
   })
     .catch(err => { console.log(err) });
 });
-
-
-
-//   const validPassword = dbTeacherData.checkPassword(req.body.password);
-
-//   if (!validPassword) {
-//     res.status(400).json({ message: 'Incorrect password!' });
-//     return;
-//   }
-
-// req.session.save(() => {
-//   req.session.user_id = dbUserData.id;
-//   req.session.username = dbUserData.username;
-//   req.session.loggedIn = true;
-
-// });
-// });
-//   });
 
 router.post('/logout', (req, res) => {
   if (req.session.id) {

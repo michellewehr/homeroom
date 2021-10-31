@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "start": "node server.js",
     "watch": "nodemon server.js",
     "seeds": "node seeds/index.js"
@@ -21,7 +21,6 @@
   "homepage": "https://github.com/michellewehr/homeroom#readme",
   "dependencies": {
     "argon2": "^0.28.2",
-    "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
