@@ -22,12 +22,58 @@ router.get('/', (req, res) => {
         res.render('addGrade')
     })
 
+//ENGLISH LANGUAGE ARTS
+    router.get('/1', (req, res) => {
+        Student.findAll({
+            order: [['last_name', 'ASC']],
+            include: [{
+                model: Grade,
+                attributes: ['number_grade'],
+                include: [
+                    {
+                        model: Assignment,
+                        attributes: ['assignment_name', 'subject_id'],
+                        where: {
+                            subject_id: 1
+                        }
+                    }
+                ]
+            }],
+        })
+            .then(function (dbStudentData) {
+                Assignment.findAll({
+                    where: {
+                        subject_id: 1
+                    },
+                    include: [{
+                        model: Subject,
+                        attributes: [['id', 'subject_id'], 'subject_name'],
+                    }],
+                    attributes: ['id', 'assignment_name'],
+                    order: [['subject_id', 'ASC']]
+                })
+                .then(dbAssignmentData => {
+                    const students = dbStudentData.map(student => student.get({ plain: true }));
+                    const assignments = dbAssignmentData.map(assignment => assignment.get({plain: true}));
+                    const studentsAndAssignments = {
+                        students,
+                        assignments
+                    }
+                    console.log({studentsAndAssignments})
+                    res.render('gradebookELA', {studentsAndAssignments});
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.status(500).json(err);
+                })
+            })
+    });
 
 
-// list all students with assignments and grades
-// list all students with assignments and grades
-// list all students with assignments and grades
-router.get('/:subject', (req, res) => {
+
+
+// MATH
+router.get('/2', (req, res) => {
     Student.findAll({
         order: [['last_name', 'ASC']],
         include: [{
@@ -38,7 +84,7 @@ router.get('/:subject', (req, res) => {
                     model: Assignment,
                     attributes: ['assignment_name', 'subject_id'],
                     where: {
-                        subject_id: req.params.subject
+                        subject_id: 2
                     }
                 }
             ]
@@ -47,7 +93,7 @@ router.get('/:subject', (req, res) => {
         .then(function (dbStudentData) {
             Assignment.findAll({
                 where: {
-                    subject_id: req.params.subject
+                    subject_id: 2
                 },
                 include: [{
                     model: Subject,
@@ -64,7 +110,54 @@ router.get('/:subject', (req, res) => {
                     assignments
                 }
                 console.log({studentsAndAssignments})
-                res.render('gradebookTABLE', {studentsAndAssignments});
+                res.render('gradebookMath', {studentsAndAssignments});
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            })
+        })
+});
+
+// SCIENCE
+router.get('/3', (req, res) => {
+    Student.findAll({
+        order: [['last_name', 'ASC']],
+        include: [{
+            model: Grade,
+            attributes: ['number_grade'],
+            include: [
+                {
+                    model: Assignment,
+                    attributes: ['assignment_name', 'subject_id'],
+                    where: {
+                        subject_id: 3
+                    }
+                }
+            ]
+        }],
+    })
+        .then(function (dbStudentData) {
+            Assignment.findAll({
+                where: {
+                    subject_id: 3
+                },
+                include: [{
+                    model: Subject,
+                    attributes: [['id', 'subject_id'], 'subject_name'],
+                }],
+                attributes: ['id', 'assignment_name'],
+                order: [['subject_id', 'ASC']]
+            })
+            .then(dbAssignmentData => {
+                const students = dbStudentData.map(student => student.get({ plain: true }));
+                const assignments = dbAssignmentData.map(assignment => assignment.get({plain: true}));
+                const studentsAndAssignments = {
+                    students,
+                    assignments
+                }
+                console.log({studentsAndAssignments})
+                res.render('gradebookScience', {studentsAndAssignments});
             })
             .catch(err => {
                 console.log(err);
@@ -74,6 +167,52 @@ router.get('/:subject', (req, res) => {
 });
 
 
+// SOCIAL STUDIES
+router.get('/4', (req, res) => {
+    Student.findAll({
+        order: [['last_name', 'ASC']],
+        include: [{
+            model: Grade,
+            attributes: ['number_grade'],
+            include: [
+                {
+                    model: Assignment,
+                    attributes: ['assignment_name', 'subject_id'],
+                    where: {
+                        subject_id: 4
+                    }
+                }
+            ]
+        }],
+    })
+        .then(function (dbStudentData) {
+            Assignment.findAll({
+                where: {
+                    subject_id: 4
+                },
+                include: [{
+                    model: Subject,
+                    attributes: [['id', 'subject_id'], 'subject_name'],
+                }],
+                attributes: ['id', 'assignment_name'],
+                order: [['subject_id', 'ASC']]
+            })
+            .then(dbAssignmentData => {
+                const students = dbStudentData.map(student => student.get({ plain: true }));
+                const assignments = dbAssignmentData.map(assignment => assignment.get({plain: true}));
+                const studentsAndAssignments = {
+                    students,
+                    assignments
+                }
+                console.log({studentsAndAssignments})
+                res.render('gradebookSocialStudies', {studentsAndAssignments});
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            })
+        })
+});
 
 
 
