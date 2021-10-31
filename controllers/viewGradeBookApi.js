@@ -1,33 +1,11 @@
-
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Student, Grade, Assignment, Subject } = require('../models');
 
-router.get('/', (req, res) => {
-        Subject.findAll({
-            attributes: ['id', 'subject_name']
-        })
-            .then(dbSubjectData => {
-                const subjects = dbSubjectData.map(subject => subject.get({ plain: true }));
-                res.render('gradebook-subjects', {subjects});
-                 })
-            .catch(err => {
-                console.log(err);
-                res.status(500).json(err);
-            });
-    });
-
-//renders add grade page
-    router.get('/addgrade', (req, res) => {
-        res.render('addGrade')
-    })
-
-
-
+//PLAYIGN AROUND!!!!
+//fetching to figure out js gradebook
 // list all students with assignments and grades
-// list all students with assignments and grades
-// list all students with assignments and grades
-router.get('/:subject', (req, res) => {
+router.get('students/grades/:id', (req, res) => {
     Student.findAll({
         order: [['last_name', 'ASC']],
         include: [{
@@ -59,12 +37,8 @@ router.get('/:subject', (req, res) => {
             .then(dbAssignmentData => {
                 const students = dbStudentData.map(student => student.get({ plain: true }));
                 const assignments = dbAssignmentData.map(assignment => assignment.get({plain: true}));
-                const studentsAndAssignments = {
-                    students,
-                    assignments
-                }
-                console.log({studentsAndAssignments})
-                res.render('gradebookTABLE', {studentsAndAssignments});
+                res.json(students,assignments)
+                
             })
             .catch(err => {
                 console.log(err);
@@ -72,9 +46,5 @@ router.get('/:subject', (req, res) => {
             })
         })
 });
-
-
-
-
 
 module.exports = router;
