@@ -63,11 +63,12 @@ fetch('/api/students/grades/2')
                 studRow.appendChild(cellBlock);
             })
 
-            // let studGrades = response[i].grades;
-            for(let i =0; i < response[i].grades.length; i++) {
-                let number_grade = response[i].grades[i].number_grade;
+            let studGrades = response[i];
+            for(let i =0; i < studGrades.grades.length; i++) {
+                console.log(studGrades.grades[i].assignment.assignment_name);
+                let number_grade = studGrades.grades[i].number_grade;
                 let assignmentHeaders = document.getElementsByTagName('td');
-                let studAssignName = response[i].grades[i].assignment.assignment_name;
+                let studAssignName = studGrades.grades[i].assignment.assignment_name;
 
                 for(let i = 0; i < assignmentHeaders.length; i++) {
                     // console.log(assignmentHeaders[i].textContent);
