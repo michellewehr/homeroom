@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Teacher } = require('../../models');
 const argon2 = require('argon2');
-// const { validatePassword } = require('../../utils/helpers');
+const { validatePasswordConstraints } = require('../../utils/helpers');
 
 router.get('/', (req, res) => {
   Teacher.findAll({})
@@ -16,7 +16,17 @@ router.get('/', (req, res) => {
 
 // sign up
 router.post('/', async (req, res) => {
-  let hashedPassword = await argon2.hash(req.body.password, {
+
+  let userPassword = req.body.password;
+  // validate password as at least 8 chars, with at least one uppercase/lowercase/numeric/special char
+  if (!validatePasswordConstraints(userPassword)) {
+    res.status(400).json({
+      msg: `Your password must be at least 8 characters and contain at least 1 number, uppercase, lowercase, and special character. Try again.`
+    });
+    return;
+  };
+
+  let hashedPassword = await argon2.hash(userPassword, {
     type: argon2.argon2id,
     hashLength: 50
   });
@@ -33,7 +43,7 @@ router.post('/', async (req, res) => {
         req.session.email = dbTeacherData.email;
         req.session.loggedIn = true;
       })
-      res.json({message: 'You are now logged in'})
+      res.json({ message: 'You are now logged in' })
     })
     .catch(err => {
       res.status(500).json({
@@ -44,7 +54,7 @@ router.post('/', async (req, res) => {
 
 router.post('/login', (req, res) => {
   if (req.session.loggedIn) {
-    return res.status(400).json({msg: 'already logged in'})
+    return res.status(400).json({ msg: 'already logged in' })
   }
   // proceed to find teacher via email address
   Teacher.findOne({
@@ -61,7 +71,7 @@ router.post('/login', (req, res) => {
     }
 
     const passwordIsCorrect = await dbTeacherData.checkPassword(req.body.password)
-    
+
     if (!passwordIsCorrect) {
       res.status(404).json({ message: 'Password incorrect!' });
       return;
@@ -73,7 +83,7 @@ router.post('/login', (req, res) => {
       req.session.loggedIn = true;
     })
 
-    
+
     if (req.session.views) {
       req.session.views++
     } else {
