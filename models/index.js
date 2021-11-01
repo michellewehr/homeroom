@@ -26,6 +26,7 @@ Assignment.belongsTo(Subject, {
 })
 
 Assignment.hasOne(Grade);
+
 Grade.belongsTo(Assignment, {
     foreignKey: 'assignment_id'
 });
