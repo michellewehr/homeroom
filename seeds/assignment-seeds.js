@@ -6,23 +6,23 @@ const sequelize = require('../config/connection');
 const assignmentData = [
     {
         assignment_name: 'assessment#1',
-        subject_id: 1
+        subject_id: 2
     },
     {
         assignment_name: 'assessment#2',
-        subject_id: 3
+        subject_id: 2
     },
     {
         assignment_name: 'assessment#3',
-        subject_id: 3
+        subject_id: 2
     },
     {
         assignment_name: 'assessment#4',
-        subject_id: 2
+        subject_id: 3
     },
     {
         assignment_name: 'assessment#5',
-        subject_id: 2
+        subject_id: 4
     }
 ];
 

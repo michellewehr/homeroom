@@ -14,5 +14,4 @@ router.use('/lessonplans', lessonPlanRoutes);
 router.use('/teachers', teacherRoutes);
 router.use('/assignments', assignmentRoutes);
 
-
 module.exports = router;
