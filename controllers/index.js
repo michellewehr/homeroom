@@ -6,7 +6,7 @@ const homeRoutes = require('./home-routes');
 const dashboardRoutes = require('./dashboard-routes')
 const classRosterRoutes = require('./class-roster');
 const lessonPlanRoutes = require('./lesson-plans');
-const gradebookRoutes = require('./gradebook');
+const gradebookRoutes = require('./gradebook-routes');
 const fetchGradeBookAPIroutes = require('./viewGradeBookApi');
 
 router.use('/api', apiRoutes);
