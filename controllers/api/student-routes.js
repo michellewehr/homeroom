@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Student, Grade, Assignment, Subject } = require('../../models');
+const withAuth = require('../../utils/withAuth');
 
 // list all students by last name alphabetically
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Student.findAll({
         order: [['last_name', 'ASC']]
     })
@@ -17,7 +18,7 @@ router.get('/', (req, res) => {
 });
 
 // list all students with assignments and grades
-router.get('/grades/:subject', (req, res) => {
+router.get('/grades/:subject', withAuth, (req, res) => {
     Student.findAll({
         order: [['last_name', 'ASC']],
         include: [{
@@ -45,7 +46,7 @@ router.get('/grades/:subject', (req, res) => {
 });
 
 // get one student by id
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Student.findOne({
         where: {
             id: req.params.id
@@ -65,7 +66,7 @@ router.get('/:id', (req, res) => {
 });
 
 // add a student
-router.post('/', ({ body }, res) => {
+router.post('/', withAuth, ({ body }, res) => {
     Student.create({
         first_name: body.first_name,
         last_name: body.last_name,

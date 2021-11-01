@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { LessonPlan, Subject } = require('../../models');
+const withAuth = require('../../utils/withAuth')
 
 // list all lesson plans ordered by date and subject
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     LessonPlan.findAll({
         order: [
             ['lesson_date', 'ASC'],
@@ -23,7 +24,7 @@ router.get('/', (req, res) => {
         })
 });
 //get lesson plan by subject
-router.get('/filterSub/:id', (req, res) => {
+router.get('/filterSub/:id', withAuth, (req, res) => {
     LessonPlan.findOne({
         where: {
             subject_id: req.params.id
@@ -47,7 +48,7 @@ router.get('/filterSub/:id', (req, res) => {
 });
 
 // get one lesson plan by id
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     LessonPlan.findOne({
         where: {
             id: req.params.id
@@ -71,7 +72,7 @@ router.get('/:id', (req, res) => {
 });
 
 // add a lesson plan
-router.post('/', ({ body }, res) => {
+router.post('/', withAuth, ({ body }, res) => {
     LessonPlan.create({
         lesson_date: body.lesson_date,
         subject_id: body.subject_id,

@@ -2,8 +2,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Student } = require('../models');
+const withAuth = require('../utils/withAuth')
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Student.findAll({
         order: [['last_name', 'ASC']], 
     })
