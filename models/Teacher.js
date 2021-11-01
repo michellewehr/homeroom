@@ -40,14 +40,6 @@ Teacher.init(
       }
    },
    {
-      // hooks: {
-      //    async beforeCreate(newTeacherData) {
-      //       newTeacherData.password = await argon2.hash(newTeacherData.password, {
-      //          type: argon2.argon2id,
-      //          hashLength: 50
-      //       });
-      //    },
-      // },
       sequelize,
       timestamps: false,
       freezeTableName: true,
