@@ -7,7 +7,7 @@ fetch('/api/students/grades/2')
     return response.json();
 })
 .then(function(response) {
-    // console.log(response)
+    console.log(response)
     const gradeBookLast = document.createElement('th');
     gradeBookLast.textContent = 'Last Name';
     gradeBookLast.classList = 'subjGradeBookCol col-name';
@@ -47,6 +47,7 @@ fetch('/api/students/grades/2')
 
 
         for (let i = 0; i < response.length; i++) {
+            // console.log(response[i]);
             const studRow = document.createElement('tr');
             tableBody.appendChild(studRow);
             const studLastName = response[i].last_name;
@@ -67,29 +68,36 @@ fetch('/api/students/grades/2')
             studRow.appendChild(studentFinalGrade);
 
             
-            let studGrades = response[i];
-            for(let i =0; i < studGrades.grades.length; i++) {
-                console.log(studGrades.grades[i].assignment.assignment_name);
-                let number_grade = studGrades.grades[i].number_grade;
+            let student = response[i];
+            let gradeArr = [];
+            for(let i =0; i < student.grades.length; i++) {
+                // console.log(student.grades[i].assignment.assignment_name);
+                let number_grade = student.grades[i].number_grade;
+                gradeArr.push(number_grade);
                 let assignmentHeaders = document.getElementsByTagName('td');
-                let studAssignName = studGrades.grades[i].assignment.assignment_name;
+                let studAssignName = student.grades[i].assignment.assignment_name;
 
                 for(let i = 0; i < assignmentHeaders.length; i++) {
                     // console.log(assignmentHeaders[i].textContent);
                     if(studAssignName === assignmentHeaders[i].textContent) {
-                        console.log(assignmentHeaders[i].textContent);
+                        // console.log(assignmentHeaders[i].textContent);
                         const assignHeaderIndex = assignmentHeaders[i].cellIndex;
-                        console.log(assignHeaderIndex);
+                        // console.log(assignHeaderIndex);
                         // console.log(studRow.cells.length);
                         studRow.cells[assignHeaderIndex].textContent = number_grade;
                     }
-                    
-
-
             }
         }
-
-     
+       
+     console.log(gradeArr);
+     let sumOfGrades = gradeArr.reduce((a, b) => a + b, 0);
+     console.log(sumOfGrades);
+     let numberOfFinalGrade = sumOfGrades / uniqueAssignNames.length;
+     console.log(numberOfFinalGrade);
+     let finalGradeTwoDecimals = parseFloat(numberOfFinalGrade).toFixed(2);
+     let finalGradeIndex = studentFinalGrade.cellIndex;
+     console.log(finalGradeIndex);
+     studRow.cells[finalGradeIndex].textContent = finalGradeTwoDecimals;
     }
     })
 

@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const sequelize = require('sequelize');
 const { Student, Grade, Assignment, Subject } = require('../../models');
 
 // list all students by last name alphabetically
@@ -22,7 +23,8 @@ router.get('/grades/:subject', (req, res) => {
         order: [['last_name', 'ASC']],
         include: [{
             model: Grade,
-            attributes: ['number_grade'],
+            attributes: ['number_grade',
+        ],
             include: [
                 {
                     model: Assignment,

@@ -10,7 +10,8 @@ router.get('students/grades/:id', (req, res) => {
         order: [['last_name', 'ASC']],
         include: [{
             model: Grade,
-            attributes: ['number_grade'],
+            attributes: ['number_grade', 
+            [sequelize.fn('AVG', sequelize.col('number_grade')), 'final_grade']],
             include: [
                 {
                     model: Assignment,
