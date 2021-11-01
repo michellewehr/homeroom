@@ -66,12 +66,14 @@ fetch('/api/students/grades/1')
             const studentFinalGrade = document.createElement('td');
             studRow.appendChild(studentFinalGrade);
 
-            let studGrades = response[i];
-            for(let i =0; i < studGrades.grades.length; i++) {
-                console.log(studGrades.grades[i].assignment.assignment_name);
-                let number_grade = studGrades.grades[i].number_grade;
+            let gradeArr = [];
+            let student = response[i];
+            for(let i =0; i < student.grades.length; i++) {
+                console.log(student.grades[i].assignment.assignment_name);
+                let number_grade = student.grades[i].number_grade;
+                gradeArr.push(number_grade);
                 let assignmentHeaders = document.getElementsByTagName('td');
-                let studAssignName = studGrades.grades[i].assignment.assignment_name;
+                let studAssignName = student.grades[i].assignment.assignment_name;
 
                 for(let i = 0; i < assignmentHeaders.length; i++) {
                     // console.log(assignmentHeaders[i].textContent);
@@ -87,8 +89,19 @@ fetch('/api/students/grades/1')
 
             }
         }
-
-     
+        console.log(gradeArr);
+        let sumOfGrades = gradeArr.reduce((a, b) => a + b, 0);
+        console.log(sumOfGrades);
+        let numberOfFinalGrade = sumOfGrades / uniqueAssignNames.length;
+        console.log(numberOfFinalGrade);
+        let finalGradeTwoDecimals = parseFloat(numberOfFinalGrade).toFixed(2);
+        let finalGradeIndex = studentFinalGrade.cellIndex;
+        console.log(finalGradeIndex);
+        if(isNaN(finalGradeTwoDecimals)){
+            studRow.cells[finalGradeIndex].textContent = ' ';
+        } else{
+            studRow.cells[finalGradeIndex].textContent = finalGradeTwoDecimals;
+        }
     }
     })
 

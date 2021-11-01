@@ -97,7 +97,11 @@ fetch('/api/students/grades/2')
      let finalGradeTwoDecimals = parseFloat(numberOfFinalGrade).toFixed(2);
      let finalGradeIndex = studentFinalGrade.cellIndex;
      console.log(finalGradeIndex);
-     studRow.cells[finalGradeIndex].textContent = finalGradeTwoDecimals;
+     if(isNaN(finalGradeTwoDecimals)){
+        studRow.cells[finalGradeIndex].textContent = ' ';
+    } else{
+        studRow.cells[finalGradeIndex].textContent = finalGradeTwoDecimals;
+    }
     }
     })
 
