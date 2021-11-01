@@ -19,7 +19,13 @@ router.get('/', (req, res) => {
 
 //renders add grade page
     router.get('/addgrade', (req, res) => {
-        res.render('addGrade')
+        Student.findAll({
+            order: [['last_name', 'ASC']]
+        })
+        .then(dbStudentData => {
+            const students = dbStudentData.map(student => student.get({ plain: true }));
+            res.render('addGrade', {students});
+        })
     })
 
 //ENGLISH LANGUAGE ARTS

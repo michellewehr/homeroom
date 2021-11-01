@@ -9,19 +9,29 @@
                     <label for="subject">Subject:</label>
                     <select type="" class="form-control" name="subject" id="subject">
                         <option selected="selected" disabled="true">--Please Select --</option>
-                        <option value="languageArts">Language Arts</option>
-                        <option value="math">Math</option>
-                        <option value="science">Science</option>
-                        <option value="socialStudies">Social socialStudies</option>
+                        <option value="1">Language Arts</option>
+                        <option value="2">Math</option>
+                        <option value="3">Science</option>
+                        <option value="4">Social socialStudies</option>
                         </select>
                 </div>
                  <div class="form-group">
                      <label for="gradeFirstN">Student First Name:</label>
-                     <input type="text" name="gradeFirstN" id="gradeFirstN" class="form-control">
+                    <select type="" class="form-control" name="subject" id="subject">
+                        <option selected="selected" disabled="true">--Please Select --</option>
+                        {{#each students as |student|}}
+                        <option value="{{student.id}}">{{student.first_name}}</option>
+                        {{/each}}
+                        </select>
                  </div>
                  <div class="form-group">
                      <label for="gradeLastN">Student Last Name:</label>
-                     <input type="text" name="gradeLastN" id="gradeLastN" class="form-control">
+                      <select type="" class="form-control" name="subject" id="subject">
+                        <option selected="selected" disabled="true">--Please Select --</option>
+                        {{#each students as |student|}}
+                        <option value="{{student.id}}">{{student.last_name}}</option>
+                        {{/each}}
+                        </select>
                  </div>
                  <div class="form-group">
                      <label for="lessonPlanN">Assignment Name:</label>

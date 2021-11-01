@@ -63,6 +63,9 @@ fetch('/api/students/grades/1')
                 studRow.appendChild(cellBlock);
             })
 
+            const studentFinalGrade = document.createElement('td');
+            studRow.appendChild(studentFinalGrade);
+
             let studGrades = response[i];
             for(let i =0; i < studGrades.grades.length; i++) {
                 console.log(studGrades.grades[i].assignment.assignment_name);
@@ -80,7 +83,7 @@ fetch('/api/students/grades/1')
                         studRow.cells[assignHeaderIndex].textContent = number_grade;
                     }
                     
-
+                    
 
             }
         }
