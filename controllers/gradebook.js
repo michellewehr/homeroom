@@ -23,8 +23,24 @@ router.get('/', (req, res) => {
             order: [['last_name', 'ASC']]
         })
         .then(dbStudentData => {
-            const students = dbStudentData.map(student => student.get({ plain: true }));
-            res.render('addGrade', {students});
+            Assignment.findAll({
+                include: [{
+                    model: Subject,
+                    attributes: [['id', 'subject_id'], 'subject_name'],
+                }],
+                attributes: ['id', 'assignment_name'],
+                order: [['subject_id', 'ASC']]
+            })
+            .then(dbAssignmentData => {
+                const students = dbStudentData.map(student => student.get({ plain: true }));
+                const assignments = dbAssignmentData.map(assignment => assignment.get({plain: true}));
+                res.render('addGrade', {students, assignments});
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.status(500).json(err);
+                })
+            
         })
     })
 

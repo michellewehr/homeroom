@@ -1,24 +1,4 @@
 
-// async function addGradeHandler(event) {
-//     event.preventDefault();
-
-
-fetch('api/assignments')
-.then(response => {
-    return response.json();
-})
-.then(function(response) {
-    const assignArr = response;
-    assignArr.forEach(assignment => {
-        let assignmentId = assignment.id;
-        let assignmentName = assignment.assignment_name;
-        console.log(assignmentId);
-        console.log(assignmentName);
-    })
-})
-.catch(err => {
-    console.log(err);
-})
 
 async function addGradeHandler(event) {
     event.preventDefault();
@@ -27,10 +7,30 @@ async function addGradeHandler(event) {
     const subject_id = subject.options[subject.selectedIndex].value;
     const lastName = document.querySelector('#lastName');
     const student_id = lastName.options[lastName.selectedIndex].value;
-     console.log(subject_id);
-    console.log(student_id);
-
+    //  console.log(subject_id);
+    // console.log(student_id);
+    const assignment = document.querySelector('#assignment');
+    const assignment_id = assignment.options[assignment.selectedIndex].value;
+    const number_grade = document.querySelector('#studGrade').value;
+    // console.log(assignment_id);
+    // console.log(grade);
     
+    if (subject_id && student_id && assignment_id && number_grade) {
+        const res = await fetch ('api/grades', {
+            method: 'post',
+            body: JSON.stringify({
+                subject_id, student_id, assignment_id, number_grade
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        if(res.ok) {
+            document.location.replace('/grades/' + subject_id);
+        } else {
+            console.log('NOPE!');
+        }
+    }
 }
 
 document.querySelector('.addGrade').addEventListener('click', addGradeHandler);

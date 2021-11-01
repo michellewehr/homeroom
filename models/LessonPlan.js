@@ -38,6 +38,10 @@ Lesson_Plan.init(
          type: DataTypes.STRING,
          allowNull: false,
       },
+      lesson_assessment: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
       materials: {
          type: DataTypes.STRING,
          allowNull: true

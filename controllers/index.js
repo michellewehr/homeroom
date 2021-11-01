@@ -17,6 +17,7 @@ router.use('/lesson-plans', lessonPlanRoutes);
 router.use('/grades/api', fetchGradeBookAPIroutes);
 router.use('/grades', gradebookRoutes);
 router.use('/grades/api', apiRoutes);
+router.use('/lesson-plans/api', apiRoutes);
 
 
 module.exports = router;
