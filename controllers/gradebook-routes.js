@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
         })
             .then(dbSubjectData => {
                 const subjects = dbSubjectData.map(subject => subject.get({ plain: true }));
-                res.render('gradebook-subjects', {subjects});
+                res.render('gradebook-subjects', {subjects, loggedIn: true });
                  })
             .catch(err => {
                 console.log(err);
@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
             .then(dbAssignmentData => {
                 const students = dbStudentData.map(student => student.get({ plain: true }));
                 const assignments = dbAssignmentData.map(assignment => assignment.get({plain: true}));
-                res.render('addGrade', {students, assignments});
+                res.render('addGrade', {students, assignments, loggedIn: true});
                 })
                 .catch(err => {
                     console.log(err);
@@ -82,7 +82,7 @@ router.get('/', (req, res) => {
                         assignments
                     }
                     console.log({studentsAndAssignments})
-                    res.render('gradebookELA', {studentsAndAssignments});
+                    res.render('gradebookELA', {studentsAndAssignments, loggedIn: true});
                 })
                 .catch(err => {
                     console.log(err);
@@ -132,7 +132,7 @@ router.get('/2', (req, res) => {
                     assignments
                 }
                 console.log({studentsAndAssignments})
-                res.render('gradebookMath', {studentsAndAssignments});
+                res.render('gradebookMath', {studentsAndAssignments, loggedIn: true});
             })
             .catch(err => {
                 console.log(err);
@@ -179,7 +179,7 @@ router.get('/3', (req, res) => {
                     assignments
                 }
                 console.log({studentsAndAssignments})
-                res.render('gradebookScience', {studentsAndAssignments});
+                res.render('gradebookScience', {studentsAndAssignments, loggedIn: true});
             })
             .catch(err => {
                 console.log(err);
