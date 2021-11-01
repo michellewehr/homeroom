@@ -52,7 +52,12 @@ router.post('/', ({ body }, res) => {
         assignment_name: body.assignment_name,
         subject_id: body.subject_id
     })
-        .then(dbAssignmentData => res.json({ msg: `Successfully added ${body.assignment_name}!` }))
+        .then(dbAssignmentData => {
+            res.status(201);
+            res.json({
+                msg: `Successfully added ${body.assignment_name}!`
+            })
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

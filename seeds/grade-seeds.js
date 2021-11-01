@@ -41,11 +41,6 @@ const gradeData = [
     },
     {
         assignment_id: 3,
-        student_id: 2,
-        number_grade: 99
-    },
-    {
-        assignment_id: 3,
         student_id: 3,
         number_grade: 99
     },
@@ -79,6 +74,7 @@ const gradeData = [
         student_id: 3,
         number_grade: 99
     },
+   
 ];
 
 

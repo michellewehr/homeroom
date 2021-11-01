@@ -1,8 +1,16 @@
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">
+   {{#if loggedIn}}
+        <a class="navbar-brand" href="/dashboard">
+            <img class="icon" src="../assets/images/smaller-homeroom-icon.png" width="30" height="30" alt="">
+          </a>
+          <a class="navbar-brand" href="/dashboard">
+   {{/if}}
+   {{#unless loggedIn}}
+           <a class="navbar-brand" href="/">
             <img class="icon" src="../assets/images/smaller-homeroom-icon.png" width="30" height="30" alt="">
           </a>
           <a class="navbar-brand" href="/">
+   {{/unless}}
               <h1>HomeRoom</h1></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -14,12 +22,21 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ms-auto">
+                {{#if loggedIn}}
                   <li class="nav-item">
-                      <a href="/login" class="nav-link homepage-nav-link">Login</a>
+                      <button class="logoutBtn">logout</button>
                   </li>
-                  <li class="nav-item">
-                      <a href="/signup" class="nav-link homepage-nav-link">Sign Up</a>
-                  </li>
+                <script src="/javascript/logout.js"></script>
+                {{/if}}
+
+                {{#unless loggedIn}}
+                <li class="nav-item">
+                    <a href="/login" class="nav-link homepage-nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/signup" class="nav-link homepage-nav-link">Sign Up</a>
+                </li>
+                {{/unless}}
               </ul>
           </div>
         </div>

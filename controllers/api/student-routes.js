@@ -44,8 +44,6 @@ router.get('/grades/:subject', (req, res) => {
         })
 });
 
-
-
 // get one student by id
 router.get('/:id', (req, res) => {
     Student.findOne({
@@ -74,7 +72,12 @@ router.post('/', ({ body }, res) => {
         guardian: body.guardian,
         guardian_email: body.guardian_email
     })
-        .then(dbStudentData => res.json({ msg: `Successfully added ${body.first_name} ${body.last_name}!` }))
+        .then(dbStudentData => {
+            res.status(201);
+            res.json({
+                msg: `Successfully added ${body.first_name} ${body.last_name}!`
+            })
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

@@ -1,13 +1,14 @@
 var sel = document.getElementById("filterBySubj");
-var selection= sel.options[sel.selectedIndex].value;
 
 
 
+//user filter lesson plans by subjet 
 sel.addEventListener('change', () => {
-    console.log(selection);
+    var userSelection= sel.options[sel.selectedIndex].dataset.subjid;
+    console.log(userSelection);
+    document.location.replace('/lesson-plans/filterSub/' + userSelection);
 });
 
-document.querySelector('.selectSubjFilter').addEventListener('click', () => {
-    console.log(selection);
-})
+
+
 

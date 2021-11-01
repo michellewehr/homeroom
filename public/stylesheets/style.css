@@ -208,6 +208,7 @@
   background-color: #f6eabe;
   padding: 1rem;
 }
+
 .viewLessRow {
   border: 1px solid black;
 }
@@ -248,6 +249,15 @@
   font-size: smaller;
 }
 
+.shake {
+  transition: transform 0.1s, scale 0.1s;
+}
+
+.shake:hover {
+  transform: rotate(1deg);
+  scale: 1.01;
+}
+
 .adda {
   background: none;
   color: inherit;
@@ -273,4 +283,18 @@
 }
 .subjFilter {
   margin-left: 5rem;
+}
+
+table {
+  border: 1px solid black;
+  margin-left: 5rem;
+  width: 80vw;
+}
+table tr {
+  border-bottom: 1px solid black;
+}
+
+table td,
+table th {
+  border-left: 1px solid black;
 }

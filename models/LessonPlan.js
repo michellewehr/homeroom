@@ -13,7 +13,7 @@ Lesson_Plan.init(
       },
       lesson_date: {
          type: DataTypes.DATEONLY,
-         allowNull: false,
+         allowNull: true,
          validate: {
             isDate: true
          }
@@ -37,6 +37,10 @@ Lesson_Plan.init(
       lesson_activity: {
          type: DataTypes.STRING,
          allowNull: false,
+      },
+      lesson_assessment: {
+         type: DataTypes.STRING,
+         allowNull: true
       },
       materials: {
          type: DataTypes.STRING,

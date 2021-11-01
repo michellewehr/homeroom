@@ -29,7 +29,8 @@ Grade.init(
       },
       number_grade: {
          type: DataTypes.DOUBLE,
-         allowNull: false
+         allowNull: false,
+         defaultValue: 0
       }
    },
    {

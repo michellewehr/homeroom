@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
                 res.status(404).json({ msg: 'This subject does not exist.' });
                 return;
             }
-            res.json(dbSubjectData)
+            json(dbSubjectData)
         })
         .catch(err => {
             console.log(err);

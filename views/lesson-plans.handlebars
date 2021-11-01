@@ -1,3 +1,4 @@
+  {{#if loggedIn}}
   {{> navbar}}
  
  <section class="viewLessons">
@@ -12,12 +13,11 @@
          <div class="viewLesons">
              <select name="filterBySubj" class="subjFilter" id="filterBySubj">
                     <option disabled="true" selected>--Please Select --</option>
-                    <option value="languageArts">Language Arts</option>
-                    <option value="math">Math</option>
-                    <option value="science">Science</option>
-                    <option value="socialStudies">Social Studies</option>
+                    <option data-subjId="1" value="languageArts">Language Arts</option>
+                    <option data-subjId="2" value="math">Math</option>
+                    <option data-subjId="3" value="science">Science</option>
+                    <option data-subjId="4" value="socialStudies">Social Studies</option>
                  </select>
-                 <button type="submit" class="btn selectSubjFilter" style="border: 1px solid black;">Filter</button>
          </div>
      </div>
      
@@ -54,3 +54,5 @@
  
 
       <script src = '/javascript/lessonplans.js'></script>
+
+      {{/if}}

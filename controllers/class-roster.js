@@ -10,7 +10,10 @@ router.get('/', (req, res) => {
         .then(dbStudentData => {
             const students = dbStudentData.map(student => student.get({ plain: true }));
             console.log(students)
-            res.render('class-roster', {students});
+            res.render('class-roster', {
+                students,
+                loggedIn: true
+            });
         })
         .catch(err => {
             console.log(err);
@@ -18,4 +21,7 @@ router.get('/', (req, res) => {
         })
 });
 
+
+
 module.exports = router;
+

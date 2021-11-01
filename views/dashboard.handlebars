@@ -1,10 +1,12 @@
+  {{#if loggedIn}}
   {{> navbar}}
 
+        
       <section class="dashboard-section">
-          <h3 class="heading">Welcome !</h3>
+          <h3 class="heading">Welcome {{teacher.first_name}}!</h3>
           <div class="container dashboard-container">
               <div class="row">
-                  <a class="col-sm" href="/class-roster" >
+                  <a class="col-sm shake" href="/class-roster" >
                       <div class="option-block option1">
                           <br>
                           <h3>Class Roster</h3>
@@ -12,7 +14,7 @@
                           <img class="optionIcon" src="../assets/images/classroster.png" alt="">
                       </div>
                   </a>
-                  <a class="col-sm" href="/lesson-plans">
+                  <a class="col-sm shake" href="/lesson-plans">
                       <div class="option-block option2">
                           <br>
                         <h3>Lesson Plans</h3>
@@ -20,7 +22,7 @@
                         <img class="optionIcon" src="../assets/images/lessonplans.png" alt="">
                       </div>
                   </a>
-                  <a class="col-sm" href="/grades">
+                  <a class="col-sm shake" href="/grades">
                       <div class="option-block option3">
                   <br>
                           <h3>Grade Book</h3>
@@ -31,3 +33,5 @@
               </div>
           </div>
       </section>
+
+      {{/if}}

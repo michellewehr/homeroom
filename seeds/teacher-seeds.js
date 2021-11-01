@@ -14,6 +14,12 @@ const teacherData = [
         last_name: "Anthony",
         email: "johnanthony@gmail.com",
         password: "12345678"
+    },
+    {
+        first_name: "test",
+        last_name: "test",
+        email: "test@test.com",
+        password: "12345678"
     }
 ];
 
