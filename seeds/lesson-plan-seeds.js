@@ -10,6 +10,7 @@ const LessonPlanData = [
         lesson_name: 'Chapter 5: Intro',
         lesson_objective: 'Reading comprehension',
         lesson_activity: 'read book and act out play',
+        lesson_assessment: 'quiz',
         materials: 'questions'
     },
     {
@@ -18,6 +19,7 @@ const LessonPlanData = [
         lesson_name: 'Chapter 9: Frogs',
         lesson_objective: 'Tell me colors of frogs',
         lesson_activity: 'do butterfly craft',
+        lesson_assessment: 'quiz',
         materials: 'questions'
     },
     {
@@ -26,6 +28,7 @@ const LessonPlanData = [
         lesson_name: 'Chapter 9: Frogs',
         lesson_objective: 'learn frogs scientific name',
         lesson_activity: 'do butterfly craft',
+        lesson_assessment: 'quiz',
         materials: 'questions'
     },
     {
@@ -34,6 +37,7 @@ const LessonPlanData = [
         lesson_name: 'Chapter 9: Frogs',
         lesson_objective: 'learn how to spell frog',
         lesson_activity: 'do butterfly craft',
+        lesson_assessment: 'quiz',
         materials: 'questions'
     },
     {
@@ -42,6 +46,7 @@ const LessonPlanData = [
         lesson_name: 'Chapter 9: Frogs',
         lesson_objective: 'Learn colors of frogs',
         lesson_activity: 'do butterfly craft',
+        lesson_assessment: 'quiz',
         materials: 'questions'
     }
 ]

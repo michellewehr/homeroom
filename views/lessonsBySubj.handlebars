@@ -1,0 +1,29 @@
+   {{> navbar}}
+   
+   <div class="row">
+         <h3 class="heading col">View Lesson Plans: </h3>
+        <a href="/lesson-plans/addLessonPlan" class="adda col"><h4 class="addGrade">Add Lesson</h4><img src="/assets/images/addagain.png" class="addBtn" style="height: 5rem; width: auto;" alt=""></a>
+     </div>
+
+     <div class="container">
+         
+         <div class="row ">
+             <div class="col less-col-name date">
+                 <p>Date</p>
+                </div>
+                <div class="col less-col-name lessonName">
+                    <p>Lesson Name</p>
+                </div>
+            
+         </div>
+         {{#each lessons as |lesson|}}
+         <div class="row viewLessRow">
+             <div class="col date">
+                 <p>{{lesson_date}}</p>
+                </div>
+                <div class="col lessName">
+                    <a href="/lesson-plans/{{id}}" style="text-decoration: inherit; color: inherit;">{{lesson.lesson_name}}</a>
+                </div> 
+         </div>
+         {{/each}}
+     </div>

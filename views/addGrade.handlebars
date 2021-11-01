@@ -11,32 +11,40 @@
                     <label for="subject">Subject:</label>
                     <select type="" class="form-control" name="subject" id="subject">
                         <option selected="selected" disabled="true">--Please Select --</option>
-                        <option value="languageArts">Language Arts</option>
-                        <option value="math">Math</option>
-                        <option value="science">Science</option>
-                        <option value="socialStudies">Social socialStudies</option>
+                        <option value="1">Language Arts</option>
+                        <option value="2">Math</option>
+                        <option value="3">Science</option>
+                        <option value="4">Social socialStudies</option>
                         </select>
                 </div>
                  <div class="form-group">
-                     <label for="gradeFirstN">Student First Name:</label>
-                     <input type="text" name="gradeFirstN" id="gradeFirstN" class="form-control">
+                     <label for="gradeLastN">Student Name:</label>
+                      <select type="" class="form-control" name="subject" id="lastName">
+                        <option selected="selected" disabled="true">--Please Select --</option>
+                        {{#each students as |student|}}
+                        <option value="{{student.id}}">{{student.last_name}}, {{student.first_name}}</option>
+                        {{/each}}
+                        </select> 
                  </div>
+                
                  <div class="form-group">
-                     <label for="gradeLastN">Student Last Name:</label>
-                     <input type="text" name="gradeLastN" id="gradeLastN" class="form-control">
-                 </div>
-                 <div class="form-group">
-                     <label for="lessonPlanN">Assignment Name:</label>
-                     <input type="text" name="lessonPlanN" id="lessonPlanN" class="form-control">
+                    <label for="lessonPlanN">Assignment:</label>
+                    <select type="" class="form-control" name="subject" id="assignment">
+                    <option selected="selected" disabled="true">--Please Select --</option>
+                     {{#each assignments as |assignment|}}
+                        <option value="{{assignment.id}}">{{assignment.assignment_name}}</option>
+                    {{/each}}
+                    </select>
                  </div>
                  <div class="form-group">
                      <label for="studGrade">Grade:</label>
                      <input type="number" min='0' max='100' name="studGrade" id="studGrade" class="form-control">
                  </div>
                  <br>
-                 <button type="submit" class="btn btn-secondary">Submit</button>
+                 <button type="submit" class="btn btn-secondary addGrade">Submit</button>
              </form>
           </div>
       </section>
 
+<script src = '/javascript/addGrade.js'></script>
       {{/if}}
