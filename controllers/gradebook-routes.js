@@ -81,7 +81,6 @@ router.get('/', (req, res) => {
                         students,
                         assignments
                     }
-                    console.log({studentsAndAssignments})
                     res.render('gradebookELA', {studentsAndAssignments, loggedIn: true});
                 })
                 .catch(err => {
