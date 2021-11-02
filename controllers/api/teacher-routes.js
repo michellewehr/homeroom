@@ -4,7 +4,9 @@ const argon2 = require('argon2');
 const { validatePasswordConstraints } = require('../../utils/helpers');
 
 router.get('/', (req, res) => {
-  Teacher.findAll({})
+  Teacher.findAll({
+    
+  })
     .then(dbTeacherData => {
       res.json(dbTeacherData)
     })
@@ -39,11 +41,15 @@ router.post('/', async (req, res) => {
   })
     .then(dbTeacherData => {
       req.session.save(() => {
-        req.session.id = dbTeacherData.id;
+        req.session.teacher_id = dbTeacherData.id;
         req.session.email = dbTeacherData.email;
         req.session.loggedIn = true;
+
+        res.json(dbTeacherData);
       })
-      res.json({ message: 'You are now logged in' })
+      console.log(req.session.email+ ' outside');
+      console.log(req.session.teacher_id);
+      console.log(req.session.loggedIn);
     })
     .catch(err => {
       res.status(500).json({

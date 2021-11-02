@@ -12,8 +12,8 @@ Teacher.init(
    {
       id: {
          type: DataTypes.INTEGER,
-         // allowNull: false,
-         // autoIncrement: true,
+         allowNull: false,
+         autoIncrement: true,
          primaryKey: true
       },
       first_name: {
