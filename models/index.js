@@ -10,6 +10,13 @@ Teacher.hasMany(Subject, {
     onDelete: 'SET NULL'
 });
 
+Teacher.hasMany(Student, {
+    foreignKey: 'teacher_id'
+});
+Student.belongsTo(Teacher, {
+    foreignKey: 'teacher_id'
+});
+
 Subject.belongsTo(Teacher);
 
 Subject.hasMany(LessonPlan);

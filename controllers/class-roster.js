@@ -5,6 +5,9 @@ const { Student } = require('../models');
 
 router.get('/', (req, res) => {
     Student.findAll({
+        where: {
+            teacher_id: req.session.id
+        },
         order: [['last_name', 'ASC']], 
     })
         .then(dbStudentData => {

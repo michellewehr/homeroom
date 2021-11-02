@@ -33,6 +33,13 @@ Student.init(
          validate: {
             isEmail: true
          }
+      },
+      teacher_id: {
+         type: DataTypes.STRING,
+         references: {
+            model: 'teacher',
+            key: 'id'
+         }
       }
    },
    {

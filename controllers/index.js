@@ -8,6 +8,7 @@ const classRosterRoutes = require('./class-roster');
 const lessonPlanRoutes = require('./lesson-plans');
 const gradebookRoutes = require('./gradebook-routes');
 const fetchGradeBookAPIroutes = require('./viewGradeBookApi');
+const sucksRouts = require('./sucks');
 
 router.use('/api', apiRoutes);
 router.use('/dashboard', dashboardRoutes);
@@ -18,6 +19,7 @@ router.use('/grades/api', fetchGradeBookAPIroutes);
 router.use('/grades', gradebookRoutes);
 router.use('/grades/api', apiRoutes);
 router.use('/lesson-plans/api', apiRoutes);
+router.use('/thisIsABitch/api/students', sucksRouts);
 
 
 module.exports = router;

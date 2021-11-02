@@ -8,7 +8,7 @@ async function addStudentHandler(event) {
     const guardian_email = document.querySelector('#guardianEmail').value.trim();
  
     if (first_name && last_name && guardian && guardian_email) {
-       const res = await fetch('/api/students', {
+       const res = await fetch('/thisIsABitch/api/students', {
           method: 'post',
           body: JSON.stringify({
             first_name, last_name, guardian, guardian_email
