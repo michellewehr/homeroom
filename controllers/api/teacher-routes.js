@@ -67,14 +67,14 @@ router.post('/login', (req, res) => {
     where: {
       email: req.body.email
     }
-  }).then(async dbTeacherData => {
+  }).then(dbTeacherData => {
 
     if (!dbTeacherData) {
       res.status(404).json({ message: 'No user with that email address!' });
       return;
     }
 
-    const passwordIsCorrect = await dbTeacherData.checkPassword(req.body.password)
+    const passwordIsCorrect = dbTeacherData.checkPassword(req.body.password)
 
     if (!passwordIsCorrect) {
       res.status(404).json({ message: 'Password incorrect!' });
@@ -82,7 +82,7 @@ router.post('/login', (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = dbTeacherData.id;
+      req.session.teacher_id = dbTeacherData.id;
       req.session.email = dbTeacherData.email;
       req.session.loggedIn = true;
 
@@ -97,7 +97,6 @@ router.post('/login', (req, res) => {
 
     console.log(req.session)
     console.log('EEEEEEEEEEEEEEEEE')
-    res.json({ user: dbTeacherData, message: 'You are now logged in!' });
   })
     .catch(err => { console.log(err) });
 });
