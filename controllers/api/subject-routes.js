@@ -38,4 +38,23 @@ router.get('/:id', withAuth, (req, res) => {
         });
 });
 
+// add a subject
+router.post('/', withAuth, (req, res) => {
+    Subject.create({
+        subject_name: req.body.subject_name,
+        teacher_subj_id: req.session.teacher_id
+    })
+        .then(dbSubjectData => {
+            res.status(201);
+            res.json({
+                msg: `Successfully added ${req.body.subject_name}!`
+            });
+            res.json(dbSubjectData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 module.exports = router;

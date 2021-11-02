@@ -35,7 +35,7 @@ Student.init(
          }
       },
       teacher_id: {
-         type: DataTypes.STRING,
+         type: DataTypes.INTEGER,
          references: {
             model: 'teacher',
             key: 'id'
