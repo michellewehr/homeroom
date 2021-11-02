@@ -71,12 +71,7 @@ router.get('/:id', withAuth, (req, res) => {
 });
 
 // add a student
-<<<<<<< HEAD
-router.post('/', (req, res) => {
-    console.log(req.session.id)
-=======
-router.post('/', withAuth, ({ body }, res) => {
->>>>>>> f60f8a87a2fce81008db32c6712d6e935f7d13af
+router.post('/', withAuth, (req, res) => {
     Student.create({
         first_name: req.body.first_name,
         last_name: req.body.last_name,

@@ -9,10 +9,7 @@ router.get('/', withAuth, (req, res) => {
         attributes: [
             'id',
             'first_name'
-        ],
-        where: {
-            id: req.session.id
-        }
+        ]
     })
     .then(dbTeacherData => {
         if (!dbTeacherData) {

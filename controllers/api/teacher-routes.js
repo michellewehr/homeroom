@@ -85,6 +85,8 @@ router.post('/login', (req, res) => {
       req.session.user_id = dbTeacherData.id;
       req.session.email = dbTeacherData.email;
       req.session.loggedIn = true;
+
+      res.json(dbTeacherData);
     })
 
     if (req.session.views) {
