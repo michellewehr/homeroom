@@ -4,6 +4,7 @@ const sequelize = require('../config/connection');
 const { Student } = require('../models');
 
 router.get('/', (req, res) => {
+    console.log(req.session.loggedIn + ' in studentFindAll');
     Student.findAll({
         where: {
             teacher_id: req.session.teacher_id

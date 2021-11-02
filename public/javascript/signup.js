@@ -18,11 +18,17 @@ async function signupFormHandler(event) {
          }
       });
       if (res.ok) {
+         addSubjects();
          document.location.replace('dashboard');
       } else {
          alert(res.statusText);
       }
    }
 }
+
+function addSubjects() {
+   
+}
+
 
 document.querySelector('.signup-container').addEventListener('submit', signupFormHandler);

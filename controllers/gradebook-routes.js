@@ -5,6 +5,9 @@ const { Student, Grade, Assignment, Subject } = require('../models');
 
 router.get('/', (req, res) => {
         Subject.findAll({
+            where: {
+                teacher_id: req.session.teacher_id
+            },
             attributes: ['id', 'subject_name']
         })
             .then(dbSubjectData => {
@@ -20,6 +23,9 @@ router.get('/', (req, res) => {
 //renders add grade page
     router.get('/addgrade', (req, res) => {
         Student.findAll({
+            where: {
+                teacher_id: req.session.teacher_id
+            },
             order: [['last_name', 'ASC']]
         })
         .then(dbStudentData => {
