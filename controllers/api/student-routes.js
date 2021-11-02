@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const sequelize = require('sequelize');
 const { Student, Grade, Assignment, Subject } = require('../../models');
+const withAuth = require('../../utils/withAuth');
 
 // list all students by last name alphabetically
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Student.findAll({
         where: {
             teacher_id: req.session.teacher_id
@@ -21,7 +22,7 @@ router.get('/', (req, res) => {
 });
 
 // list all students with assignments and grades
-router.get('/grades/:subject', (req, res) => {
+router.get('/grades/:subject', withAuth, (req, res) => {
     Student.findAll({
         order: [['last_name', 'ASC']],
         include: [{
@@ -50,7 +51,7 @@ router.get('/grades/:subject', (req, res) => {
 });
 
 // get one student by id
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Student.findOne({
         where: {
             id: req.params.id
@@ -70,8 +71,12 @@ router.get('/:id', (req, res) => {
 });
 
 // add a student
+<<<<<<< HEAD
 router.post('/', (req, res) => {
     console.log(req.session.id)
+=======
+router.post('/', withAuth, ({ body }, res) => {
+>>>>>>> f60f8a87a2fce81008db32c6712d6e935f7d13af
     Student.create({
         first_name: req.body.first_name,
         last_name: req.body.last_name,

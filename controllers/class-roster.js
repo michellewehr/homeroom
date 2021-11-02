@@ -2,9 +2,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Student } = require('../models');
+const withAuth = require('../utils/withAuth')
 
-router.get('/', (req, res) => {
-    console.log(req.session.loggedIn + ' in studentFindAll');
+router.get('/', withAuth, (req, res) => {
     Student.findAll({
         where: {
             teacher_id: req.session.teacher_id

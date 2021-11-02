@@ -2,8 +2,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Student, Grade, Assignment, Subject } = require('../models');
+const withAuth = require('../utils/withAuth')
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
         Subject.findAll({
             where: {
                 teacher_id: req.session.teacher_id
@@ -21,7 +22,7 @@ router.get('/', (req, res) => {
     });
 
 //renders add grade page
-    router.get('/addgrade', (req, res) => {
+    router.get('/addgrade', withAuth, (req, res) => {
         Student.findAll({
             where: {
                 teacher_id: req.session.teacher_id
@@ -51,7 +52,7 @@ router.get('/', (req, res) => {
     })
 
 //ENGLISH LANGUAGE ARTS
-    router.get('/1', (req, res) => {
+    router.get('/1', withAuth, (req, res) => {
         Student.findAll({
             order: [['last_name', 'ASC']],
             include: [{
@@ -100,7 +101,7 @@ router.get('/', (req, res) => {
 
 
 // MATH
-router.get('/2', (req, res) => {
+router.get('/2', withAuth, (req, res) => {
     Student.findAll({
         order: [['last_name', 'ASC']],
         include: [{
@@ -147,7 +148,7 @@ router.get('/2', (req, res) => {
 });
 
 // SCIENCE
-router.get('/3', (req, res) => {
+router.get('/3', withAuth, (req, res) => {
     Student.findAll({
         order: [['last_name', 'ASC']],
         include: [{
@@ -195,7 +196,7 @@ router.get('/3', (req, res) => {
 
 
 // SOCIAL STUDIES
-router.get('/4', (req, res) => {
+router.get('/4', withAuth, (req, res) => {
     Student.findAll({
         order: [['last_name', 'ASC']],
         include: [{

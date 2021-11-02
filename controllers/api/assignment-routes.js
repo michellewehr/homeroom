@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Assignment, Subject } = require('../../models');
+const withAuth = require('../../utils/withAuth')
 
 // get list of all assignments ordered by subject_id
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Assignment.findAll({
         include: [{
             model: Subject,
@@ -22,7 +23,7 @@ router.get('/', (req, res) => {
 });
 
 // get one assignment with its subject by id
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Assignment.findOne({
         where: {
             id: req.params.id
@@ -47,7 +48,7 @@ router.get('/:id', (req, res) => {
 });
 
 // add an assignment
-router.post('/', ({ body }, res) => {
+router.post('/', withAuth, ({ body }, res) => {
     Assignment.create({
         assignment_name: body.assignment_name,
         subject_id: body.subject_id

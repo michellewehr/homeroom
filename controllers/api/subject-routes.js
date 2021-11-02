@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Subject } = require('../../models');
+const withAuth = require('../../utils/withAuth');
 
 // list all subjects
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Subject.findAll({
         attributes: ['id', 'subject_name']
     })
@@ -17,7 +18,7 @@ router.get('/', (req, res) => {
 });
 
 // get one subject by id
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Subject.findOne({
         attributes: ['id', 'subject_name'],
         where: {
