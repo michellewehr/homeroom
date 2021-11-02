@@ -6,11 +6,14 @@ const { Student } = require('../models');
 router.get('/', (req, res) => {
     Student.findAll({
         where: {
-            teacher_id: req.session.id
+            teacher_id: req.session.teacher_id
         },
         order: [['last_name', 'ASC']], 
     })
         .then(dbStudentData => {
+            if(!dbStudentData) {
+                res.render('class-roster');
+            }
             const students = dbStudentData.map(student => student.get({ plain: true }));
             console.log(students)
             res.render('class-roster', {

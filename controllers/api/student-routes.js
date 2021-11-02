@@ -5,6 +5,9 @@ const { Student, Grade, Assignment, Subject } = require('../../models');
 // list all students by last name alphabetically
 router.get('/', (req, res) => {
     Student.findAll({
+        where: {
+            teacher_id: req.session.teacher_id
+        },
         order: [['last_name', 'ASC']]
     })
         .then(dbStudentData => {
@@ -74,7 +77,7 @@ router.post('/', (req, res) => {
         last_name: req.body.last_name,
         guardian: req.body.guardian,
         guardian_email: req.body.guardian_email,
-        teacher_id: req.session.id
+        teacher_id: req.session.teacher_id
     })
         .then(dbStudentData => {
             res.status(201);
