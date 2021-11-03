@@ -16,7 +16,7 @@ async function signupFormHandler(event) {
             'Content-Type': 'application/json'
          }
       });
-      res.ok ? addSubject() : alert(`Request failed -- ${res.status}: Bad request.`);
+      res.ok ? addSubject() : alert(`Request failed -- ${res.status}: ${res.statusText}.`);
    } else {
       alert(`All fields must be filled in!`);
    }

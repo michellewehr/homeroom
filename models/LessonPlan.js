@@ -45,6 +45,14 @@ Lesson_Plan.init(
       materials: {
          type: DataTypes.STRING,
          allowNull: true
+      },
+      teacher_lesson_id: {
+         type: DataTypes.INTEGER,
+         allowNull: false,
+         references: {
+            model: 'teacher',
+            key: 'id'
+         }
       }
    },
    {
