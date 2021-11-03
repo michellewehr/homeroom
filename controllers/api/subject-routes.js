@@ -46,10 +46,8 @@ router.post('/', withAuth, (req, res) => {
         teacher_subj_id: req.session.teacher_id
     })
         .then(dbSubjectData => {
+            console.log('subject added')
             res.status(201);
-            res.json({
-                msg: `Successfully added ${req.body.subject_name}!`
-            });
             res.json(dbSubjectData);
         })
         .catch(err => {

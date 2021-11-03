@@ -24,18 +24,23 @@ async function signupFormHandler(event) {
 }
 
 addSubject = async () => {
-   let subjectsArray = ['English', 'Math', 'Science', 'Social Studies'];
-   for (subject of subjectsArray) {
-      let subject_name = subject;
-      const res = await fetch('/api/subjects', {
-         method: 'post',
-         body: JSON.stringify({ subject_name }),
-         headers: {
-            'Content-Type': 'application/json'
-         }
-      });
-      res.ok ? document.location.replace('/dashboard') : alert(`Something went wrong when adding subjects -- ${res.status}: ${res.statusText}`);
-   }
+
+   const subjectsArray = ['English', 'Math', 'Science', 'Social Studies'];
+
+   await Promise.all(
+      subjectsArray.map(async subject_name => {
+         const res = await fetch('/api/subjects', {
+            method: 'post',
+            body: JSON.stringify({ subject_name }),
+            headers: {
+               'Content-Type': 'application/json'
+            }
+         });
+         const subjectRes = await res.json();
+         console.log(subjectRes);
+         res.ok ? document.location.replace('/dashboard') : alert(`Something went wrong when adding subjects -- ${res.status}: ${res.statusText}`);
+      })
+   )
 };
 
 document.querySelector('.signup-container').addEventListener('submit', signupFormHandler);
