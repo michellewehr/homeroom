@@ -225,7 +225,7 @@ router.get('/4', withAuth, (req, res) => {
                     students,
                     assignments
                 }
-                res.render('gradebookSocialStudies', {studentsAndAssignments});
+                res.render('gradebookSocialStudies', {studentsAndAssignments, loggedIn: true});
             })
             .catch(err => {
                 res.status(500).json(err);

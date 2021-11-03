@@ -17,6 +17,9 @@ router.get('/', (req, res) => {
 
 // sign up
 router.post('/', async (req, res) => {
+  if (req.session.loggedIn) {
+    return res.status(400).json({ msg: 'Already logged in.' })
+  }
 
   let userPassword = req.body.password;
   if (!validatePasswordConstraints(userPassword)) {

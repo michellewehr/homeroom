@@ -1,3 +1,4 @@
+  {{#if loggedIn}}
   {{> navbar}}
        <div class="row">
           <h3 class="heading gradebookTitle col"> {{studentsAndAssignments.assignments.[0].subject.subject_name}}
@@ -31,3 +32,5 @@
 
 <script src="/javascript/dynamicSocialStudiesGrade.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>  
+
+{{/if}}

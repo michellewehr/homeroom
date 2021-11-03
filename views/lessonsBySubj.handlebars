@@ -1,9 +1,7 @@
+{{#if loggedIn}}
    {{> navbar}}
-   
-   <div class="row">
-         <h3 class="heading col">View Lesson Plans: </h3>
-        <a href="/lesson-plans/addLessonPlan" class="adda col"><h4 class="addGrade">Add Lesson</h4><img src="/assets/images/addagain.png" class="addBtn" style="height: 5rem; width: auto;" alt=""></a>
-     </div>
+
+     {{> filterLessons}}
 
      <div class="container">
          
@@ -27,3 +25,5 @@
          </div>
          {{/each}}
      </div>
+<script src ='/javascript/lessonplans.js'></script>
+{{/if}}

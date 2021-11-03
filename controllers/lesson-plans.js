@@ -28,7 +28,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get('/addLessonPlan', withAuth, (req, res) => {
-    res.render('addLessonPlan');
+    res.render('addLessonPlan', {loggedIn: true});
 })
 
 // add a lesson plan--had to add the url-- TODO: go back and fix this to be correct
@@ -61,7 +61,11 @@ router.get('/filterSub/:userSelection', withAuth, (req, res) => {
     })
         .then(dbLessonPlanData => {
             const lessons = dbLessonPlanData.map(lesson => lesson.get({plain: true}))
-            res.render('lessonsBySubj', {lessons})
+            res.render('lessonsBySubj',
+            {
+                lessons,
+                loggedIn: true
+            })
         })
         .catch(err => {
             res.status(500).json(err);
@@ -86,7 +90,7 @@ router.get('/:id', withAuth, (req, res) => {
                 return;
             }
             const lesson = dbLessonPlanData.get({ plain: true });
-            res.render('single-lesson-plan', {lesson});
+            res.render('single-lesson-plan', {lesson, loggedIn: true});
         })
         .catch(err => {
             res.status(500).json(err);
