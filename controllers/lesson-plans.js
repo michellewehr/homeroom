@@ -73,14 +73,12 @@ router.post('/api/lessonplans', withAuth, (req, res) => {
 router.get('/filterSub/:userSelection', withAuth, (req, res) => {
     LessonPlan.findAll({
         where: {
+            teacher_lesson_id: req.session.teacher_id,
             subject_id: req.params.userSelection
         },
         include: [{
             model: Subject,
             attributes: ['subject_name'],
-            where: {
-                teacher_subj_id: req.session.teacher_id
-            }
         }]
     })
         .then(dbLessonPlanData => {

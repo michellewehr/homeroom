@@ -23,6 +23,26 @@ async function signupFormHandler(event) {
 
 }
 
+// addSubject = async () => {
+
+//    const subjectsArray = ['English', 'Math', 'Science', 'Social Studies'];
+
+//    await Promise.all(
+//       subjectsArray.map(async subject_name => {
+//          const res = await fetch('/api/subjects', {
+//             method: 'post',
+//             body: JSON.stringify({ subject_name }),
+//             headers: {
+//                'Content-Type': 'application/json'
+//             }
+//          });
+//          const subjectRes = await res.json();
+//          console.log(subjectRes);
+//          res.ok ? document.location.replace('/dashboard') : alert(`Something went wrong when adding subjects -- ${res.status}: ${res.statusText}`);
+//       })
+//    )
+// };
+
 addSubject = async () => {
    let subject_value = 0;
    let subjectsArray = ['English', 'Math', 'Science', 'Social Studies'];

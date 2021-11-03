@@ -29,6 +29,7 @@ async function addLessonPlanHandler(event) {
     let lesson_assessment = document.querySelector('#assessment').value.trim();
     const materials = document.querySelector('#materials').value.trim();
 
+    // console.log(subject_id);
 
     if (lesson_date && subject && subject_id && lesson_name && lesson_objective && lesson_activity && materials) {
         const res = await fetch('api/lessonplans/', {
