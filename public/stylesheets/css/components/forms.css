@@ -1,0 +1,39 @@
+.signup-container {
+  background-color: var(--white-green);
+  border-radius: 10px;
+  padding: 1.5rem;
+  position: relative;
+  top: 5rem;
+  right: 9rem;
+}
+
+.signup-background {
+  background-image: url(../../../assets/images/chalkboard-hand.png);
+  background-position: center;
+  height: 85vh;
+  background-size: cover;
+  position: relative;
+}
+
+.create-lessonplan-container,
+.login-container {
+  overflow: hidden;
+  background-color: var(--white-green);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 2rem;
+}
+
+.login-background {
+  background-image: url(../../../assets/images/plain-chalkboard.jpg);
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+}
+
+.required::before {
+  content: "*";
+  font-size: 20px;
+  padding-right: 10px;
+  color: var(--required-star);
+}

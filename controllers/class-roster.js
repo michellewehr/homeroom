@@ -9,10 +9,10 @@ router.get('/', withAuth, (req, res) => {
         where: {
             teacher_id: req.session.teacher_id
         },
-        order: [['last_name', 'ASC']], 
+        order: [['last_name', 'ASC']],
     })
         .then(dbStudentData => {
-            if(!dbStudentData) {
+            if (!dbStudentData) {
                 res.render('class-roster');
             }
             const students = dbStudentData.map(student => student.get({ plain: true }));
@@ -22,7 +22,9 @@ router.get('/', withAuth, (req, res) => {
             });
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         })
 });
 

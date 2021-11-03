@@ -26,6 +26,10 @@ Subject.init(
             model: 'teacher',
             key: 'id'
          }
+      },
+      subject_value: {
+         type: DataTypes.INTEGER,
+         allowNull: false
       }
    },
    {

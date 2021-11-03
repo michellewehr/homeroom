@@ -5,18 +5,23 @@ const { validatePasswordConstraints } = require('../../utils/helpers');
 
 router.get('/', (req, res) => {
   Teacher.findAll({
-    
+
   })
     .then(dbTeacherData => {
-      res.json(dbTeacherData)
+      res.json(dbTeacherData);
     })
     .catch(err => {
-      res.status(500).json(err);
+      res.status(500).json({
+        msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+      });
     });
 });
 
 // sign up
 router.post('/', async (req, res) => {
+  if (req.session.loggedIn) {
+    return res.status(400).json({ msg: 'Already logged in.' })
+  }
 
   let userPassword = req.body.password;
   if (!validatePasswordConstraints(userPassword)) {
@@ -49,7 +54,7 @@ router.post('/', async (req, res) => {
     })
     .catch(err => {
       res.status(500).json({
-        msg: `Something went wrong: ${err}`,
+        msg: `Sorry, this one's on our end. Try again? Error: ${err}`
       });
     });
 });
@@ -93,7 +98,9 @@ router.post('/login', (req, res) => {
 
   })
     .catch(err => {
-      res.status(500).json(err)
+      res.status(500).json({
+        msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+      });
     });
 });
 

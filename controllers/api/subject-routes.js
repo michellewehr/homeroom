@@ -4,7 +4,11 @@ const withAuth = require('../../utils/withAuth');
 
 // list all subjects
 router.get('/', withAuth, (req, res) => {
-    Subject.findAll({})
+    Subject.findAll({
+        where: {
+            teacher_subj_id: req.session.teacher_id
+        }
+    })
         .then(dbSubjectData => {
             res.json(dbSubjectData)
         })
@@ -29,7 +33,9 @@ router.get('/:id', withAuth, (req, res) => {
             json(dbSubjectData)
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 
@@ -37,17 +43,18 @@ router.get('/:id', withAuth, (req, res) => {
 router.post('/', withAuth, (req, res) => {
     Subject.create({
         subject_name: req.body.subject_name,
-        teacher_subj_id: req.session.teacher_id
+        teacher_subj_id: req.session.teacher_id,
+        subject_value: req.body.subject_value
     })
         .then(dbSubjectData => {
+            console.log('subject added')
             res.status(201);
-            res.json({
-                msg: `Successfully added ${req.body.subject_name}!`
-            });
             res.json(dbSubjectData);
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 

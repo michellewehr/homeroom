@@ -6,17 +6,20 @@ const withAuth = require('../utils/withAuth')
 
 router.get('/', withAuth, (req, res) => {
     LessonPlan.findAll({
+        where: {
+            teacher_lesson_id: req.session.teacher_id
+        },
         order: [
             ['lesson_date', 'ASC'],
             ['subject_id', 'ASC']
         ],
-        include: [{
+         include: [{
             model: Subject,
             attributes: ['subject_name'],
         }]
     })
         .then(dbLessonPlanData => {
-            const lessons = dbLessonPlanData.map(lesson => lesson.get({ plain: true}));
+            const lessons = dbLessonPlanData.map(lesson => lesson.get({ plain: true }));
             res.render('lesson-plans', {
                 lessons,
                 loggedIn: true
@@ -28,22 +31,40 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get('/addLessonPlan', withAuth, (req, res) => {
-    res.render('addLessonPlan');
+    Subject.findAll({
+        where: {
+            teacher_subj_id: req.session.teacher_id
+        }
+    })
+        .then(dbSubjectData => {
+            console.log(dbSubjectData);
+            const subjects = dbSubjectData.map(subject => subject.get({ plain: true }));
+            res.render('addLessonPlan', {subjects, loggedIn: true });
+             })
+        .catch(err => {
+            res.status(500).json(err);
+        });
 })
 
 // add a lesson plan--had to add the url-- TODO: go back and fix this to be correct
-router.post('/api/lessonplans', withAuth, ({ body }, res) => {
+router.post('/api/lessonplans', withAuth, (req, res) => {
     LessonPlan.create({
-        lesson_date: body.lesson_date,
-        subject_id: body.subject_id,
-        lesson_name: body.lesson_name,
-        lesson_objective: body.lesson_objective,
-        lesson_activity: body.lesson_activity,
-        materials: body.materials
+        lesson_date: req.body.lesson_date,
+        subject_id: req.body.subject_id,
+        lesson_name: req.body.lesson_name,
+        lesson_objective: req.body.lesson_objective,
+        lesson_activity: req.body.lesson_activity,
+        materials: req.body.materials,
+        teacher_lesson_id: req.session.teacher_id
     })
-        .then(dbLessonPlanData => res.json({ msg: `Successfully added new lesson plan!` }))
+        .then(dbLessonPlanData => {
+            res.json({ msg: `Successfully added new lesson plan!` })
+            console.log(dbLessonPlanData + 'line 47 created');
+        })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 
@@ -52,6 +73,7 @@ router.post('/api/lessonplans', withAuth, ({ body }, res) => {
 router.get('/filterSub/:userSelection', withAuth, (req, res) => {
     LessonPlan.findAll({
         where: {
+            teacher_lesson_id: req.session.teacher_id,
             subject_id: req.params.userSelection
         },
         include: [{
@@ -61,10 +83,16 @@ router.get('/filterSub/:userSelection', withAuth, (req, res) => {
     })
         .then(dbLessonPlanData => {
             const lessons = dbLessonPlanData.map(lesson => lesson.get({plain: true}))
-            res.render('lessonsBySubj', {lessons})
+            res.render('lessonsBySubj',
+            {
+                lessons,
+                loggedIn: true
+            })
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         })
 })
 
@@ -86,10 +114,12 @@ router.get('/:id', withAuth, (req, res) => {
                 return;
             }
             const lesson = dbLessonPlanData.get({ plain: true });
-            res.render('single-lesson-plan', {lesson});
+            res.render('single-lesson-plan', {lesson, loggedIn: true});
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 
