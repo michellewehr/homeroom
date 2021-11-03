@@ -13,6 +13,9 @@ router.get('/', withAuth, (req, res) => {
         include: [{
             model: Subject,
             attributes: ['subject_name'],
+            where: {
+                teacher_subj_id: req.session.teacher_id
+            }
         }]
     })
         .then(dbLessonPlanData => {
@@ -28,7 +31,19 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get('/addLessonPlan', withAuth, (req, res) => {
-    res.render('addLessonPlan');
+    Subject.findAll({
+        where: {
+            teacher_subj_id: req.session.teacher_id
+        }
+    })
+        .then(dbSubjectData => {
+            console.log(dbSubjectData);
+            const subjects = dbSubjectData.map(subject => subject.get({ plain: true }));
+            res.render('addLessonPlan', {subjects, loggedIn: true });
+             })
+        .catch(err => {
+            res.status(500).json(err);
+        });
 })
 
 // add a lesson plan--had to add the url-- TODO: go back and fix this to be correct
@@ -57,6 +72,9 @@ router.get('/filterSub/:userSelection', withAuth, (req, res) => {
         include: [{
             model: Subject,
             attributes: ['subject_name'],
+            where: {
+                teacher_subj_id: req.session.teacher_id
+            }
         }]
     })
         .then(dbLessonPlanData => {

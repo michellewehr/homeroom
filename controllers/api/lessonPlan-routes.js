@@ -12,6 +12,9 @@ router.get('/', withAuth, (req, res) => {
         include: [{
             model: Subject,
             attributes: ['subject_name'],
+            where: {
+                teacher_subj_id: req.session.teacher_id
+            }
         }]
     })
         .then(dbLessonPlanData => {
@@ -30,6 +33,9 @@ router.get('/filterSub/:id', withAuth, (req, res) => {
         include: [{
             model: Subject,
             attributes: ['subject_name'],
+            where: {
+                teacher_subj_id: req.session.teacher_id
+            }
         }]
     })
         .then(dbLessonPlanData => {
@@ -53,6 +59,9 @@ router.get('/:id', withAuth, (req, res) => {
         include: [{
             model: Subject,
             attributes: ['subject_name'],
+            where: {
+                teacher_subj_id: req.session.teacher_id
+            }
         }]
     })
         .then(dbLessonPlanData => {

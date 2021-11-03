@@ -4,7 +4,11 @@ const withAuth = require('../../utils/withAuth');
 
 // list all subjects
 router.get('/', withAuth, (req, res) => {
-    Subject.findAll({})
+    Subject.findAll({
+        where: {
+            teacher_subj_id: req.session.teacher_id
+        }
+    })
         .then(dbSubjectData => {
             res.json(dbSubjectData)
         })

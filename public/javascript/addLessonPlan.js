@@ -35,6 +35,7 @@ async function addLessonPlanHandler(event) {
     const materials = document.querySelector('#materials').value.trim();
 
     
+    console.log(subject_id);
     if (lesson_date && subject && subject_id && lesson_name && lesson_objective && lesson_activity && materials) {
     const res = await fetch('api/lessonplans/', {
         method: 'post',
@@ -47,6 +48,7 @@ async function addLessonPlanHandler(event) {
     });
 
     if(res.ok) {
+        console.log(subject_id);
         document.location.replace('/lesson-plans');
     } else {
         console.log('NOPE!');
