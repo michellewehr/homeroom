@@ -10,9 +10,9 @@ async function addGradeHandler(event) {
     const assignment = document.querySelector('#assignment');
     const assignment_id = assignment.options[assignment.selectedIndex].value;
     const number_grade = document.querySelector('#studGrade').value;
-    
+
     if (subject_id && student_id && assignment_id && number_grade) {
-        const res = await fetch ('api/grades', {
+        const res = await fetch('api/grades', {
             method: 'post',
             body: JSON.stringify({
                 subject_id, student_id, assignment_id, number_grade
@@ -21,11 +21,7 @@ async function addGradeHandler(event) {
                 'Content-Type': 'application/json'
             }
         })
-        if(res.ok) {
-            document.location.replace('/grades/' + subject_id);
-        } else {
-            console.log('NOPE!');
-        }
+        res.ok ? document.location.replace('/grades') : alert(`Grade could not be added -- ${res.status}: ${res.statusText}`);
     }
 }
 

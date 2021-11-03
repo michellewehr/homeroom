@@ -84,7 +84,8 @@ router.post('/', withAuth, ({ body }, res) => {
         lesson_name: body.lesson_name,
         lesson_objective: body.lesson_objective,
         lesson_activity: body.lesson_activity,
-        materials: body.materials
+        materials: body.materials,
+        teacher_subj_id: req.session.teacher_id
     })
         .then(dbLessonPlanData => {
             res.status(201);

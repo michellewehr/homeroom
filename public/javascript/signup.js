@@ -16,12 +16,11 @@ async function signupFormHandler(event) {
             'Content-Type': 'application/json'
          }
       });
-      if (res.ok) {
-         addSubject();
-      } else {
-         alert(res.statusText + "13");
-      }
+      res.ok ? addSubject() : alert(`Request failed -- ${res.status}: ${res.statusText}.`);
+   } else {
+      alert(`All fields must be filled in!`);
    }
+
 }
 
 addSubject = async () => {
@@ -37,13 +36,8 @@ addSubject = async () => {
             'Content-Type': 'application/json'
          }
       });
-      if (res.ok) {
-          document.location.replace('/dashboard');
-      } else {
-         alert(res.statusText);
-      }
+      res.ok ? document.location.replace('/dashboard') : alert(`Something went wrong when adding subjects -- ${res.status}: ${res.statusText}`);
    }
 };
-
 
 document.querySelector('.signup-container').addEventListener('submit', signupFormHandler);

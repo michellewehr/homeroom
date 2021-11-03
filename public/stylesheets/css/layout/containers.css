@@ -1,0 +1,168 @@
+/* dashboard by Subject */
+.subject-container {
+  margin-top: 2rem;
+}
+.subject-block {
+  padding: 2rem;
+  margin: 2rem;
+  height: 15vh;
+  border: var(--black-border-1px);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.row .add-subject {
+  width: 50%;
+  margin: auto;
+  height: 8vh;
+  border-radius: 10px;
+}
+
+.subject:nth-child(1),
+.option1 {
+  background-color: var(--subject-1);
+}
+.subject:nth-child(2),
+.option2 {
+  background-color: var(--white-green);
+}
+.subject:nth-child(3),
+.option3 {
+  background-color: var(--white-yellow);
+}
+.subject:nth-child(4) {
+  background-color: var(--light-yellow);
+}
+
+.dashboard-container {
+  margin-top: 2rem;
+}
+
+.option-block {
+  margin-top: 5rem;
+  height: 350px;
+  min-width: 250px;
+  max-width: 450px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 1rem;
+  justify-content: center;
+}
+
+.dashboard-container a {
+  color: inherit;
+  text-decoration: inherit;
+}
+.dashboard-container a:hover {
+  color: var(--sea-green);
+}
+
+.class-roster-container p {
+  border: var(--black-border-half);
+  margin: 0;
+  line-height: 2rem;
+}
+
+.col-name {
+  font-weight: bold;
+  text-align: center;
+  background-color: var(--sea-green);
+}
+
+.guardianEmail {
+  color: inherit;
+  text-decoration: inherit;
+  border: var(--black-border-half);
+  margin: 0;
+  line-height: 2rem;
+}
+
+.addGrade-container {
+  background-color: var(--white-yellow);
+  padding: 1rem;
+}
+
+.viewLessRow {
+  border: var(--black-border-1px);
+}
+.subjGradeBookCol {
+  background-color: var(--white-yellow);
+}
+.finalGradeCol {
+  background-color: var(--white-green);
+}
+
+.attNameCol {
+  background-color: var(--white-yellow);
+}
+.dayOfWeekCol {
+  background-color: var(--white-yellow);
+}
+
+.single-lesson p {
+  margin-left: 3rem;
+  padding: 1rem;
+}
+.single-lesson-heading {
+  font-size: 2rem;
+  margin-left: 3rem;
+  padding: 1rem;
+}
+.single-lesson-sect {
+  background-color: var(--white-yellow);
+  border-radius: 10px;
+  margin: 2rem;
+}
+
+.singleHeading {
+  color: var(--sea-green);
+}
+.single-lesson span {
+  color: var(--bg-color-dark);
+  font-size: smaller;
+}
+
+.less-col-name {
+  font-weight: bold;
+  text-align: center;
+  background-color: var(--white-green);
+  border: var(--black-border-1px);
+  line-height: 2rem;
+}
+
+.gradebookTitle {
+  margin-left: 5rem;
+}
+
+.gradebookTitle,
+.addButon {
+  margin-bottom: 3rem;
+}
+.addGrade {
+  display: inline;
+  margin-right: 1rem;
+}
+.subjFilter {
+  margin-left: 4rem;
+  margin-bottom: 2rem;
+}
+
+.heading {
+  margin-left: 3rem;
+  padding-top: 3rem;
+}
+.subheading {
+  margin-left: 3rem;
+  padding: 1rem;
+}
+
+.adda {
+  background: none;
+  color: inherit;
+  border: none;
+  padding-top: 1.5rem;
+  outline: inherit;
+  text-align: end;
+  margin-right: 5rem;
+  text-decoration: inherit;
+}

@@ -1,0 +1,16 @@
+:root {
+  --bg-color-dark: rgba(92, 105, 96, 0.098);
+  --subtitle: rgba(36, 35, 35, 1);
+  --login-heading: rgba(255, 255, 255, 0.406);
+  --white-yellow: rgba(246, 234, 190, 1);
+  --sea-green: rgba(123, 148, 148, 1);
+  --white-green: rgba(200, 227, 212, 1);
+  --blurb-hover: rgba(159, 202, 202, 1);
+  --subject-1: rgba(135, 170, 170, 1);
+  --light-yellow: rgba(246, 215, 167, 1);
+  --required-star: rgba(236, 45, 45, 1);
+  --primary-font: "Playfair Display", "Cambria", "serif";
+  --blurb-box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  --black-border-1px: 1px solid var(--bg-color-dark);
+  --black-border-half: 0.5px solid var(--bg-color-dark);
+}
