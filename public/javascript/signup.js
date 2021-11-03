@@ -16,18 +16,17 @@ async function signupFormHandler(event) {
             'Content-Type': 'application/json'
          }
       });
-      if (res.ok) {
-         addSubject();
-      } else {
-         alert(res.statusText + "13");
-      }
+      res.ok ? addSubject() : alert(`Request failed -- ${res.status}: Bad request.`);
+   } else {
+      alert(`All fields must be filled in!`);
    }
+
 }
 
 addSubject = async () => {
    let subjectsArray = ['English', 'Math', 'Science', 'Social Studies'];
-   for (i = 0; i < subjectsArray.length; i++) {
-      let subject_name = subjectsArray[i];
+   for (subject of subjectsArray) {
+      let subject_name = subject;
       const res = await fetch('/api/subjects', {
          method: 'post',
          body: JSON.stringify({ subject_name }),
@@ -35,13 +34,8 @@ addSubject = async () => {
             'Content-Type': 'application/json'
          }
       });
-      if (res.ok) {
-          document.location.replace('/dashboard');
-      } else {
-         alert(res.statusText);
-      }
+      res.ok ? document.location.replace('/dashboard') : alert(`Something went wrong when adding subjects -- ${res.status}: ${res.statusText}`);
    }
 };
-
 
 document.querySelector('.signup-container').addEventListener('submit', signupFormHandler);

@@ -1,14 +1,9 @@
 async function logout() {
-    const response = await fetch('/api/teachers/logout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' }
-    });
+  const res = await fetch('/api/teachers/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' }
+  });
+  res.ok ? document.location.replace('/') : alert(`Logout error -- ${res.status}: ${res.statusText}`);
+}
 
-    if (response.ok) {
-      document.location.replace('/');
-    } else {
-      alert(response.statusText);
-    }
-  }
-  
 document.querySelector('.logoutBtn').addEventListener('click', logout);

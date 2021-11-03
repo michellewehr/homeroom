@@ -16,7 +16,7 @@ router.get('/', withAuth, (req, res) => {
         }]
     })
         .then(dbLessonPlanData => {
-            const lessons = dbLessonPlanData.map(lesson => lesson.get({ plain: true}));
+            const lessons = dbLessonPlanData.map(lesson => lesson.get({ plain: true }));
             res.render('lesson-plans', {
                 lessons,
                 loggedIn: true
@@ -43,7 +43,9 @@ router.post('/api/lessonplans', withAuth, ({ body }, res) => {
     })
         .then(dbLessonPlanData => res.json({ msg: `Successfully added new lesson plan!` }))
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 
@@ -60,11 +62,13 @@ router.get('/filterSub/:userSelection', withAuth, (req, res) => {
         }]
     })
         .then(dbLessonPlanData => {
-            const lessons = dbLessonPlanData.map(lesson => lesson.get({plain: true}))
-            res.render('lessonsBySubj', {lessons})
+            const lessons = dbLessonPlanData.map(lesson => lesson.get({ plain: true }))
+            res.render('lessonsBySubj', { lessons })
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         })
 })
 
@@ -86,10 +90,12 @@ router.get('/:id', withAuth, (req, res) => {
                 return;
             }
             const lesson = dbLessonPlanData.get({ plain: true });
-            res.render('single-lesson-plan', {lesson});
+            res.render('single-lesson-plan', { lesson });
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 

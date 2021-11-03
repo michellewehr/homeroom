@@ -8,25 +8,25 @@ const seedAssignment = require('./assignment-seeds')
 
 
 const seedAll = async () => {
-    await sequelize.sync({force: true});
+    await sequelize.sync({ force: true });
     console.log('--------------');
 
     await seedTeachers();
     console.log('--------------');
 
     await seedStudents();
-    
-    await seedSubjects();
-    console.log('--------------');
+
+    // await seedSubjects();
+    // console.log('--------------');
 
     await seedLessonPlan();
     console.log('--------------');
 
     await seedAssignment();
-    
+
     await seedGrades();
     console.log('--------------');
-    
+
     process.exit(0);
 }
 

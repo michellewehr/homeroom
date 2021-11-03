@@ -3,53 +3,53 @@ const gradeBookThead = document.querySelector('.gradeBookThead');
 const tableBody = document.querySelector('.tableBody');
 
 fetch('/api/students/grades/2')
-.then(response => {
-    return response.json();
-})
-.then(function(response) {
-    const gradeBookLast = document.createElement('th');
-    gradeBookLast.textContent = 'Last Name';
-    gradeBookLast.classList = 'subjGradeBookCol col-name';
-    gradeBookThead.appendChild(gradeBookLast);
-    const gradeBookFirst = document.createElement('th');
-    gradeBookFirst.textContent = 'First Name';
-    gradeBookFirst.classList = 'subjGradeBookCol col-name';
-    gradeBookThead.appendChild(gradeBookFirst);
-   
-
-    let assNames = [];
-    for (let i = 0; i < response.length; i++) {
-        let arrayOfAssign = response[i].grades;
-        if(arrayOfAssign){
-        for (let i = 0; i < arrayOfAssign.length; i++ ){
-            let assignment = arrayOfAssign[i].assignment.assignment_name;
-            assNames.push(assignment);
-        }
-    }
-    }
-    let uniqueAssignNames = [...new Set(assNames)];
-    
-    uniqueAssignNames.forEach(uniqueAssignName => {
-        const assignTH = document.createElement('td');
-        assignTH.classList = 'assignmentheader'
-        gradeBookThead.appendChild(assignTH);
-        assignTH.classList = 'assessGradeBookCol col-name'
-        assignTH.textContent = uniqueAssignName;
+    .then(res => {
+        return res.json();
     })
+    .then(res => {
+        const gradeBookLast = document.createElement('th');
+        gradeBookLast.textContent = 'Last Name';
+        gradeBookLast.classList = 'subjGradeBookCol col-name';
+        gradeBookThead.appendChild(gradeBookLast);
+        const gradeBookFirst = document.createElement('th');
+        gradeBookFirst.textContent = 'First Name';
+        gradeBookFirst.classList = 'subjGradeBookCol col-name';
+        gradeBookThead.appendChild(gradeBookFirst);
+
+
+        let assignmentNames = [];
+        for (let i = 0; i < res.length; i++) {
+            let arrayOfAssign = res[i].grades;
+            if (arrayOfAssign) {
+                for (let i = 0; i < arrayOfAssign.length; i++) {
+                    let assignment = arrayOfAssign[i].assignment.assignment_name;
+                    assignmentNames.push(assignment);
+                }
+            }
+        }
+        let uniqueAssignNames = [...new Set(assignmentNames)];
+
+        uniqueAssignNames.forEach(uniqueAssignName => {
+            const assignTH = document.createElement('td');
+            assignTH.classList = 'assignmentheader'
+            gradeBookThead.appendChild(assignTH);
+            assignTH.classList = 'assessGradeBookCol col-name'
+            assignTH.textContent = uniqueAssignName;
+        })
 
         const finalGradeCol = document.createElement('th');
         finalGradeCol.textContent = 'Final Grade';
         finalGradeCol.classList = 'col-name finalGradeCol';
         gradeBookThead.appendChild(finalGradeCol);
-        
-    
 
 
-        for (let i = 0; i < response.length; i++) {
+
+
+        for (let i = 0; i < res.length; i++) {
             const studRow = document.createElement('tr');
             tableBody.appendChild(studRow);
-            const studLastName = response[i].last_name;
-            const studFirstName = response[i].first_name;
+            const studLastName = res[i].last_name;
+            const studFirstName = res[i].first_name;
             const firstTD = document.createElement('td');
             firstTD.textContent = studFirstName;
             const lastTD = document.createElement('td');
@@ -65,33 +65,33 @@ fetch('/api/students/grades/2')
             const studentFinalGrade = document.createElement('td');
             studRow.appendChild(studentFinalGrade);
 
-            
-            let student = response[i];
+
+            let student = res[i];
             let gradeArr = [];
-            for(let i =0; i < student.grades.length; i++) {
+            for (let i = 0; i < student.grades.length; i++) {
                 let number_grade = student.grades[i].number_grade;
                 gradeArr.push(number_grade);
                 let assignmentHeaders = document.getElementsByTagName('td');
                 let studAssignName = student.grades[i].assignment.assignment_name;
 
-                for(let i = 0; i < assignmentHeaders.length; i++) {
-                    if(studAssignName === assignmentHeaders[i].textContent) {
+                for (let i = 0; i < assignmentHeaders.length; i++) {
+                    if (studAssignName === assignmentHeaders[i].textContent) {
                         const assignHeaderIndex = assignmentHeaders[i].cellIndex;
                         studRow.cells[assignHeaderIndex].textContent = number_grade;
                     }
+                }
+            }
+
+            let sumOfGrades = gradeArr.reduce((a, b) => a + b, 0);
+            let numberOfFinalGrade = sumOfGrades / uniqueAssignNames.length;
+            let finalGradeTwoDecimals = parseFloat(numberOfFinalGrade).toFixed(2);
+            let finalGradeIndex = studentFinalGrade.cellIndex;
+            if (isNaN(finalGradeTwoDecimals)) {
+                studRow.cells[finalGradeIndex].textContent = ' ';
+            } else {
+                studRow.cells[finalGradeIndex].textContent = finalGradeTwoDecimals;
             }
         }
-       
-     let sumOfGrades = gradeArr.reduce((a, b) => a + b, 0);
-     let numberOfFinalGrade = sumOfGrades / uniqueAssignNames.length;
-     let finalGradeTwoDecimals = parseFloat(numberOfFinalGrade).toFixed(2);
-     let finalGradeIndex = studentFinalGrade.cellIndex;
-     if(isNaN(finalGradeTwoDecimals)){
-        studRow.cells[finalGradeIndex].textContent = ' ';
-    } else{
-        studRow.cells[finalGradeIndex].textContent = finalGradeTwoDecimals;
-    }
-    }
     })
 
 

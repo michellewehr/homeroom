@@ -15,7 +15,9 @@ router.get('/', withAuth, (req, res) => {
             res.json(dbStudentData)
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         })
 });
 
@@ -26,7 +28,7 @@ router.get('/grades/:subject', withAuth, (req, res) => {
         include: [{
             model: Grade,
             attributes: ['number_grade',
-        ],
+            ],
             include: [
                 {
                     model: Assignment,
@@ -42,7 +44,9 @@ router.get('/grades/:subject', withAuth, (req, res) => {
             res.json(dbStudentData)
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         })
 });
 
@@ -61,7 +65,9 @@ router.get('/:id', withAuth, (req, res) => {
             res.json(dbStudentData)
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 
@@ -77,12 +83,14 @@ router.post('/', withAuth, (req, res) => {
         .then(dbStudentData => {
             res.status(201);
             res.json({
-                dbStudentData
-                // msg: `Successfully added ${body.first_name} ${body.last_name}!`
+                dbStudentData,
+                msg: `Successfully added ${body.first_name} ${body.last_name}!`
             })
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 

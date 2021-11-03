@@ -11,16 +11,22 @@ router.get('/', withAuth, (req, res) => {
         ],
         include: [{
             model: Subject,
-            attributes: ['subject_name'],
+            attributes: ['subject_name', 'teacher_subj_id'],
+            where: {
+                teacher_subj_id: req.session.teacher_id
+            }
         }]
     })
         .then(dbLessonPlanData => {
             res.json(dbLessonPlanData)
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         })
 });
+
 //get lesson plan by subject
 router.get('/filterSub/:id', withAuth, (req, res) => {
     LessonPlan.findOne({
@@ -40,7 +46,9 @@ router.get('/filterSub/:id', withAuth, (req, res) => {
             res.json(dbLessonPlanData)
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 
@@ -63,7 +71,9 @@ router.get('/:id', withAuth, (req, res) => {
             res.json(dbLessonPlanData)
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 
@@ -82,7 +92,9 @@ router.post('/', withAuth, ({ body }, res) => {
             res.json({ msg: `Successfully added new lesson plan!` })
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 
