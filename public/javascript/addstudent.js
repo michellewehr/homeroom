@@ -1,6 +1,7 @@
 async function addStudentHandler(event) {
    event.preventDefault();
 
+
    const first_name = document.querySelector('#firstName').value.trim();
    const last_name = document.querySelector('#lastName').value.trim();
    const guardian = document.querySelector('#guardian').value.trim();
@@ -16,7 +17,7 @@ async function addStudentHandler(event) {
             'Content-Type': 'application/json'
          }
       });
-      res.ok ? document.location.replace('/class-roster') : alert(`Student could not be added -- ${res.status}: ${res.statusText}`);
+      res.ok ? document.location.replace('./class-roster') : alert(`Student could not be added -- ${res.status}: ${res.statusText}`);
    }
 }
 

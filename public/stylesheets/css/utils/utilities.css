@@ -1,0 +1,13 @@
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.shake {
+  transition: transform 0.1s, scale 0.1s;
+}
+
+.shake:hover {
+  transform: rotate(1deg);
+  scale: 1.01;
+}

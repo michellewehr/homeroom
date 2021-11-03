@@ -1,0 +1,30 @@
+.hero {
+  background-image: url("../../../assets/images/student.jpg");
+  min-height: 100vh;
+  background-size: cover;
+}
+
+.blurb {
+  position: absolute;
+  left: 10vw;
+  max-width: 500px;
+  min-width: 250px;
+  background-color: var(--bg-color-dark);
+  border-radius: 10px;
+  padding: 1vw;
+  margin: 100px 30px 0 0;
+  box-shadow: var(--blurb-box-shadow);
+  text-align: center;
+  color: var(--bg-color-dark);
+}
+
+.blurb .login,
+.blurb .signup {
+  background-color: var(--white-yellow);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+}
+.blurb-pic {
+  height: 8rem;
+}
