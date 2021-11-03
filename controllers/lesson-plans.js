@@ -10,15 +10,18 @@ router.get('/', withAuth, (req, res) => {
             ['lesson_date', 'ASC'],
             ['subject_id', 'ASC']
         ],
-        include: [{
-            model: Subject,
-            // attributes: ['subject_name'],
-            where: {
-                teacher_subj_id: req.session.teacher_id
+        include: [
+            {
+                model: Subject,
+                where: {
+                    teacher_subj_id: req.session.teacher_id
+                }
             }
-        }]
+        ]
+       
     })
         .then(dbLessonPlanData => {
+            console.log('DATA: ' + dbLessonPlanData);
             const lessons = dbLessonPlanData.map(lesson => lesson.get({ plain: true}));
             res.render('lesson-plans', {
                 lessons,

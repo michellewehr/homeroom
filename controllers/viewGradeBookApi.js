@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { Student, Grade, Assignment, Subject } = require('../models');
 
 // list all students with assignments and grades
-router.get('students/grades/:id', (req, res) => {
+router.get('/grades/:id', (req, res) => {
     Student.findAll({
         where: {
             teacher_id: req.session.teacher_id

@@ -23,7 +23,7 @@ Lesson_Plan.init(
          allowNull: false,
          references: {
             model: 'subject',
-            key: 'id'
+            key: 'subject_value'
          }
       },
       lesson_name: {
