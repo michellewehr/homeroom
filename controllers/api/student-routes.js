@@ -1,24 +1,26 @@
 const router = require('express').Router();
 const sequelize = require('sequelize');
 const { Student, Grade, Assignment, Subject } = require('../../models');
+const withAuth = require('../../utils/withAuth');
 
 // list all students by last name alphabetically
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Student.findAll({
+        where: {
+            teacher_id: req.session.teacher_id
+        },
         order: [['last_name', 'ASC']]
     })
         .then(dbStudentData => {
-            console.log(dbStudentData)
             res.json(dbStudentData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         })
 });
 
 // list all students with assignments and grades
-router.get('/grades/:subject', (req, res) => {
+router.get('/grades/:subject', withAuth, (req, res) => {
     Student.findAll({
         order: [['last_name', 'ASC']],
         include: [{
@@ -37,17 +39,15 @@ router.get('/grades/:subject', (req, res) => {
         }],
     })
         .then(dbStudentData => {
-            console.log(dbStudentData)
             res.json(dbStudentData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         })
 });
 
 // get one student by id
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Student.findOne({
         where: {
             id: req.params.id
@@ -61,27 +61,27 @@ router.get('/:id', (req, res) => {
             res.json(dbStudentData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
 
 // add a student
-router.post('/', ({ body }, res) => {
+router.post('/', withAuth, (req, res) => {
     Student.create({
-        first_name: body.first_name,
-        last_name: body.last_name,
-        guardian: body.guardian,
-        guardian_email: body.guardian_email
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        guardian: req.body.guardian,
+        guardian_email: req.body.guardian_email,
+        teacher_id: req.session.teacher_id
     })
         .then(dbStudentData => {
             res.status(201);
             res.json({
-                msg: `Successfully added ${body.first_name} ${body.last_name}!`
+                dbStudentData
+                // msg: `Successfully added ${body.first_name} ${body.last_name}!`
             })
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });

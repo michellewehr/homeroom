@@ -12,14 +12,6 @@ const PORT = process.env.PORT || 3001;
 
 
 app.use(cookieParser())
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
-
-const hbs = exphbs.create({  });
-
-require('dotenv').config();
 const sess = {
   secret: process.env.SECRET_WORD,
   cookie: {},
@@ -31,6 +23,14 @@ const sess = {
 };
 
 app.use(session(sess));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+const hbs = exphbs.create({  });
+
+require('dotenv').config();
 
 app.use(require('./controllers/'));
 

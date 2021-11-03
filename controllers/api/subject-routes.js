@@ -1,23 +1,20 @@
 const router = require('express').Router();
 const { Subject } = require('../../models');
+const withAuth = require('../../utils/withAuth');
 
 // list all subjects
-router.get('/', (req, res) => {
-    Subject.findAll({
-        attributes: ['id', 'subject_name']
-    })
+router.get('/', withAuth, (req, res) => {
+    Subject.findAll({})
         .then(dbSubjectData => {
-            console.log(dbSubjectData)
             res.json(dbSubjectData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
 
 // get one subject by id
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Subject.findOne({
         attributes: ['id', 'subject_name'],
         where: {
@@ -32,7 +29,24 @@ router.get('/:id', (req, res) => {
             json(dbSubjectData)
         })
         .catch(err => {
-            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+// add a subject
+router.post('/', withAuth, (req, res) => {
+    Subject.create({
+        subject_name: req.body.subject_name,
+        teacher_subj_id: req.session.teacher_id
+    })
+        .then(dbSubjectData => {
+            res.status(201);
+            res.json({
+                msg: `Successfully added ${req.body.subject_name}!`
+            });
+            res.json(dbSubjectData);
+        })
+        .catch(err => {
             res.status(500).json(err);
         });
 });

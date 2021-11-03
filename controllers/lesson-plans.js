@@ -2,8 +2,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { LessonPlan, Subject } = require('../models');
+const withAuth = require('../utils/withAuth')
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     LessonPlan.findAll({
         order: [
             ['lesson_date', 'ASC'],
@@ -22,17 +23,16 @@ router.get('/', (req, res) => {
             });
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         })
 });
 
-router.get('/addLessonPlan', (req, res) => {
+router.get('/addLessonPlan', withAuth, (req, res) => {
     res.render('addLessonPlan');
 })
 
 // add a lesson plan--had to add the url-- TODO: go back and fix this to be correct
-router.post('/api/lessonplans', ({ body }, res) => {
+router.post('/api/lessonplans', withAuth, ({ body }, res) => {
     LessonPlan.create({
         lesson_date: body.lesson_date,
         subject_id: body.subject_id,
@@ -43,14 +43,13 @@ router.post('/api/lessonplans', ({ body }, res) => {
     })
         .then(dbLessonPlanData => res.json({ msg: `Successfully added new lesson plan!` }))
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
 
 
 //get lesson by user selection filter by subject
-router.get('/filterSub/:userSelection', (req, res) => {
+router.get('/filterSub/:userSelection', withAuth, (req, res) => {
     LessonPlan.findAll({
         where: {
             subject_id: req.params.userSelection
@@ -65,15 +64,13 @@ router.get('/filterSub/:userSelection', (req, res) => {
             res.render('lessonsBySubj', {lessons})
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         })
 })
 
 
 // get one lesson plan by id
-router.get('/:id', (req, res) => {
-    console.log('ho')
+router.get('/:id', withAuth, (req, res) => {
     LessonPlan.findOne({
         where: {
             id: req.params.id
@@ -92,7 +89,6 @@ router.get('/:id', (req, res) => {
             res.render('single-lesson-plan', {lesson});
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });

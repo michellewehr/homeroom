@@ -1,43 +1,45 @@
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-   {{#if loggedIn}}
-        <a class="navbar-brand" href="/dashboard">
-            <img class="icon" src="../assets/images/smaller-homeroom-icon.png" width="30" height="30" alt="">
-          </a>
-          <a class="navbar-brand" href="/dashboard">
-   {{/if}}
-   {{#unless loggedIn}}
-           <a class="navbar-brand" href="/">
-            <img class="icon" src="../assets/images/smaller-homeroom-icon.png" width="30" height="30" alt="">
-          </a>
-          <a class="navbar-brand" href="/">
-   {{/unless}}
-              <h1>HomeRoom</h1></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    {{#if loggedIn}}
+    <a class="navbar-brand" href="/dashboard">
+      <img src="../assets/images/smaller-homeroom-icon.png" alt="" width="100" height="100" class="d-inline-block align-text-center">
+      <span class="fs-30">
+      HomeRoom
+      </span>
+    </a>
+    {{/if}}
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ms-auto">
-                {{#if loggedIn}}
-                  <li class="nav-item">
-                      <button class="logoutBtn">logout</button>
-                  </li>
-                <script src="/javascript/logout.js"></script>
-                {{/if}}
+    {{#unless loggedIn}}
+    <a class="navbar-brand" href="/">
+      <img src="../assets/images/smaller-homeroom-icon.png" alt="" width="100" height="100" class="d-inline-block align-text-center">
+       <span class="homeRoom">
+      HomeRoom
+      </span>
+    </a>
+    {{/unless}}
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+        {{#unless loggedIn}}
+        <li class="nav-item">
+          <a class="nav-link active fs-20" aria-current="page" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active fs-20" aria-current="page" href="/signup">Sign up</a>
+        </li>
+        {{/unless}}
 
-                {{#unless loggedIn}}
-                <li class="nav-item">
-                    <a href="/login" class="nav-link homepage-nav-link">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/signup" class="nav-link homepage-nav-link">Sign Up</a>
-                </li>
-                {{/unless}}
-              </ul>
-          </div>
-        </div>
-      </nav>
+        {{#if loggedIn}}
+        <li class="nav-item">
+          <button class="logoutBtn">logout</button>
+          <script src="/javascript/logout.js"></script>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

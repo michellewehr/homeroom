@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Student, Grade, Assignment } = require('../../models');
+const withAuth = require('../../utils/withAuth');
 
 // list all grades by student last name with assignment name
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Grade.findAll({
         attributes: ['id', 'number_grade'],
         include: [{
@@ -16,17 +17,15 @@ router.get('/', (req, res) => {
         }]
     })
         .then(dbGradeData => {
-            console.log(dbGradeData)
             res.json(dbGradeData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         })
 })
 
 // get one grade by id
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Grade.findOne({
         attributes: ['id', 'number_grade'],
         where: {
@@ -49,13 +48,12 @@ router.get('/:id', (req, res) => {
             res.json(dbGradeData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
 
 // add a grade
-router.post('/', ({ body }, res) => {
+router.post('/', withAuth, ({ body }, res) => {
     Grade.create({
         assignment_id: body.assignment_id,
         student_id: body.student_id,
@@ -68,7 +66,6 @@ router.post('/', ({ body }, res) => {
             })
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
