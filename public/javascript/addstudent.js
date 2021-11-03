@@ -17,7 +17,12 @@ async function addStudentHandler(event) {
             'Content-Type': 'application/json'
          }
       });
-      res.ok ? document.location.replace('./class-roster') : alert(`Student could not be added -- ${res.status}: ${res.statusText}`);
+
+      if (res.ok) {
+         document.location.replace('/class-roster')
+      } else {
+         alert(res.statusText);
+      }
    }
 }
 
