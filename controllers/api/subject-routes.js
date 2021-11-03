@@ -37,7 +37,8 @@ router.get('/:id', withAuth, (req, res) => {
 router.post('/', withAuth, (req, res) => {
     Subject.create({
         subject_name: req.body.subject_name,
-        teacher_subj_id: req.session.teacher_id
+        teacher_subj_id: req.session.teacher_id,
+        subject_value: req.body.subject_value
     })
         .then(dbSubjectData => {
             res.status(201);
