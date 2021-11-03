@@ -51,7 +51,7 @@ router.get('/addgrade', withAuth, (req, res) => {
         });
 });
 
-//ENGLISH LANGUAGE ARTS
+//ENGLISH 
     router.get('/1', withAuth, (req, res) => {
         Student.findAll({
             where: {
@@ -75,7 +75,7 @@ router.get('/addgrade', withAuth, (req, res) => {
         .then(function (dbStudentData) {
             Assignment.findAll({
                 where: {
-                    subject_id: 2
+                    subject_id: 1
                 },
                 include: [{
                     model: Subject,
@@ -91,7 +91,7 @@ router.get('/addgrade', withAuth, (req, res) => {
                         students,
                         assignments
                     }
-                    res.render('gradebookMath', { studentsAndAssignments, loggedIn: true });
+                    res.render('gradebookELA', { studentsAndAssignments, loggedIn: true });
                 })
                 .catch(err => {
                     res.status(500).json({
@@ -100,8 +100,6 @@ router.get('/addgrade', withAuth, (req, res) => {
                 })
         })
 });
-
-
 
 
 
@@ -176,33 +174,34 @@ router.get('/3', withAuth, (req, res) => {
             ]
         }],
     })
-        .then(function (dbStudentData) {
-            Assignment.findAll({
-                where: {
-                    subject_id: 3
-                },
-                include: [{
-                    model: Subject,
-                    attributes: [['id', 'subject_id'], 'subject_name'],
-                }],
-                attributes: ['id', 'assignment_name'],
-                order: [['subject_id', 'ASC']]
+    .then(function (dbStudentData) {
+        Assignment.findAll({
+            where: {
+                subject_id: 3
+            },
+            include: [{
+                model: Subject,
+                attributes: [['id', 'subject_id'], 'subject_name'],
+            }],
+            attributes: ['id', 'assignment_name'],
+            order: [['subject_id', 'ASC']]
+        })
+            .then(dbAssignmentData => {
+                const students = dbStudentData.map(student => student.get({ plain: true }));
+                const assignments = dbAssignmentData.map(assignment => assignment.get({ plain: true }));
+                const studentsAndAssignments = {
+                    students,
+                    assignments
+                }
+                console.log(studentsAndAssignments);
+                res.render('gradebookScience', { studentsAndAssignments, loggedIn: true });
             })
-                .then(dbAssignmentData => {
-                    const students = dbStudentData.map(student => student.get({ plain: true }));
-                    const assignments = dbAssignmentData.map(assignment => assignment.get({ plain: true }));
-                    const studentsAndAssignments = {
-                        students,
-                        assignments
-                    }
-                    res.render('gradebookScience', { studentsAndAssignments, loggedIn: true });
-                })
-                .catch(err => {
-                    res.status(500).json({
-                        msg: `Sorry, this one's on our end. Try again? Error: ${err}`
-                    });
-                })
-        });
+            .catch(err => {
+                res.status(500).json({
+                    msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+                });
+            })
+    })
 });
 
 
