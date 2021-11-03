@@ -18,46 +18,29 @@ async function signupFormHandler(event) {
       });
       if (res.ok) {
          addSubject();
-         document.location.replace('/dashboard');
       } else {
-         alert(res.statusText);
+         alert(res.statusText + "13");
       }
    }
 }
 
 addSubject = async () => {
-   // const subjectsArray = ['English', 'Math', 'Science', 'Social Studies'];
-
-   const subject_name = 'English';
-   const res = await fetch('/api/subjects', {
-      method: 'post',
-      body: JSON.stringify({ subject_name }),
-      headers: {
-         'Content-Type': 'application/json'
+   let subjectsArray = ['English', 'Math', 'Science', 'Social Studies'];
+   for (i = 0; i < subjectsArray.length; i++) {
+      let subject_name = subjectsArray[i];
+      const res = await fetch('/api/subjects', {
+         method: 'post',
+         body: JSON.stringify({ subject_name }),
+         headers: {
+            'Content-Type': 'application/json'
+         }
+      });
+      if (res.ok) {
+          document.location.replace('/dashboard');
+      } else {
+         alert(res.statusText);
       }
-   });
-   if (res.ok) {
-      console.log('it worked');
-   } else {
-      alert(res.statusText);
    }
-
-   // let subjectsArray = ['English', 'Math', 'Science', 'Social Studies'];
-   // for (i = 0; i < subjectsArray.length; i++) {
-   //    let subject_name = subjectsArray[i];
-   //    const res = await fetch('/api/subjects', {
-   //       method: 'post',
-   //       body: JSON.stringify({ subject_name }),
-   //       headers: {
-   //          'Content-Type': 'application/json'
-   //       }
-   //    });
-   //    if (res.ok) {
-   //       console.log('it worked');
-   //    } else {
-   //       alert(res.statusText);
-   //    }
-   // }
 };
 
 

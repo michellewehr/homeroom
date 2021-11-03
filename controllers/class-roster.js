@@ -16,14 +16,12 @@ router.get('/', withAuth, (req, res) => {
                 res.render('class-roster');
             }
             const students = dbStudentData.map(student => student.get({ plain: true }));
-            console.log(students)
             res.render('class-roster', {
                 students,
                 loggedIn: true
             });
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         })
 });

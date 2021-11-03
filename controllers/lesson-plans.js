@@ -23,7 +23,6 @@ router.get('/', withAuth, (req, res) => {
             });
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         })
 });
@@ -44,7 +43,6 @@ router.post('/api/lessonplans', withAuth, ({ body }, res) => {
     })
         .then(dbLessonPlanData => res.json({ msg: `Successfully added new lesson plan!` }))
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -66,7 +64,6 @@ router.get('/filterSub/:userSelection', withAuth, (req, res) => {
             res.render('lessonsBySubj', {lessons})
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         })
 })
@@ -74,7 +71,6 @@ router.get('/filterSub/:userSelection', withAuth, (req, res) => {
 
 // get one lesson plan by id
 router.get('/:id', withAuth, (req, res) => {
-    console.log('ho')
     LessonPlan.findOne({
         where: {
             id: req.params.id
@@ -93,7 +89,6 @@ router.get('/:id', withAuth, (req, res) => {
             res.render('single-lesson-plan', {lesson});
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });

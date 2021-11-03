@@ -1,18 +1,3 @@
-console.log('hi');
-console.log(document.querySelector('#lessonDate').value);
-
-    // const lesson_date = document.querySelector('#lessonDate');
-
-    // lesson_date.addEventListener('change', () => {
-    //     console.log(lesson_date.value)
-    //     const subject = document.querySelector('#subject')
-    //     const subject_id = subject.options[subject.selectedIndex].value;
-    //     console.log(subject_id);
-    //     console.log(document.querySelector('#lessonName').value.trim());
-    //     console.log(document.querySelector('#objective').value.trim());
-    //     console.log(document.querySelector('#activity').value.trim());
-    //     console.log(document.querySelector('#materials').value.trim());
-    // })
 
     async function addAssignment(event) {
         event.preventDefault();
@@ -30,7 +15,6 @@ console.log(document.querySelector('#lessonDate').value);
             }
         })
         if(res.ok) {
-           console.log('assignmentAdded')
            addLessonPlanHandler();
         } else {
             console.log('NOPE')
@@ -39,7 +23,6 @@ console.log(document.querySelector('#lessonDate').value);
 
 // add lesson plan
 async function addLessonPlanHandler(event) {
-    console.log('hello');
 
     //gets user inputs-- works
     const lesson_date = document.querySelector('#lessonDate').value;

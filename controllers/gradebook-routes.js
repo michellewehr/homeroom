@@ -16,7 +16,6 @@ router.get('/', withAuth, (req, res) => {
                 res.render('gradebook-subjects', {subjects, loggedIn: true });
                  })
             .catch(err => {
-                console.log(err);
                 res.status(500).json(err);
             });
     });
@@ -44,7 +43,6 @@ router.get('/', withAuth, (req, res) => {
                 res.render('addGrade', {students, assignments, loggedIn: true});
                 })
                 .catch(err => {
-                    console.log(err);
                     res.status(500).json(err);
                 })
             
@@ -91,7 +89,6 @@ router.get('/', withAuth, (req, res) => {
                     res.render('gradebookELA', {studentsAndAssignments, loggedIn: true});
                 })
                 .catch(err => {
-                    console.log(err);
                     res.status(500).json(err);
                 })
             })
@@ -137,11 +134,9 @@ router.get('/2', withAuth, (req, res) => {
                     students,
                     assignments
                 }
-                console.log({studentsAndAssignments})
                 res.render('gradebookMath', {studentsAndAssignments, loggedIn: true});
             })
             .catch(err => {
-                console.log(err);
                 res.status(500).json(err);
             })
         })
@@ -184,11 +179,9 @@ router.get('/3', withAuth, (req, res) => {
                     students,
                     assignments
                 }
-                console.log({studentsAndAssignments})
                 res.render('gradebookScience', {studentsAndAssignments, loggedIn: true});
             })
             .catch(err => {
-                console.log(err);
                 res.status(500).json(err);
             })
         })
@@ -232,11 +225,9 @@ router.get('/4', withAuth, (req, res) => {
                     students,
                     assignments
                 }
-                console.log({studentsAndAssignments})
                 res.render('gradebookSocialStudies', {studentsAndAssignments});
             })
             .catch(err => {
-                console.log(err);
                 res.status(500).json(err);
             })
         })

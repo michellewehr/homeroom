@@ -17,11 +17,9 @@ router.get('/', withAuth, (req, res) => {
         }]
     })
         .then(dbGradeData => {
-            console.log(dbGradeData)
             res.json(dbGradeData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         })
 })
@@ -50,7 +48,6 @@ router.get('/:id', withAuth, (req, res) => {
             res.json(dbGradeData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -69,7 +66,6 @@ router.post('/', withAuth, ({ body }, res) => {
             })
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });

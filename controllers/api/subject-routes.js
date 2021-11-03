@@ -4,15 +4,11 @@ const withAuth = require('../../utils/withAuth');
 
 // list all subjects
 router.get('/', withAuth, (req, res) => {
-    Subject.findAll({
-        attributes: ['id', 'subject_name']
-    })
+    Subject.findAll({})
         .then(dbSubjectData => {
-            console.log(dbSubjectData)
             res.json(dbSubjectData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -33,7 +29,6 @@ router.get('/:id', withAuth, (req, res) => {
             json(dbSubjectData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -52,7 +47,6 @@ router.post('/', withAuth, (req, res) => {
             res.json(dbSubjectData);
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });

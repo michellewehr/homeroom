@@ -13,11 +13,9 @@ router.get('/', withAuth, (req, res) => {
         order: [['subject_id', 'ASC']]
     })
         .then(dbAssignmentData => {
-            console.log(dbAssignmentData)
             res.json(dbAssignmentData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         })
 });
@@ -42,7 +40,6 @@ router.get('/:id', withAuth, (req, res) => {
             res.json(dbAssignmentData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -60,7 +57,6 @@ router.post('/', withAuth, ({ body }, res) => {
             })
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });

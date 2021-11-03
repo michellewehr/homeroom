@@ -12,11 +12,9 @@ router.get('/', withAuth, (req, res) => {
         order: [['last_name', 'ASC']]
     })
         .then(dbStudentData => {
-            console.log(dbStudentData)
             res.json(dbStudentData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         })
 });
@@ -41,11 +39,9 @@ router.get('/grades/:subject', withAuth, (req, res) => {
         }],
     })
         .then(dbStudentData => {
-            console.log(dbStudentData)
             res.json(dbStudentData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         })
 });
@@ -65,7 +61,6 @@ router.get('/:id', withAuth, (req, res) => {
             res.json(dbStudentData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -87,7 +82,6 @@ router.post('/', withAuth, (req, res) => {
             })
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });

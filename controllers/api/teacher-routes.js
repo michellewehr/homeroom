@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
       res.json(dbTeacherData)
     })
     .catch(err => {
-      console.log(err);
       res.status(500).json(err);
     });
 });
@@ -47,9 +46,6 @@ router.post('/', async (req, res) => {
 
         res.json(dbTeacherData);
       })
-      console.log(req.session.email+ ' outside');
-      console.log(req.session.teacher_id);
-      console.log(req.session.loggedIn);
     })
     .catch(err => {
       res.status(500).json({
@@ -95,10 +91,10 @@ router.post('/login', (req, res) => {
       req.session.views = 1
     }
 
-    console.log(req.session)
-    console.log('EEEEEEEEEEEEEEEEE')
   })
-    .catch(err => { console.log(err) });
+    .catch(err => {
+      res.status(500).json(err)
+    });
 });
 
 router.post('/logout', (req, res) => {

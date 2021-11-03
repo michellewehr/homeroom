@@ -2,8 +2,6 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Student, Grade, Assignment, Subject } = require('../models');
 
-//PLAYIGN AROUND!!!!
-//fetching to figure out js gradebook
 // list all students with assignments and grades
 router.get('students/grades/:id', (req, res) => {
     Student.findAll({
@@ -42,7 +40,6 @@ router.get('students/grades/:id', (req, res) => {
                 
             })
             .catch(err => {
-                console.log(err);
                 res.status(500).json(err);
             })
         })
