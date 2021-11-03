@@ -7,9 +7,8 @@ const withAuth = require('../utils/withAuth')
 router.get('/', withAuth, (req, res) => {
     Subject.findAll({
         where: {
-            teacher_id: req.session.teacher_id
+            teacher_subj_id: req.session.teacher_id
         },
-        attributes: ['id', 'subject_name']
     })
         .then(dbSubjectData => {
             const subjects = dbSubjectData.map(subject => subject.get({ plain: true }));
