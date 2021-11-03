@@ -53,6 +53,9 @@ router.get('/', withAuth, (req, res) => {
 //ENGLISH LANGUAGE ARTS
     router.get('/1', withAuth, (req, res) => {
         Student.findAll({
+            where: {
+                teacher_id: req.session.teacher_id
+            },
             order: [['last_name', 'ASC']],
             include: [{
                 model: Grade,
@@ -101,6 +104,9 @@ router.get('/', withAuth, (req, res) => {
 // MATH
 router.get('/2', withAuth, (req, res) => {
     Student.findAll({
+        where: {
+            teacher_id: req.session.teacher_id
+        },
         order: [['last_name', 'ASC']],
         include: [{
             model: Grade,
@@ -146,6 +152,9 @@ router.get('/2', withAuth, (req, res) => {
 // SCIENCE
 router.get('/3', withAuth, (req, res) => {
     Student.findAll({
+        where: {
+            teacher_id: req.session.teacher_id
+        },
         order: [['last_name', 'ASC']],
         include: [{
             model: Grade,
@@ -192,6 +201,9 @@ router.get('/3', withAuth, (req, res) => {
 // SOCIAL STUDIES
 router.get('/4', withAuth, (req, res) => {
     Student.findAll({
+        where: {
+            teacher_id: req.session.teacher_id
+        },
         order: [['last_name', 'ASC']],
         include: [{
             model: Grade,
