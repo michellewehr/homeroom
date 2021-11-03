@@ -20,7 +20,9 @@ router.get('/', withAuth, (req, res) => {
             res.json(dbGradeData)
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         })
 })
 
@@ -48,7 +50,9 @@ router.get('/:id', withAuth, (req, res) => {
             res.json(dbGradeData)
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 
@@ -66,7 +70,9 @@ router.post('/', withAuth, ({ body }, res) => {
             })
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 

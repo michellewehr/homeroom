@@ -1,0 +1,49 @@
+.fs-30 {
+  font-size: 30px !important;
+}
+
+.fs-20 {
+  font-size: 20px !important;
+}
+
+.blurb a {
+  text-decoration: inherit;
+  color: inherit;
+  color: var(--sea-green);
+  font-size: 2.5rem;
+}
+
+.blurb a:hover {
+  color: var(--blurb-hover);
+}
+
+.welcome-heading {
+  font-size: 3rem;
+  padding-bottom: 1rem;
+  color: var(--subtitle);
+}
+.subtitle {
+  color: var(--subtitle);
+  font-size: 1.5rem;
+}
+
+.homepage-nav-link {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.login-heading {
+  text-align: center;
+  padding-top: 3rem;
+  color: var(--login-heading);
+  font-size: 3rem;
+}
+
+.single-lesson span {
+  color: var(--bg-color-dark);
+  font-size: smaller;
+}
+
+.option-block h3 {
+  padding: 1.5rem;
+}

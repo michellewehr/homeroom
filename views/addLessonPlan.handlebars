@@ -13,10 +13,9 @@
                         <label for="subject">Subject:</label>
                         <select type="" class="form-control" name="subject" id="subject">
                             <option selected="selected" disabled="true">--Please Select --</option>
-                            <option value="1" data-subjectId="1">Language Arts</option>
-                            <option value="2" data-subjectId="2">Math</option>
-                            <option value="3" data-subjectId="3">Science</option>
-                            <option value="4" data-subjectId="4" >Social Studies</option>
+                            {{#each subjects as |subject|}}
+                            <option value="{{subject.subject_value}}">{{subject.subject_name}}</option>
+                            {{/each}}
                             </select>
                     </div>
                     <div class="form-group">

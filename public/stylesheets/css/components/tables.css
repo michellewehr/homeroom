@@ -1,0 +1,13 @@
+table {
+  border: var(--black-border-1px);
+  margin-left: 5rem;
+  width: 80vw;
+}
+table tr {
+  border-bottom: var(--black-border-1px);
+}
+
+table td,
+table th {
+  border-left: var(--black-border-1px);
+}

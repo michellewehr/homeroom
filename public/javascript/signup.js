@@ -16,32 +16,48 @@ async function signupFormHandler(event) {
             'Content-Type': 'application/json'
          }
       });
-      if (res.ok) {
-         addSubject();
-      } else {
-         alert(res.statusText + "13");
-      }
+      res.ok ? addSubject() : alert(`Request failed -- ${res.status}: ${res.statusText}.`);
+   } else {
+      alert(`All fields must be filled in!`);
    }
+
 }
 
+// addSubject = async () => {
+
+//    const subjectsArray = ['English', 'Math', 'Science', 'Social Studies'];
+
+//    await Promise.all(
+//       subjectsArray.map(async subject_name => {
+//          const res = await fetch('/api/subjects', {
+//             method: 'post',
+//             body: JSON.stringify({ subject_name }),
+//             headers: {
+//                'Content-Type': 'application/json'
+//             }
+//          });
+//          const subjectRes = await res.json();
+//          console.log(subjectRes);
+//          res.ok ? document.location.replace('/dashboard') : alert(`Something went wrong when adding subjects -- ${res.status}: ${res.statusText}`);
+//       })
+//    )
+// };
+
 addSubject = async () => {
-   let subjectsArray = ['English', 'Math', 'Science', 'Social Studies', 'Language Arts'];
+   let subject_value = 0;
+   let subjectsArray = ['English', 'Math', 'Science', 'Social Studies'];
    for (i = 0; i < subjectsArray.length; i++) {
+      subject_value++;
       let subject_name = subjectsArray[i];
       const res = await fetch('/api/subjects', {
          method: 'post',
-         body: JSON.stringify({ subject_name }),
+         body: JSON.stringify({ subject_name, subject_value }),
          headers: {
             'Content-Type': 'application/json'
          }
       });
-      if (res.ok) {
-          document.location.replace('/dashboard');
-      } else {
-         alert(res.statusText);
-      }
+      res.ok ? document.location.replace('/dashboard') : alert(`Something went wrong when adding subjects -- ${res.status}: ${res.statusText}`);
    }
 };
-
 
 document.querySelector('.signup-container').addEventListener('submit', signupFormHandler);
