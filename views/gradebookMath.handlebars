@@ -1,11 +1,12 @@
   {{#if loggedIn}}
   {{> navbar}}
+   {{> back_button}}
        <div class="row">
           <h2 class="heading gradebookTitle col"> {{studentsAndAssignments.assignments.[0].subject.subject_name}}
              Grade Book</h2>
              <a href="/grades/addgrade/2" class="adda col"><h4 class="addGrade">Add Grade</h4><img src="/assets/images/addagain.png" class="addBtn" style="height: 5rem; width: auto;" alt="grey plus sign picture"></a>
           </div>
- {{> back_button}}
+
 
       <section>
           <table class="gradeBook">
