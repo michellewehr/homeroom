@@ -1,13 +1,16 @@
 table {
   border: var(--black-border-1px);
+  border: 1px solid black;
   margin-left: 5rem;
   width: 80vw;
 }
 table tr {
   border-bottom: var(--black-border-1px);
+  border-bottom: 1px solid black;
 }
 
 table td,
 table th {
   border-left: var(--black-border-1px);
+  border-left: 1px solid black;
 }
