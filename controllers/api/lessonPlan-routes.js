@@ -5,6 +5,7 @@ const withAuth = require('../../utils/withAuth')
 // list all lesson plans ordered by date and subject
 router.get('/', withAuth, (req, res) => {
     LessonPlan.findAll({
+        attributes: { exclude: ['teacherId'] },
         where: {
             teacher_lesson_id: req.session.teacher_id
         },
@@ -75,14 +76,14 @@ router.get('/:id', withAuth, (req, res) => {
 });
 
 // add a lesson plan
-router.post('/', withAuth, ({ body }, res) => {
+router.post('/', withAuth, (req, res) => {
     LessonPlan.create({
-        lesson_date: body.lesson_date,
-        subject_id: body.subject_id,
-        lesson_name: body.lesson_name,
-        lesson_objective: body.lesson_objective,
-        lesson_activity: body.lesson_activity,
-        materials: body.materials,
+        lesson_date: req.body.lesson_date,
+        subject_id: req.body.subject_id,
+        lesson_name: req.body.lesson_name,
+        lesson_objective: req.body.lesson_objective,
+        lesson_activity: req.body.lesson_activity,
+        materials: req.body.materials,
         teacher_lesson_id: req.session.teacher_id
     })
         .then(dbLessonPlanData => {
