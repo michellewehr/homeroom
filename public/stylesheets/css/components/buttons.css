@@ -4,3 +4,10 @@
   padding-right: 3rem;
   font-size: larger;
 }
+.backBtn {
+  border: 1px solid black;
+  background-color: var(--white-yellow);
+  margin: 2rem 5rem 1rem;
+  padding: 0 1rem;
+  font-size: large;
+}

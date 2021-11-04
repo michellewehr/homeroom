@@ -22,3 +22,6 @@ async function addStudentHandler(event) {
 }
 
 document.querySelector('.addStudent').addEventListener('click', addStudentHandler);
+document.querySelector('.backBtn').addEventListener('click', () => {
+   window.history.back();
+})

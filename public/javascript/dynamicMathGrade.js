@@ -94,7 +94,9 @@ fetch('/api/students/grades/2')
         }
     })
 
-
+    document.querySelector('.backBtn').addEventListener('click', () => {
+        window.history.back();
+    })
 
 
 
