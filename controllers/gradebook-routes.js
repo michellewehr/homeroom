@@ -23,7 +23,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 //renders add grade page
-router.get('/addgrade', withAuth, (req, res) => {
+router.get('/addgrade/:id', withAuth, (req, res) => {
     Student.findAll({
         where: {
             teacher_id: req.session.teacher_id
@@ -32,13 +32,16 @@ router.get('/addgrade', withAuth, (req, res) => {
     })
         .then(dbStudentData => {
             Assignment.findAll({
+                where: {
+                    subject_id: req.params.id
+                },
                 include: [{
                     model: Subject,
-                    attributes: [['id', 'subject_id'], 'subject_name'],
+                    // attributes: [['id', 'subject_id'], 'subject_name'],
                 }],
-                attributes: ['id', 'assignment_name', 'teacher_assign_id'],
+                attributes: ['id', 'assignment_name'],
                 where: {
-                    teacher_assign_id: req.session.teacher_id
+                    subject_id: req.params.id
                 },
                 order: [['subject_id', 'ASC']]
             })

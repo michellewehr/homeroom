@@ -15,6 +15,7 @@ router.use('/', homeRoutes);
 router.use('/class-roster', classRosterRoutes);
 router.use('/lesson-plans', lessonPlanRoutes);
 router.use('/grades/api/students', fetchGradeBookAPIroutes);
+router.use('/grades/addgrade/api/', apiRoutes);
 router.use('/grades', gradebookRoutes);
 router.use('/grades/api', apiRoutes);
 router.use('/lesson-plans/api', apiRoutes);
