@@ -42,21 +42,16 @@ router.get('/grades/:id', (req, res) => {
         }],
     })
         .then(dbStudentData => {
-        //     Assignment.findAll({
-        //         where: {
-        //             subject_id: req.params.id
-        //         },
-        //         include: [{
-        //             model: Subject,
-        //             where: {
-        //                 teacher_subj_id: req.session.teacher_id
-        //             }
-        //         }],
-        //         attributes: ['id', 'assignment_name'],
-        //         order: [['subject_id', 'ASC']]
-        //     })
-                // .then(dbAssignmentData => {
-                    console.log(dbStudentData)
+            // Assignment.findAll({
+            //     include: [{
+            //         model: Subject,
+            //     }],
+            //     attributes: ['id', 'assignment_name'],
+            //     order: [['subject_id', 'ASC']]
+            // })
+            //     .then(dbAssignmentData => {
+                    console.log(dbStudentData);
+                    // console.log(dbAssignmentData);
                     const students = dbStudentData.map(student => student.get({ plain: true }));
                     // const assignments = dbAssignmentData.map(assignment => assignment.get({ plain: true }));
                     res.json(students, 

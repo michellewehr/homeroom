@@ -32,9 +32,6 @@ router.get('/', withAuth, (req, res) => {
 
 router.get('/addLessonPlan', withAuth, (req, res) => {
     Subject.findAll({
-        where: {
-            teacher_subj_id: req.session.teacher_id
-        }
     })
         .then(dbSubjectData => {
             console.log(dbSubjectData);

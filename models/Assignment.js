@@ -19,6 +19,13 @@ Assignment.init(
          type: DataTypes.INTEGER,
          allowNull: false
       },
+      teacher_assign_id: {
+         type: DataTypes.INTEGER,
+         references: {
+            model: 'teacher',
+            key: 'id'
+         }
+      }
    },
    {
       sequelize,

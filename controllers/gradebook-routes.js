@@ -6,12 +6,10 @@ const withAuth = require('../utils/withAuth')
 
 router.get('/', withAuth, (req, res) => {
     Subject.findAll({
-        where: {
-            teacher_subj_id: req.session.teacher_id
-        },
     })
         .then(dbSubjectData => {
             const subjects = dbSubjectData.map(subject => subject.get({ plain: true }));
+            console.log(subjects);
             res.render('gradebook-subjects', { subjects, loggedIn: true });
         })
         .catch(err => {
@@ -41,6 +39,8 @@ router.get('/addgrade', withAuth, (req, res) => {
                 .then(dbAssignmentData => {
                     const students = dbStudentData.map(student => student.get({ plain: true }));
                     const assignments = dbAssignmentData.map(assignment => assignment.get({ plain: true }));
+                    console.log(students);
+                    console.log(assignments);
                     res.render('addGrade', { students, assignments, loggedIn: true });
                 })
                 .catch(err => {
@@ -66,8 +66,8 @@ router.get('/addgrade', withAuth, (req, res) => {
                         model: Assignment,
                         attributes: ['assignment_name', 'subject_id'],
                         where: {
-                            subject_id: 1
-                        }
+                            subject_id: 1,
+                       }
                     }
                 ]
             }],
@@ -75,7 +75,7 @@ router.get('/addgrade', withAuth, (req, res) => {
         .then(function (dbStudentData) {
             Assignment.findAll({
                 where: {
-                    subject_id: 1
+                    subject_id: 1,
                 },
                 include: [{
                     model: Subject,
@@ -127,7 +127,7 @@ router.get('/2', withAuth, (req, res) => {
         .then(function (dbStudentData) {
             Assignment.findAll({
                 where: {
-                    subject_id: 2
+                    subject_id: 2,
                 },
                 include: [{
                     model: Subject,
@@ -177,7 +177,7 @@ router.get('/3', withAuth, (req, res) => {
     .then(function (dbStudentData) {
         Assignment.findAll({
             where: {
-                subject_id: 3
+                subject_id: 3,
             },
             include: [{
                 model: Subject,
@@ -229,7 +229,7 @@ router.get('/4', withAuth, (req, res) => {
         .then(dbStudentData => {
             Assignment.findAll({
                 where: {
-                    subject_id: 4
+                    subject_id: 4,
                 },
                 include: [{
                     model: Subject,
