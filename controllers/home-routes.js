@@ -1,16 +1,25 @@
 const router = require('express').Router();
+const { session } = require('passport');
 const sequelize = require('../config/connection');
 
 router.get('/', (req, res) => {
     res.render('homepage')
-})
+});
 
 router.get('/signup', (req, res) => {
-    res.render('signup')
-})
+    if (req.session.loggedIn) {
+        res.redirect('/dashboard');
+    } else {
+        res.render('signup')
+    }
+});
 
 router.get('/login', (req, res) => {
-    res.render('login');
-})
+    if (req.session.loggedIn) {
+        res.redirect('/dashboard');
+    } else {
+        res.render('login');
+    }
+});
 
 module.exports = router;
