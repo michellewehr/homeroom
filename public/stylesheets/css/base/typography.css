@@ -48,3 +48,9 @@
 .option-block h3 {
   padding: 1.5rem;
 }
+
+h2 {
+  text-align: center;
+  font-size: 4rem;
+  padding-bottom: 2rem;
+}

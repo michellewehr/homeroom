@@ -61,6 +61,9 @@
   border: var(--black-border-half);
   margin: 0;
   line-height: 2rem;
+  font-size: 1.4rem;
+  padding: 0.75rem;
+  /* background: var(--white-green); */
 }
 
 .col-name {
@@ -75,6 +78,7 @@
   border: var(--black-border-half);
   margin: 0;
   line-height: 2rem;
+  /* background: var(--white-yellow); */
 }
 
 .addGrade-container {
@@ -84,7 +88,9 @@
 
 .viewLessRow {
   border: var(--black-border-1px);
+  background-color: var(--white-yellow);
 }
+
 .subjGradeBookCol {
   background-color: var(--white-yellow);
 }

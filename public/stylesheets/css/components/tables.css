@@ -1,16 +1,24 @@
 table {
   border: var(--black-border-1px);
-  border: 1px solid black;
   margin-left: 5rem;
   width: 80vw;
 }
+
 table tr {
   border-bottom: var(--black-border-1px);
-  border-bottom: 1px solid black;
+  padding: 0.75rem;
+  font-size: 1.2rem;
 }
 
 table td,
 table th {
   border-left: var(--black-border-1px);
-  border-left: 1px solid black;
+  padding: 1rem;
+  font-size: 1.4rem;
+}
+
+.guardianEmail {
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  vertical-align: center;
 }
