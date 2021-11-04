@@ -6,9 +6,18 @@
 }
 
 .backBtn {
-  border: 1px solid black;
-  background-color: var(--white-yellow);
+  border: var(--black-border-half);
+  background-color: var(--white-green);
+  color: rgb(58, 110, 39);
   margin: 2rem 5rem 1rem;
-  padding: 0 1rem;
-  font-size: large;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.backBtn:hover {
+  transition: 0.5s;
+  background: var(--white-yellow);
 }

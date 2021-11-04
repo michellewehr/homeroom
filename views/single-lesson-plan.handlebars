@@ -3,12 +3,12 @@
       <section class="single-lesson-sect">
                 <div class="row singleHeading">
                     <h3 class="single-lesson-heading col">{{lesson.subject.subject_name}}</h3 class="heading">
-                    <h4 class="subheading col" style="text-align: end; padding-right: 4rem;">{{lesson.lesson_date}}</h4>
+                    <h4 class="subheading col" style="text-align: end; font-size: 2.5rem; padding-right: 4rem;">{{lesson.lesson_date}}</h4>
                 </div>
              
                    <div class="row single-lesson">
                         <div class="col">
-                            <h5 class="subheading">{{lesson.lesson_name}}</h5>
+                            <h5 class="subheading">Lesson Name: <span class="span">{{lesson.lesson_name}}</span></h5>
                         </div>
                         <div class="col">
                             <h5 class="subheading singleHeading ">Learning Objective: <span class="span">{{lesson.lesson_objective}}</span></h5>
@@ -25,10 +25,8 @@
                             <p>{{lesson.materials}}</p>
                         </div>
                     </div>
-                    <div class="row single-lesson">
-                        <h5 class="subheading singleHeading">Assessment:</h5>
-                        <p>{{lesson.lesson_assessment}}</p>
-                    </div>
+                    
       </section>
+{{> back_button}}
 
       {{/if}}
