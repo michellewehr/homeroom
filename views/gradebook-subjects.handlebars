@@ -3,12 +3,12 @@
   {{> back_button}}
 
       <section class="dashboard-section">
-          <h3 class="heading">Grade Books</h3>
+          <h2 class="heading">Grade Books</h2>
           <div class="container subject-container">
               <div class="row">
                   {{#each subjects as |subject|}}
-                  <a href="/grades/{{subject.subject_value}}" class="col-sm subject-block subject option-block" style="text-decoration: inherit; color: inherit;">
-                      <div class="shake" >
+                  <a href="/grades/{{subject.subject_value}}" class="col-sm subject-block subject option-block shake" style="text-decoration: inherit; color: inherit;">
+                      <div>
                           <h3>{{subject.subject_name}} Grade Book</h3>
                       </div>
                   </a>  

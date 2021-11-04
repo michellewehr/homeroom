@@ -2,11 +2,10 @@
   {{> navbar}}
     
       <section>
-        <div>
-          <h3 class="heading col">Class Roster</h3>
+        <div class="pb-5">
+          <h2 class="heading col">Class Roster</h2>
           {{> back_button}}
         </div>
-          <br>
           <div class="container class-roster-container">
               <div class="row">
                   <p class="lastName col col-name">Last Name</p>
@@ -24,14 +23,13 @@
               </div>
             {{/each}}
 
-              <form class="row add-student-form">
+              <form class="row add-student-form pb-3">
                 <input type="text" placeholder="Last Name" name="lastName" class="lastName col" id="lastName">
                 <input type="text" name="firstName" placeholder="First Name" class="firstName col" id="firstName">
                 <input type="text" name="guardian" placeholder="Guardian Name" class="guardian col" id="guardian">
                 <input type="email" class="email col" placeholder="email@domain.com" name="email" id="guardianEmail">
             </form>
-            <br>
-            <button type="submit" class="btn btn-secondary addStudent">Submit</button>
+            <button type="submit" class="btn btn-secondary addStudent">Add Student</button>
       </section>
 
 
