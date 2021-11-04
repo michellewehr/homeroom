@@ -5,3 +5,7 @@ sel.addEventListener('change', () => {
     var userSelection= sel.options[sel.selectedIndex].dataset.subjid;
     document.location.replace(`/lesson-plans/filterSub/${userSelection}`);
 });
+
+document.querySelector('.backBtn').addEventListener('click', () => {
+    window.history.back();
+})

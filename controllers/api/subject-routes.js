@@ -5,6 +5,7 @@ const withAuth = require('../../utils/withAuth');
 // list all subjects
 router.get('/', withAuth, (req, res) => {
     Subject.findAll({
+        attributes: { exclude: ['icon_url', 'subject_id', 'teacherId'] }
     })
         .then(dbSubjectData => {
             res.json(dbSubjectData)

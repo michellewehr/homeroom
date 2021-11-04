@@ -48,3 +48,6 @@ async function addLessonPlanHandler(event) {
 
 
 document.querySelector('.submitAddLeson').addEventListener('click', addAssignment);
+document.querySelector('.backBtn').addEventListener('click', () => {
+    window.history.back();
+})
