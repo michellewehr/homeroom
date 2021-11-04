@@ -2,9 +2,10 @@
   background-color: var(--white-green);
   border-radius: 10px;
   padding: 1.5rem;
-  position: relative;
-  top: 5rem;
-  right: 9rem;
+  position: absolute;
+  min-width: 300px;
+  top: 15%;
+  left: 10%;
 }
 
 .signup-background {
@@ -22,6 +23,10 @@
   border-radius: 10px;
   padding: 1.5rem;
   margin: 2rem;
+}
+
+.login-container {
+  margin: 0px;
 }
 
 .login-background {
