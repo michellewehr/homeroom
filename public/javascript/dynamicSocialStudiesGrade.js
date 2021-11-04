@@ -91,3 +91,4 @@ fetch('/api/students/grades/4')
             }
         }
     })
+

@@ -1,9 +1,9 @@
   {{#if loggedIn}}
   {{> navbar}}
 
-        
+    
       <section class="dashboard-section pb-5">
-          <h3 class="heading">Welcome {{teacher.first_name}}!</h3>
+          <h3 class="animate__animated animate__slideInRight heading welcomeHeading">Welcome {{teacher.first_name}}!</h3>
           <div class="container dashboard-container">
               <div class="row">
                   <a class="col-sm shake" href="/class-roster" >
@@ -25,7 +25,7 @@
                   <a class="col-sm shake" href="/grades">
                       <div class="option-block  option3">
                   <br>
-                          <h3>Grade Book</h3>
+                          <h3>Grade Books</h3>
                           <br>
                           <img class="optionIcon" src="../assets/images/anotherGrade.png" alt="">
                       </div>
@@ -34,4 +34,5 @@
           </div>
       </section>
         <script src="/javascript/dash.js"></script>
+     
       {{/if}}

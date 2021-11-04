@@ -1,7 +1,7 @@
 
 async function addAssignment(event) {
     event.preventDefault();
-    let assignment_name = document.querySelector('#assessment').value.trim();
+    let assignment_name = document.querySelector('#lessonName').value.trim();
     const subject_id = subject.options[subject.selectedIndex].value;
 
     const res = await fetch('api/assignments', {
@@ -48,3 +48,6 @@ async function addLessonPlanHandler(event) {
 
 
 document.querySelector('.submitAddLeson').addEventListener('click', addAssignment);
+document.querySelector('.backBtn').addEventListener('click', () => {
+    window.history.back();
+})

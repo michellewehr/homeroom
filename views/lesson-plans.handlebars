@@ -2,6 +2,7 @@
   {{> navbar}}
  
 {{> filterLessons}}
+
      
 
      <div class="container">
@@ -24,7 +25,7 @@
                  <p>{{lesson.lesson_date}}</p>
                 </div>
                 <div class="col lessSubj">
-                    <a href="/toFilterBySubj" style="text-decoration: inherit; color: inherit;">{{lesson.subject.subject_name}}</a>
+                    <p style="text-decoration: inherit; color: inherit;">{{lesson.subject.subject_name}}</p>
                 </div>
                 <div class="col lessName">
                     <a href="/lesson-plans/{{lesson.id}}" style="text-decoration: inherit; color: inherit;">{{lesson.lesson_name}}</a>
@@ -32,6 +33,7 @@
          </div>
          {{/each}}
      </div>
+        
  </section>
  
 

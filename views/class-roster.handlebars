@@ -2,7 +2,10 @@
   {{> navbar}}
     
       <section>
-          <h3 class="heading">Class Roster</h3>
+        <div>
+          <h3 class="heading col">Class Roster</h3>
+          {{> back_button}}
+        </div>
           <br>
           <div class="container class-roster-container">
               <div class="row">
@@ -29,8 +32,8 @@
             </form>
             <br>
             <button type="submit" class="btn btn-secondary addStudent">Submit</button>
-
       </section>
+
 
       <script src="/javascript/addstudent.js"></script>
       {{/if}}

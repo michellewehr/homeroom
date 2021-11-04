@@ -95,10 +95,6 @@ fetch('/api/students/grades/2')
     })
 
 
-
-
-
-
 //works
 // alert(table.rows.length);
 // alert(table.rows[0].cells.length);

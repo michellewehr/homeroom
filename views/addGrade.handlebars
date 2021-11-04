@@ -1,6 +1,6 @@
   {{#if loggedIn}}
   {{> navbar}}
-
+{{> back_button}}
   
   <section>
           <h3 class="heading">Enter Into the GradeBook:</h3>
@@ -10,11 +10,7 @@
                 <div class="form-group">
                     <label for="subject">Subject:</label>
                     <select type="" class="form-control" name="subject" id="subject">
-                        <option selected="selected" disabled="true">--Please Select --</option>
-                        <option value="1">English</option>
-                        <option value="2">Math</option>
-                        <option value="3">Science</option>
-                        <option value="4">Social Studies</option>
+                <option selected value="{{assignments.[0].subject.subject_value}}">{{assignments.[0].subject.subject_name}}</option>
                         </select>
                 </div>
                  <div class="form-group">
@@ -32,7 +28,7 @@
                     <select type="" class="form-control" name="subject" id="assignment">
                     <option selected="selected" disabled="true">--Please Select --</option>
                      {{#each assignments as |assignment|}}
-                        <option value="{{id}}">{{assignment_name}}</option>
+                        <option value="{{assignment.id}}">{{assignment_name}}</option>
                     {{/each}}
                     </select>
                  </div>

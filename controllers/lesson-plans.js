@@ -13,15 +13,13 @@ router.get('/', withAuth, (req, res) => {
             ['lesson_date', 'ASC'],
             ['subject_id', 'ASC']
         ],
-         include: [{
+        include: [{
             model: Subject,
-            where: {
-                teacher_subj_id: req.session.teacher_id
-            },
             attributes: ['subject_name'],
         }]
     })
         .then(dbLessonPlanData => {
+            console.log(dbLessonPlanData);
             const lessons = dbLessonPlanData.map(lesson => lesson.get({ plain: true }));
             res.render('lesson-plans', {
                 lessons,
@@ -42,22 +40,22 @@ router.get('/addLessonPlan', withAuth, (req, res) => {
         .then(dbSubjectData => {
             console.log(dbSubjectData);
             const subjects = dbSubjectData.map(subject => subject.get({ plain: true }));
-            res.render('addLessonPlan', {subjects, loggedIn: true });
-             })
+            res.render('addLessonPlan', { subjects, loggedIn: true });
+        })
         .catch(err => {
             res.status(500).json(err);
         });
 })
 
 // add a lesson plan--had to add the url-- TODO: go back and fix this to be correct
-router.post('/api/lessonplans', withAuth, (req, res) => {
+router.post('/', withAuth, ({ body }, res) => {
     LessonPlan.create({
-        lesson_date: req.body.lesson_date,
-        subject_id: req.body.subject_id,
-        lesson_name: req.body.lesson_name,
-        lesson_objective: req.body.lesson_objective,
-        lesson_activity: req.body.lesson_activity,
-        materials: req.body.materials,
+        lesson_date: body.lesson_date,
+        subject_id: body.subject_id,
+        lesson_name: body.lesson_name,
+        lesson_objective: body.lesson_objective,
+        lesson_activity: body.lesson_activity,
+        materials: body.materials,
         teacher_lesson_id: req.session.teacher_id
     })
         .then(dbLessonPlanData => {
@@ -85,12 +83,12 @@ router.get('/filterSub/:userSelection', withAuth, (req, res) => {
         }]
     })
         .then(dbLessonPlanData => {
-            const lessons = dbLessonPlanData.map(lesson => lesson.get({plain: true}))
+            const lessons = dbLessonPlanData.map(lesson => lesson.get({ plain: true }))
             res.render('lessonsBySubj',
-            {
-                lessons,
-                loggedIn: true
-            })
+                {
+                    lessons,
+                    loggedIn: true
+                })
         })
         .catch(err => {
             res.status(500).json({
@@ -117,7 +115,7 @@ router.get('/:id', withAuth, (req, res) => {
                 return;
             }
             const lesson = dbLessonPlanData.get({ plain: true });
-            res.render('single-lesson-plan', {lesson, loggedIn: true});
+            res.render('single-lesson-plan', { lesson, loggedIn: true });
         })
         .catch(err => {
             res.status(500).json({
