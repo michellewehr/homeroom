@@ -5,6 +5,9 @@ const withAuth = require('../../utils/withAuth')
 // list all lesson plans ordered by date and subject
 router.get('/', withAuth, (req, res) => {
     LessonPlan.findAll({
+        where: {
+            teacher_subj_id: req.session.teacher_id
+        },
         order: [
             ['lesson_date', 'ASC'],
             ['subject_id', 'ASC']
@@ -12,9 +15,6 @@ router.get('/', withAuth, (req, res) => {
         include: [{
             model: Subject,
             attributes: ['subject_name'],
-            where: {
-                teacher_subj_id: req.session.teacher_id
-            }
         }]
     })
         .then(dbLessonPlanData => {
@@ -59,9 +59,6 @@ router.get('/:id', withAuth, (req, res) => {
         include: [{
             model: Subject,
             attributes: ['subject_name'],
-            where: {
-                teacher_subj_id: req.session.teacher_id
-            }
         }]
     })
         .then(dbLessonPlanData => {

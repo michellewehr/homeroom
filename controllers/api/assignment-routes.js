@@ -47,12 +47,14 @@ router.get('/:id', withAuth, (req, res) => {
             });
         });
 });
-
+  
 // add an assignment
+
 router.post('/', withAuth, ({ body }, res) => {
-    Assignment.create({
+        Assignment.create({
         assignment_name: body.assignment_name,
-        subject_id: body.subject_id
+        subject_id: body.subject_id,
+        // teacher_assign_id: req.session.teacher_id
     })
         .then(dbAssignmentData => {
             res.status(201);

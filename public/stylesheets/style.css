@@ -4,8 +4,6 @@
   margin: 0;
 }
 
-
-
 .icon,
 .add {
   height: 100px;
@@ -117,6 +115,7 @@
 .logoutBtn {
   border: none;
   background: none;
+  padding-right: 3rem;
 }
 
 /* Dashboard by Subject */
@@ -170,15 +169,12 @@
   justify-content: center;
 }
 
-
-
 .required::before {
-  content: '*';
+  content: "*";
   font-size: 20px;
   padding-right: 10px;
   color: red;
 }
-
 
 .center {
   display: grid;

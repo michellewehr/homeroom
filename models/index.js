@@ -41,6 +41,10 @@ Assignment.belongsTo(Subject, {
     foreignKey: 'subject_id'
 });
 
+Assignment.belongsTo(Teacher, {
+    foreignKey: 'teacher_assign_id'
+});
+
 Assignment.hasOne(Grade);
 
 Grade.belongsTo(Assignment, {

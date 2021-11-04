@@ -1,4 +1,6 @@
 .logoutBtn {
   border: none;
   background: none;
+  padding-right: 3rem;
+  font-size: larger;
 }

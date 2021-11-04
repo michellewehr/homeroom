@@ -21,7 +21,7 @@ async function addGradeHandler(event) {
                 'Content-Type': 'application/json'
             }
         })
-        res.ok ? document.location.replace('/grades') : alert(`Grade could not be added -- ${res.status}: ${res.statusText}`);
+        res.ok ? document.location.replace('/grades/' + subject_id) : alert(`Grade could not be added -- ${res.status}: ${res.statusText}`);
     }
 }
 
