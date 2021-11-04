@@ -6,6 +6,9 @@ const withAuth = require('../utils/withAuth')
 
 router.get('/', withAuth, (req, res) => {
     Subject.findAll({
+        where: {
+            teacher_subj_id: req.session.teacher_id
+        }
     })
         .then(dbSubjectData => {
             const subjects = dbSubjectData.map(subject => subject.get({ plain: true }));
@@ -31,6 +34,9 @@ router.get('/addgrade', withAuth, (req, res) => {
             Assignment.findAll({
                 include: [{
                     model: Subject,
+                    // where: {
+                    //     teacher_subj_id: req.session.teacher_id
+                    // },
                     attributes: [['id', 'subject_id'], 'subject_name'],
                 }],
                 attributes: ['id', 'assignment_name'],

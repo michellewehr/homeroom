@@ -6,7 +6,7 @@ const withAuth = require('../../utils/withAuth')
 router.get('/', withAuth, (req, res) => {
     LessonPlan.findAll({
         where: {
-            teacher_subj_id: req.session.teacher_id
+            teacher_lesson_id: req.session.teacher_id
         },
         order: [
             ['lesson_date', 'ASC'],
@@ -24,6 +24,7 @@ router.get('/', withAuth, (req, res) => {
             res.status(500).json(err);
         })
 });
+
 //get lesson plan by subject
 router.get('/filterSub/:id', withAuth, (req, res) => {
     LessonPlan.findOne({
@@ -82,7 +83,7 @@ router.post('/', withAuth, ({ body }, res) => {
         lesson_objective: body.lesson_objective,
         lesson_activity: body.lesson_activity,
         materials: body.materials,
-        teacher_subj_id: req.session.teacher_id
+        teacher_lesson_id: req.session.teacher_id
     })
         .then(dbLessonPlanData => {
             res.status(201);

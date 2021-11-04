@@ -1,6 +1,7 @@
 const path = require('path');
 const sequelize = require('./config/connection');
 
+
 const cookieParser = require('cookie-parser')
 const express = require('express');
 const exphbs = require('express-handlebars');
@@ -22,6 +23,7 @@ const sess = {
 };
 
 app.use(session(sess));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
