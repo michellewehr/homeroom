@@ -94,12 +94,6 @@ fetch('/api/students/grades/2')
         }
     })
 
-    document.querySelector('.backBtn').addEventListener('click', () => {
-        window.history.back();
-    })
-
-
-
 
 //works
 // alert(table.rows.length);

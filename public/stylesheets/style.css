@@ -1,0 +1,329 @@
+* {
+  font-family: "Playfair Display", serif;
+  padding: 0;
+  margin: 0;
+}
+
+
+.icon,
+.add {
+  height: 100px;
+  width: auto;
+  margin-left: 1.5rem;
+}
+
+.fs-30 {
+  font-size: 30px !important;
+}
+
+.fs-20 {
+  font-size: 20px !important;
+}
+
+.hero {
+  background-image: url("../assets/images/student.jpg");
+  min-height: 100vh;
+  background-size: cover;
+  /* position: absolute; */
+}
+
+.blurb {
+  position: absolute;
+  left: 10vw;
+  max-width: 500px;
+  min-width: 250px;
+  background-color: rgba(92, 105, 96, 0.098);
+  border-radius: 10px;
+  padding: 1vw;
+  margin: 100px 30px 0 0;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  text-align: center;
+  color: black;
+}
+.blurb a {
+  text-decoration: inherit;
+  color: inherit;
+  color: #7b9494;
+  font-size: 2.5rem;
+}
+
+.blurb a:hover {
+  color: #9fcaca;
+}
+.blurb .login,
+.blurb .signup {
+  background-color: #f6eabe;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+}
+.blurb-pic {
+  height: 8rem;
+}
+.welcome-heading {
+  font-size: 3rem;
+  padding-bottom: 1rem;
+  color: black;
+}
+.subtitle {
+  color: rgb(36, 35, 35);
+  font-size: 1.5rem;
+}
+
+.homepage-nav-link {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.signup-background {
+  background-image: url(../assets/images/chalkboard-hand.png);
+  background-position: center;
+  height: 85vh;
+  background-size: cover;
+  position: relative;
+}
+
+.signup-container {
+  background-color: #c8e3d4;
+  border-radius: 10px;
+  padding: 1.5rem;
+  position: relative;
+  top: 5rem;
+  right: 9rem;
+}
+
+.login-heading {
+  text-align: center;
+  padding-top: 3rem;
+  color: rgba(255, 255, 255, 0.406);
+  font-size: 3rem;
+}
+.create-lessonplan-container,
+.login-container {
+  background-color: #c8e3d4;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 2rem;
+}
+
+.login-background {
+  background-image: url(../assets/images/plain-chalkboard.jpg);
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+}
+
+.logoutBtn {
+  border: none;
+  background: none;
+  padding-right: 3rem;
+}
+
+/* Dashboard by Subject */
+.subject-container {
+  margin-top: 2rem;
+}
+.subject-block {
+  padding: 2rem;
+  margin: 2rem;
+  height: 15vh;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.row .add-subject {
+  width: 50%;
+  margin: auto;
+  height: 8vh;
+  border-radius: 10px;
+}
+
+.subject:nth-child(1),
+.option1 {
+  background-color: #87aaaa;
+}
+.subject:nth-child(2),
+.option2 {
+  background-color: #c8e3d4;
+}
+.subject:nth-child(3),
+.option3 {
+  background-color: #f6eabe;
+}
+.subject:nth-child(4) {
+  background-color: #f6d7a7;
+}
+
+/* dashboard like nav bar */
+.dashboard-container {
+  margin-top: 2rem;
+}
+.option-block {
+  margin-top: 5rem;
+  height: 350px;
+  min-width: 250px;
+  max-width: 450px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 1rem;
+  justify-content: center;
+}
+
+.required::before {
+  content: "*";
+  font-size: 20px;
+  padding-right: 10px;
+  color: red;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.option-block h3 {
+  padding: 1.5rem;
+}
+.optionIcon {
+  height: 7rem;
+}
+
+.dashboard-container a {
+  color: inherit;
+  text-decoration: inherit;
+}
+.dashboard-container a:hover {
+  color: #7b9494;
+}
+
+.heading {
+  margin-left: 3rem;
+  padding-top: 3rem;
+}
+.subheading {
+  margin-left: 3rem;
+  padding: 1rem;
+}
+
+.class-roster-container p {
+  border: 0.5px solid black;
+  margin: 0;
+  line-height: 2rem;
+}
+.guardianEmail {
+  color: inherit;
+  text-decoration: inherit;
+  border: 0.5px solid black;
+  margin: 0;
+  line-height: 2rem;
+}
+
+.col-name {
+  font-weight: bold;
+  text-align: center;
+  background-color: #7b9494;
+}
+
+.less-col-name {
+  font-weight: bold;
+  text-align: center;
+  background-color: #c8e3d4;
+  border: 1px solid black;
+  line-height: 2rem;
+}
+
+.addGrade-container {
+  background-color: #f6eabe;
+  padding: 1rem;
+}
+
+.viewLessRow {
+  border: 1px solid black;
+}
+.subjGradeBookCol {
+  background-color: #f6eabe;
+}
+.finalGradeCol {
+  background-color: #c8e3d4;
+}
+
+.attNameCol {
+  background-color: #f6d7a7;
+}
+.dayOfWeekCol {
+  background-color: #f6eabe;
+}
+
+.single-lesson p {
+  margin-left: 3rem;
+  padding: 1rem;
+}
+.single-lesson-heading {
+  font-size: 2rem;
+  margin-left: 3rem;
+  padding: 1rem;
+}
+.single-lesson-sect {
+  background-color: #f6eabe;
+  border-radius: 10px;
+  margin: 2rem;
+}
+
+.singleHeading {
+  color: #5e7a7a;
+}
+.single-lesson span {
+  color: black;
+  font-size: smaller;
+}
+
+.shake {
+  transition: transform 0.1s, scale 0.1s;
+}
+
+.shake:hover {
+  transform: rotate(1deg);
+  scale: 1.01;
+}
+
+.adda {
+  background: none;
+  color: inherit;
+  border: none;
+  padding-top: 1.5rem;
+  outline: inherit;
+  text-align: end;
+  margin-right: 5rem;
+  text-decoration: inherit;
+}
+
+.gradebookTitle {
+  margin-left: 5rem;
+}
+
+.gradebookTitle,
+.addButon {
+  margin-bottom: 3rem;
+}
+.addGrade {
+  display: inline;
+  margin-right: 1rem;
+}
+.subjFilter {
+  margin-left: 5rem;
+}
+
+table {
+  border: 1px solid black;
+  margin-left: 5rem;
+  width: 80vw;
+}
+table tr {
+  border-bottom: 1px solid black;
+}
+
+table td,
+table th {
+  border-left: 1px solid black;
+}
