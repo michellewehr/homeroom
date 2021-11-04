@@ -40,8 +40,9 @@
 }
 
 .single-lesson span {
-  color: var(--bg-color-dark);
-  font-size: smaller;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--subtitle);
 }
 
 .option-block h3 {

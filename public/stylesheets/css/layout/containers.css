@@ -102,12 +102,15 @@
 .single-lesson p {
   margin-left: 3rem;
   padding: 1rem;
+  font-size: 1.4rem;
 }
+
 .single-lesson-heading {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-left: 3rem;
   padding: 1rem;
 }
+
 .single-lesson-sect {
   background-color: var(--white-yellow);
   border-radius: 10px;
@@ -116,10 +119,7 @@
 
 .singleHeading {
   color: var(--sea-green);
-}
-.single-lesson span {
-  color: var(--bg-color-dark);
-  font-size: smaller;
+  font-size: 2rem;
 }
 
 .less-col-name {
@@ -151,9 +151,13 @@
   margin-left: 3rem;
   padding-top: 3rem;
 }
+
 .subheading {
   margin-left: 3rem;
   padding: 1rem;
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--sea-green);
 }
 
 .adda {
