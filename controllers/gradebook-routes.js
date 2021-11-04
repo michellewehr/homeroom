@@ -41,7 +41,8 @@ router.get('/addgrade/:id', withAuth, (req, res) => {
                 }],
                 attributes: ['id', 'assignment_name'],
                 where: {
-                    subject_id: req.params.id
+                    subject_id: req.params.id,
+                    teacher_assign_id: req.session.teacher_id
                 },
                 order: [['subject_id', 'ASC']]
             })
