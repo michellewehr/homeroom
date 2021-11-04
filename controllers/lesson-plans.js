@@ -15,6 +15,9 @@ router.get('/', withAuth, (req, res) => {
         ],
          include: [{
             model: Subject,
+            where: {
+                teacher_subj_id: req.session.teacher_id
+            },
             attributes: ['subject_name'],
         }]
     })
