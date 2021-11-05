@@ -1,5 +1,3 @@
-
-
 async function addGradeHandler(event) {
     event.preventDefault();
 
@@ -22,6 +20,9 @@ async function addGradeHandler(event) {
             }
         })
         res.ok ? document.location.replace('/grades/' + subject_id) : alert(`Grade could not be added -- ${res.status}: ${res.statusText}`);
+    } else {
+        alert(`You need a student and an assignment in order to add a grade!`);
+        return;
     }
 }
 

@@ -36,8 +36,7 @@ router.get('/addgrade/:id', withAuth, (req, res) => {
                     subject_id: req.params.id
                 },
                 include: [{
-                    model: Subject,
-                    // attributes: [['id', 'subject_id'], 'subject_name'],
+                    model: Subject
                 }],
                 attributes: ['id', 'assignment_name'],
                 where: {
@@ -82,7 +81,7 @@ router.get('/1', withAuth, (req, res) => {
             ]
         }],
     })
-        .then(function (dbStudentData) {
+        .then(dbStudentData => {
             Assignment.findAll({
                 where: {
                     subject_id: 1,
@@ -134,7 +133,7 @@ router.get('/2', withAuth, (req, res) => {
             ]
         }],
     })
-        .then(function (dbStudentData) {
+        .then(dbStudentData => {
             Assignment.findAll({
                 where: {
                     subject_id: 2,
@@ -184,7 +183,7 @@ router.get('/3', withAuth, (req, res) => {
             ]
         }],
     })
-        .then(function (dbStudentData) {
+        .then(dbStudentData => {
             Assignment.findAll({
                 where: {
                     subject_id: 3,
