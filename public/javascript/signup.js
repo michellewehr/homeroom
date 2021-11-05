@@ -1,3 +1,8 @@
+validatePassword = password => {
+   const regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+   return regex.test(password);
+};
+
 async function signupFormHandler(event) {
    event.preventDefault();
 
@@ -7,16 +12,21 @@ async function signupFormHandler(event) {
    const password = document.querySelector('#password').value.trim();
 
    if (first_name && last_name && email && password) {
-      const res = await fetch('/api/teachers', {
-         method: 'post',
-         body: JSON.stringify({
-            first_name, last_name, email, password
-         }),
-         headers: {
-            'Content-Type': 'application/json'
-         }
-      });
-      res.ok ? addSubject() : alert(`Request failed -- ${res.status}: ${res.statusText}.`);
+      if (validatePassword(password)) {
+         const res = await fetch('/api/teachers', {
+            method: 'post',
+            body: JSON.stringify({
+               first_name, last_name, email, password
+            }),
+            headers: {
+               'Content-Type': 'application/json'
+            }
+         });
+         res.ok ? addSubject() : alert(`Failed to create user -- ${res.status}: ${res.statusText}.`);
+      } else {
+         alert(`Password must be at least 8 characters with 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.`);
+         return;
+      }
    } else {
       alert(`All fields must be filled in!`);
    }
