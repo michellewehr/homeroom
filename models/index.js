@@ -7,12 +7,12 @@ const Assignment = require('./Assignment')
 
 Teacher.hasMany(Subject, {
     foreignKey: 'subject_id',
-    onDelete: 'SET NULL'
+    // onDelete: 'SET NULL'
 });
 
 Teacher.hasMany(LessonPlan, {
     foreignKey: 'teacher_lesson_id',
-    OnDelete: 'SET NULL'
+    // OnDelete: 'SET NULL'
 });
 
 LessonPlan.belongsTo(Teacher);
@@ -30,22 +30,27 @@ Subject.belongsTo(Teacher);
 Subject.hasMany(LessonPlan);
 
 LessonPlan.belongsTo(Subject, {
-    foreignKey: 'subject_id'
+    foreignKey: 'subject_id',
+    // onDelete: 'SET NULL'
 });
 
 Subject.hasMany(Assignment, {
-    foreignKey: 'subject_id'
+    foreignKey: 'subject_id',
+    // onDelete: 'SET NULL'
 });
 
 Assignment.belongsTo(Subject, {
-    foreignKey: 'subject_id'
+    foreignKey: 'subject_id',
+    // onDelete: 'SET NULL'
 });
 
 Assignment.belongsTo(Teacher, {
     foreignKey: 'teacher_assign_id'
 });
 
-Assignment.hasOne(Grade);
+Assignment.hasOne(Grade, {
+    // onDelete: 'CASCADE'
+});
 
 Grade.belongsTo(Assignment, {
     foreignKey: 'assignment_id'

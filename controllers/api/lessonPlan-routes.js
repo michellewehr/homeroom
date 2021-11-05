@@ -99,4 +99,26 @@ router.post('/', withAuth, (req, res) => {
         });
 });
 
+// delete lesson plan
+router.delete('/:id', (req, res) => {
+    LessonPlan.destroy({
+        where: {
+            id: req.params.id,
+            teacher_id: req.session.teacher_id
+        }
+    })
+        .then(dbLessonPlanData => {
+            if (!dbLessonPlanData) {
+                res.status(404).json({ message: 'No lesson plan found with this id.' });
+                return;
+            }
+            res.json({ msg: `Lesson Plan deleted.` });
+        })
+        .catch(err => {
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
+        });
+});
+
 module.exports = router;
