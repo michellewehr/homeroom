@@ -59,7 +59,6 @@ router.post('/', withAuth, (req, res) => {
         teacher_assign_id: req.session.teacher_id
     })
         .then(dbAssignmentData => {
-            console.log(dbAssignmentData.assignment_name, dbAssignmentData.subject_id, dbAssignmentData.teacher_assign_id + 'line 59')
             res.status(201);
             res.json({
                 msg: `Successfully added ${req.body.assignment_name}!`

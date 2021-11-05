@@ -13,7 +13,7 @@ async function loginFormHandler(event) {
          }),
          headers: { 'Content-Type': 'application/json' }
       });
-      res.ok ? document.location.replace('/dashboard') : alert(`Login failed -- ${res.status}: Incorrect password. Try again.`);
+      res.ok ? document.location.replace('/dashboard') : alert(`Login failed -- ${res.status}: Incorrect login information. Try again.`);
    }
 }
 

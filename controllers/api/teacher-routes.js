@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Teacher } = require('../../models');
 const argon2 = require('argon2');
-const { validatePasswordConstraints } = require('../../utils/helpers');
 
 router.get('/', (req, res) => {
   Teacher.findAll({
@@ -24,14 +23,6 @@ router.post('/', async (req, res) => {
   }
 
   let userPassword = req.body.password;
-  if (!validatePasswordConstraints(userPassword)) {
-    res.status(400).json({
-      msg: `Your password must be at least 8 characters and contain at least 1 number, uppercase, lowercase, and special character.
-            Try again.`
-    });
-    return;
-  };
-
   let hashedPassword = await argon2.hash(userPassword, {
     type: argon2.argon2id,
     hashLength: 50

@@ -83,15 +83,19 @@ router.post('/', withAuth, (req, res) => {
         lesson_name: req.body.lesson_name,
         lesson_objective: req.body.lesson_objective,
         lesson_activity: req.body.lesson_activity,
+        lesson_assessment: req.body.lesson_assessment,
         materials: req.body.materials,
         teacher_lesson_id: req.session.teacher_id
     })
         .then(dbLessonPlanData => {
+            console.log(dbLessonPlanData + 'line 90!!!!!!!!!!!')
             res.status(201);
-            res.json({ msg: `Successfully added new lesson plan!` })
+            res.json({ msg: `Successfully added new lesson plan ${dbLessonPlanData.lesson_name}!` })
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 

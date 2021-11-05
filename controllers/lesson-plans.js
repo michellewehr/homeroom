@@ -48,14 +48,15 @@ router.get('/addLessonPlan', withAuth, (req, res) => {
 })
 
 // add a lesson plan--had to add the url-- TODO: go back and fix this to be correct
-router.post('/', withAuth, ({ body }, res) => {
+router.post('/', withAuth, (req, res) => {
     LessonPlan.create({
-        lesson_date: body.lesson_date,
-        subject_id: body.subject_id,
-        lesson_name: body.lesson_name,
-        lesson_objective: body.lesson_objective,
-        lesson_activity: body.lesson_activity,
-        materials: body.materials,
+        lesson_date: req.body.lesson_date,
+        subject_id: req.body.subject_id,
+        lesson_name: req.body.lesson_name,
+        lesson_objective: req.body.lesson_objective,
+        lesson_activity: req.body.lesson_activity,
+        lesson_assessment: req.body.lesson_assessment,
+        materials: req.body.materials,
         teacher_lesson_id: req.session.teacher_id
     })
         .then(dbLessonPlanData => {
