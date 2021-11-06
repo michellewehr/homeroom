@@ -66,15 +66,9 @@ router.post('/login', (req, res) => {
       return;
     }
 
-    if (dbTeacherData.email === req.body.email) {
-      res.status(400).json({ msg: 'A user already exists with that email address..' });
-      return;
-    }
-
     const passwordIsCorrect = await dbTeacherData.checkPassword(req.body.password);
     if (!passwordIsCorrect) {
       res.status(404).json({ msg: 'Password incorrect!' });
-      return;
     }
 
     req.session.save(() => {
