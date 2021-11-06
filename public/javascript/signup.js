@@ -1,3 +1,8 @@
+validatePassword = password => {
+   const regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+   return regex.test(password);
+};
+
 async function signupFormHandler(event) {
    event.preventDefault();
 
@@ -7,7 +12,7 @@ async function signupFormHandler(event) {
    const password = document.querySelector('#password').value.trim();
 
    if (first_name && last_name && email && password) {
-      if (validatePasswordConstraints(password)) {
+      if (validatePassword(password)) {
          const res = await fetch('/api/teachers', {
             method: 'post',
             body: JSON.stringify({
