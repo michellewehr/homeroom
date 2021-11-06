@@ -59,17 +59,16 @@ router.post('/login', (req, res) => {
     where: {
       email: req.body.email
     }
-  }).then(dbTeacherData => {
+  }).then(async dbTeacherData => {
 
     if (!dbTeacherData) {
-      res.status(404).json({ message: 'No user with that email address!' });
+      res.status(404).json({ msg: 'No user found.' });
       return;
     }
 
-    const passwordIsCorrect = dbTeacherData.checkPassword(req.body.password)
-
+    const passwordIsCorrect = await dbTeacherData.checkPassword(req.body.password);
     if (!passwordIsCorrect) {
-      res.status(404).json({ message: 'Password incorrect!' });
+      res.status(404).json({ msg: 'Password incorrect!' });
       return;
     }
 

@@ -56,10 +56,11 @@ async function signupFormHandler(event) {
 addSubject = async () => {
    let subject_value = 0;
    let subjectsArray = ['English', 'Math', 'Science', 'Social Studies'];
+
    for (i = 0; i < subjectsArray.length; i++) {
       subject_value++;
       let subject_name = subjectsArray[i];
-      const res = await fetch('/api/subjects', {
+      let res = await fetch('/api/subjects', {
          method: 'post',
          body: JSON.stringify({ subject_name, subject_value }),
          headers: {
