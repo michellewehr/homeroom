@@ -1,5 +1,6 @@
 :root {
   --bg-color-dark: rgba(16, 17, 17, 0.098);
+  --off-white: rgb(223, 222, 215);
   --subtitle: rgba(36, 35, 35, 1);
   --login-heading: rgba(255, 255, 255, 0.406);
   --white-yellow: rgba(246, 234, 190, 1);
