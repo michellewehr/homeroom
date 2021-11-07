@@ -15,3 +15,6 @@
 /* utils */
 @import "./utils/utilities.css";
 @import "./utils/variables.css";
+
+/* media queries*/
+@import "./utils/media_queries.css";

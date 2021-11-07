@@ -9,27 +9,29 @@
 
 
       <section>
-          <table class="gradeBook">
-              <tr class="gradeBookThead">
-                 
-              </thead>
-              <tbody class="tableBody">
-                  {{!-- {{#each students as |student|}}
-                  <tr>
-                      <td>{{student.last_name}}</td>
-                      <td>{{student.first_name}}</td>
-                    {{#each this.grades}}>
-                    {{#each ../uniqueAssignNames}}
-                        <td>{{lookup .. this}}</td>
-
-                    {{/each}}
-                 {{/each}}
-                  <td>Calc</td>
-              </tr>
-                 {{/each}}
-              </tbody> --}}
-            
-          </table>
+          <div class="overflow-x:auto">
+              <table class="gradeBook">
+                  <tr class="gradeBookThead">
+              
+                  </thead>
+                  <tbody class="tableBody">
+                      {{!-- {{#each students as |student|}}
+                      <tr>
+                          <td>{{student.last_name}}</td>
+                          <td>{{student.first_name}}</td>
+                        {{#each this.grades}}>
+                        {{#each ../uniqueAssignNames}}
+                            <td>{{lookup .. this}}</td>
+                        {{/each}}
+                     {{/each}}
+                      <td>Calc</td>
+                  </tr>
+                     {{/each}}
+                  </tbody> --}}
+              
+              </table>
+          </div>
+          </section>
             
 
 <script src="/javascript/dynamicSocialStudiesGrade.js"></script>

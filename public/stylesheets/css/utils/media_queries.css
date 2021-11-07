@@ -1,0 +1,56 @@
+@media only screen and (max-width: 419px) {
+  .backBtn {
+    height: 1rem;
+    width: auto;
+    padding-top: 0;
+    padding-bottom: 1.5em;
+    margin: 0.5em;
+  }
+
+  .addGrade {
+    visibility: hidden;
+  }
+  .addBtnLess {
+    position: relative;
+    top: -10em;
+    right: -4em;
+  }
+  .lessonPlanHeading {
+    text-align: center;
+    position: relative;
+    right: 3rem;
+  }
+  .filterHeading {
+    position: relative;
+    top: -3em;
+    right: -2rem;
+  }
+  .subjFilter {
+    position: relative;
+    top: -6rem;
+    right: -4rem;
+  }
+  .container {
+    position: relative;
+    top: -5rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .backBtn {
+    height: 1rem;
+    width: auto;
+    padding-top: 0;
+    padding-bottom: 1.5em;
+    margin: 0.5em;
+  }
+
+  .addGrade {
+    visibility: hidden;
+  }
+
+  .addBtn {
+    position: relative;
+    right: -4rem;
+  }
+}
