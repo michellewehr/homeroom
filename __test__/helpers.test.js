@@ -1,6 +1,6 @@
 const { format_name, validatePasswordConstraints } = require('../utils/helpers');
 
-test('Name is Formatted', () => {
+test('Name is formatted with first letter capitalized and trimmed white space', () => {
     const name = "  jOHn";
     expect(format_name(name)).toEqual('John');
 });
