@@ -13,3 +13,14 @@
   box-shadow: 4px 4px 15px rgb(31, 31, 31);
   scale: 1.01;
 }
+
+
+.errMsgDiv {
+  background-color: var(--light-yellow);
+}
+
+.errMsg {
+  border-radius: 5px;
+  color: var(--subtitle);
+
+}
