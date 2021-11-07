@@ -1,7 +1,9 @@
+    {{#if loggedIn}}
     {{> navbar}}
-  
+  {{> back_button}}
   <section>
-          <h3 class="heading">Create Lesson Plan:</h3>
+          <h2 class="heading">Create Lesson Plan:</h2>
+          
             <div class="container create-lessonplan-container">
                 <form class="container addLesson">
                     <div class="form-group">
@@ -12,10 +14,9 @@
                         <label for="subject">Subject:</label>
                         <select type="" class="form-control" name="subject" id="subject">
                             <option selected="selected" disabled="true">--Please Select --</option>
-                            <option value="1" data-subjectId="1">Language Arts</option>
-                            <option value="2" data-subjectId="2">Math</option>
-                            <option value="3" data-subjectId="3">Science</option>
-                            <option value="4" data-subjectId="4" >Social socialStudies</option>
+                            {{#each subjects as |subject|}}
+                            <option value="{{subject.subject_value}}">{{subject.subject_name}}</option>
+                            {{/each}}
                             </select>
                     </div>
                     <div class="form-group">
@@ -34,14 +35,14 @@
                         <label for="assessment">Assessment:</label>
                         <input type="text" name="materials" class="form-control" id="assessment" placeholder="ex) Book, construction paper, glue sticks, markers...">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group pb-3">
                         <label for="materials">Materials:</label>
                         <input type="text" name="materials" class="form-control" id="materials" placeholder="ex) Book, construction paper, glue sticks, markers...">
                     </div>
-                    <br>
                     <button type="submit" class="btn btn-secondary submitAddLeson">Submit</button>
                 </div>
             </form>
       </section>
 
-<script src = '/javascript/addLessonPlan.js'></script>
+<script src ='/javascript/addLessonPlan.js'></script>
+{{/if}}

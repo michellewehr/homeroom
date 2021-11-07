@@ -19,6 +19,17 @@ Subject.init(
       icon_url: {
          type: DataTypes.STRING,
          allowNull: true
+      }, 
+      teacher_subj_id: {
+         type: DataTypes.INTEGER,
+         references: {
+            model: 'teacher',
+            key: 'id'
+         }
+      },
+      subject_value: {
+         type: DataTypes.INTEGER,
+         allowNull: false
       }
    },
    {

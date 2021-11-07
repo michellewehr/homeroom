@@ -1,30 +1,13 @@
   {{#if loggedIn}}
   {{> navbar}}
  
- <section class="viewLessons">
-     <div class="row">
-         <h3 class="heading col">View Lesson Plans: </h3>
-        <a href="/lesson-plans/addLessonPlan" class="adda col"><h4 class="addGrade">Add Lesson</h4><img src="/assets/images/addagain.png" class="addBtn" style="height: 5rem; width: auto;" alt=""></a>
-     </div>
-     <div class="row">
-         <label for="filterBySubj">
-             <h5 class="subheading">Filter By Subject</h5>
-         </label>
-         <div class="viewLesons">
-             <select name="filterBySubj" class="subjFilter" id="filterBySubj">
-                    <option disabled="true" selected>--Please Select --</option>
-                    <option data-subjId="1" value="languageArts">Language Arts</option>
-                    <option data-subjId="2" value="math">Math</option>
-                    <option data-subjId="3" value="science">Science</option>
-                    <option data-subjId="4" value="socialStudies">Social Studies</option>
-                 </select>
-         </div>
-     </div>
+{{> filterLessons}}
+
      
 
      <div class="container">
          
-         <div class="row ">
+         <div class="row">
              <div class="col less-col-name date">
                  <p>Date</p>
                 </div>
@@ -42,7 +25,7 @@
                  <p>{{lesson.lesson_date}}</p>
                 </div>
                 <div class="col lessSubj">
-                    <a href="/toFilterBySubj" style="text-decoration: inherit; color: inherit;">{{lesson.subject.subject_name}}</a>
+                    <p style="text-decoration: inherit; color: inherit;">{{lesson.subject.subject_name}}</p>
                 </div>
                 <div class="col lessName">
                     <a href="/lesson-plans/{{lesson.id}}" style="text-decoration: inherit; color: inherit;">{{lesson.lesson_name}}</a>
@@ -50,9 +33,9 @@
          </div>
          {{/each}}
      </div>
+        
  </section>
  
 
-      <script src = '/javascript/lessonplans.js'></script>
-
-      {{/if}}
+<script src ='/javascript/lessonplans.js'></script>
+{{/if}}

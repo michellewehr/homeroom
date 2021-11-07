@@ -1,33 +1,40 @@
+  {{#if loggedIn}}
   {{> navbar}}
+  {{> back_button}}
        <div class="row">
-          <h3 class="heading gradebookTitle col"> {{studentsAndAssignments.assignments.[0].subject.subject_name}}
-             Grade Book</h3>
-             <a href="/grades/addgrade" class="adda col"><h4 class="addGrade">Add Grade</h4><img src="/assets/images/addagain.png" class="addBtn" style="height: 5rem; width: auto;" alt=""></a>
+          <h3 class="heading gradebookTitle text-shadow col"> 
+             Social Studies Grade Book</h3>
+             <a href="/grades/addgrade/4" class="adda col"><h4 class="addGrade">Add Grade</h4><img src="/assets/images/addagain.png" class="addBtn" style="height: 5rem; width: auto;" alt="grey plus sign picture"></a>
           </div>
 
 
       <section>
-          <table class="gradeBook">
-              <tr class="gradeBookThead">
-                 
-              </thead>
-              <tbody class="tableBody">
-                  {{!-- {{#each students as |student|}}
-                  <tr>
-                      <td>{{student.last_name}}</td>
-                      <td>{{student.first_name}}</td>
-                    {{#each this.grades}}>
-                    {{#each ../uniqueAssignNames}}
-                        <td>{{lookup .. this}}</td>
-
-                    {{/each}}
-                 {{/each}}
-                  <td>Calc</td>
-              </tr>
-                 {{/each}}
-              </tbody> --}}
+          <div class="overflow-x:auto">
+              <table class="gradeBook">
+                  <tr class="gradeBookThead">
+              
+                  </thead>
+                  <tbody class="tableBody">
+                      {{!-- {{#each students as |student|}}
+                      <tr>
+                          <td>{{student.last_name}}</td>
+                          <td>{{student.first_name}}</td>
+                        {{#each this.grades}}>
+                        {{#each ../uniqueAssignNames}}
+                            <td>{{lookup .. this}}</td>
+                        {{/each}}
+                     {{/each}}
+                      <td>Calc</td>
+                  </tr>
+                     {{/each}}
+                  </tbody> --}}
+              
+              </table>
+          </div>
+          </section>
             
-          </table>
 
 <script src="/javascript/dynamicSocialStudiesGrade.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>  
+
+{{/if}}

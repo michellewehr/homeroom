@@ -1,23 +1,22 @@
 const router = require('express').Router();
 const { Subject } = require('../../models');
+const withAuth = require('../../utils/withAuth');
 
 // list all subjects
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Subject.findAll({
-        attributes: ['id', 'subject_name']
+        attributes: { exclude: ['icon_url', 'subject_id', 'teacherId'] }
     })
         .then(dbSubjectData => {
-            console.log(dbSubjectData)
             res.json(dbSubjectData)
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
 
 // get one subject by id
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Subject.findOne({
         attributes: ['id', 'subject_name'],
         where: {
@@ -32,8 +31,28 @@ router.get('/:id', (req, res) => {
             json(dbSubjectData)
         })
         .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
+        });
+});
+
+// add a subject
+router.post('/', withAuth, (req, res) => {
+    Subject.create({
+        subject_name: req.body.subject_name,
+        teacher_subj_id: req.session.teacher_id,
+        subject_value: req.body.subject_value
+    })
+        .then(dbSubjectData => {
+            console.log('subject added')
+            res.status(201);
+            res.json(dbSubjectData);
+        })
+        .catch(err => {
+            res.status(500).json({
+                msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+            });
         });
 });
 

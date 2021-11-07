@@ -3,24 +3,24 @@ const { Teacher } = require('../models');
 const sequelize = require('../config/connection.js');
 
 const teacherData = [
-    {
-        first_name: "Maria",
-        last_name: "Kyle",
-        email: "mariakyle1@gmail.com",
-        password: "12345678"
-    },
-    {
-        first_name: "John",
-        last_name: "Anthony",
-        email: "johnanthony@gmail.com",
-        password: "12345678"
-    },
-    {
-        first_name: "test",
-        last_name: "test",
-        email: "test@test.com",
-        password: "12345678"
-    }
+    // {
+    //     first_name: "Brent",
+    //     last_name: "Gaines",
+    //     email: "brent@gmail.com",
+    //     password: "BrentGaines1!"
+    // },
+    // {
+    //     first_name: "Michelle",
+    //     last_name: "Wehr",
+    //     email: "michelle@gmail.com",
+    //     password: "MichelleWehr1!"
+    // },
+    // {
+    //     first_name: "Derek",
+    //     last_name: "Gaines",
+    //     email: "derek@gmail.com",
+    //     password: "DerekGaines1!"
+    // }
 ];
 
 const seedTeachers = () => Teacher.bulkCreate(teacherData)

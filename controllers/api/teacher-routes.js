@@ -1,31 +1,28 @@
 const router = require('express').Router();
 const { Teacher } = require('../../models');
 const argon2 = require('argon2');
-const { validatePasswordConstraints } = require('../../utils/helpers');
 
 router.get('/', (req, res) => {
-  Teacher.findAll({})
+  Teacher.findAll({
+
+  })
     .then(dbTeacherData => {
-      res.json(dbTeacherData)
+      res.json(dbTeacherData);
     })
     .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+      res.status(500).json({
+        msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+      });
     });
 });
 
 // sign up
 router.post('/', async (req, res) => {
+  if (req.session.loggedIn) {
+    return res.status(400).json({ msg: 'Already logged in.' })
+  }
 
   let userPassword = req.body.password;
-  if (!validatePasswordConstraints(userPassword)) {
-    res.status(400).json({
-      msg: `Your password must be at least 8 characters and contain at least 1 number, uppercase, lowercase, and special character.
-            Try again.`
-    });
-    return;
-  };
-
   let hashedPassword = await argon2.hash(userPassword, {
     type: argon2.argon2id,
     hashLength: 50
@@ -39,15 +36,16 @@ router.post('/', async (req, res) => {
   })
     .then(dbTeacherData => {
       req.session.save(() => {
-        req.session.id = dbTeacherData.id;
+        req.session.teacher_id = dbTeacherData.id;
         req.session.email = dbTeacherData.email;
         req.session.loggedIn = true;
+
+        res.json(dbTeacherData);
       })
-      res.json({ message: 'You are now logged in' })
     })
     .catch(err => {
       res.status(500).json({
-        msg: `Something went wrong: ${err}`,
+        msg: `Sorry, this one's on our end. Try again? Error: ${err}`
       });
     });
 });
@@ -64,21 +62,21 @@ router.post('/login', (req, res) => {
   }).then(async dbTeacherData => {
 
     if (!dbTeacherData) {
-      res.status(404).json({ message: 'No user with that email address!' });
+      res.status(404).json({ msg: 'No user found.' });
       return;
     }
 
-    const passwordIsCorrect = await dbTeacherData.checkPassword(req.body.password)
-
+    const passwordIsCorrect = await dbTeacherData.checkPassword(req.body.password);
     if (!passwordIsCorrect) {
-      res.status(404).json({ message: 'Password incorrect!' });
-      return;
+      res.status(404).json({ msg: 'Password incorrect!' });
     }
 
     req.session.save(() => {
-      req.session.user_id = dbTeacherData.id;
+      req.session.teacher_id = dbTeacherData.id;
       req.session.email = dbTeacherData.email;
       req.session.loggedIn = true;
+
+      res.json(dbTeacherData);
     })
 
     if (req.session.views) {
@@ -87,11 +85,12 @@ router.post('/login', (req, res) => {
       req.session.views = 1
     }
 
-    console.log(req.session)
-    console.log('EEEEEEEEEEEEEEEEE')
-    res.json({ user: dbTeacherData, message: 'You are now logged in!' });
   })
-    .catch(err => { console.log(err) });
+    .catch(err => {
+      res.status(500).json({
+        msg: `Sorry, this one's on our end. Try again? Error: ${err}`
+      });
+    });
 });
 
 router.post('/logout', (req, res) => {

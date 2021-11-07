@@ -1,37 +1,32 @@
   {{#if loggedIn}}
   {{> navbar}}
 
-        
-      <section class="dashboard-section">
-          <h3 class="heading">Welcome {{teacher.first_name}}!</h3>
+    
+      <section class="dashboard-section pb-5">
+          <h2 class="animate__animated animate__slideInRight heading welcomeHeading text-shadow">Welcome {{teacher.first_name}}!</h2>
           <div class="container dashboard-container">
               <div class="row">
-                  <a class="col-sm shake" href="/class-roster" >
-                      <div class="option-block option1">
-                          <br>
-                          <h3>Class Roster</h3>
-                          <br>
-                          <img class="optionIcon" src="../assets/images/classroster.png" alt="">
+                  <a class="col-sm" href="/class-roster" >
+                      <div class="option-block shake  option1">
+                          <h2 class="py-5">Class Roster</h2>
+                          <img class="optionIcon" src="../assets/images/classroster.png" alt="hands pointing up png image">
                       </div>
                   </a>
-                  <a class="col-sm shake" href="/lesson-plans">
-                      <div class="option-block option2">
-                          <br>
-                        <h3>Lesson Plans</h3>
-                        <br>
-                        <img class="optionIcon" src="../assets/images/lessonplans.png" alt="">
+                  <a class="col-sm" href="/lesson-plans">
+                      <div class="option-block shake  option2">
+                        <h2 class="py-5">Lesson Plans</h2>
+                        <img class="optionIcon" src="../assets/images/lessonplans.png" alt="man pointing on board logo">
                       </div>
                   </a>
-                  <a class="col-sm shake" href="/grades">
-                      <div class="option-block option3">
-                  <br>
-                          <h3>Grade Book</h3>
-                          <br>
-                          <img class="optionIcon" src="../assets/images/anotherGrade.png" alt="">
+                  <a class="col-sm" href="/grades">
+                      <div class="option-block shake  option3">
+                          <h2 class="py-5">Grade Books</h2>
+                          <img class="optionIcon" src="../assets/images/anotherGrade.png" alt="paper with a+ grade">
                       </div>
                   </a>
               </div>
           </div>
       </section>
-
+        <script src="/javascript/dash.js"></script>
+     
       {{/if}}

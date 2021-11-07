@@ -13,7 +13,7 @@ Lesson_Plan.init(
       },
       lesson_date: {
          type: DataTypes.DATEONLY,
-         allowNull: true,
+         allowNull: false,
          validate: {
             isDate: true
          }
@@ -23,7 +23,7 @@ Lesson_Plan.init(
          allowNull: false,
          references: {
             model: 'subject',
-            key: 'id'
+            key: 'subject_value'
          }
       },
       lesson_name: {
@@ -40,11 +40,19 @@ Lesson_Plan.init(
       },
       lesson_assessment: {
          type: DataTypes.STRING,
-         allowNull: true
+         allowNull: false
       },
       materials: {
          type: DataTypes.STRING,
-         allowNull: true
+         allowNull: false
+      },
+      teacher_lesson_id: {
+         type: DataTypes.INTEGER,
+         allowNull: false,
+         references: {
+            model: 'teacher',
+            key: 'id'
+         }
       }
    },
    {

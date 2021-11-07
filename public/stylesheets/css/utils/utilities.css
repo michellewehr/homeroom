@@ -1,0 +1,26 @@
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.shake {
+  transition: transform 0.2s, scale 0.2s, box-shadow 0.2s;
+  box-shadow: 1px 1px 4px rgb(22, 22, 22);
+}
+
+.shake:hover {
+  transform: rotate(1deg);
+  box-shadow: 4px 4px 15px rgb(31, 31, 31);
+  scale: 1.01;
+}
+
+
+.errMsgDiv {
+  background-color: var(--light-yellow);
+}
+
+.errMsg {
+  border-radius: 5px;
+  color: var(--subtitle);
+
+}
