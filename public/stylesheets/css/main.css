@@ -11,7 +11,7 @@
 /* layout" */
 @import "./layout/containers.css";
 @import "./layout/hero.css";
-
+@import "./layout/navbar.css";
 /* utils */
 @import "./utils/utilities.css";
 @import "./utils/variables.css";

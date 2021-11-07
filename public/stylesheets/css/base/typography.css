@@ -22,9 +22,13 @@
   padding-bottom: 1rem;
   color: var(--subtitle);
 }
+
 .subtitle {
   color: var(--subtitle);
   font-size: 1.5rem;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  padding-bottom: 1rem;
 }
 
 .homepage-nav-link {
