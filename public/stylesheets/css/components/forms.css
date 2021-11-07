@@ -18,6 +18,7 @@
 
 .create-lessonplan-container,
 .login-container {
+  font-size: 1.4rem;
   overflow: hidden;
   background-color: var(--white-green);
   border-radius: 10px;
@@ -27,6 +28,7 @@
 
 .login-container {
   margin: 0px;
+  font-size: 1.4rem;
 }
 
 .login-background {

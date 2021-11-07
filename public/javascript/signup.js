@@ -24,7 +24,7 @@ async function signupFormHandler(event) {
          });
          res.ok ? postSubjects() : alert(`Failed to create user -- ${res.status}: ${res.statusText}.`);
       } else {
-         alert(`Password must be at least 8 characters with 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.`);
+         document.location.replace('/signup=failed');
          return;
       }
    } else {

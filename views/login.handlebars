@@ -5,20 +5,21 @@
           {{#if errors}}
             {{#if password400}}
               <form class="container login-container"  style="width:80vw;">
+                {{> error_message}}
               <div class="form-group">
                 
-                  <label for="email" class="required">Email address <span class="fs-6 text-danger">{{email404}}</span></label>
+                  <label for="email" class="required">Email address</span></label>
                   <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
                 <div class="form-group pb-3">
                   
-                  <label for="password" class="required">Password <span class="fs-6 text-danger">{{password400}}</span></label>
+                  <label for="password" class="required">Password</span></label>
                   <input type="password" class="form-control" id="password" placeholder="Password">
                 </div>
               <button type="submit" class="btn btn-secondary">Sign In</button>
               <p class="p-2">
                 Don't have an account?
-              <a href="/signup">Sign Up</a>
+              <a href="/signup">Sign Up!</a>
               </p>
           </form>
             {{/if}}

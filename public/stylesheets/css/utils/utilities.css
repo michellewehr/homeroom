@@ -4,15 +4,23 @@
 }
 
 .shake {
-  transition: 0.5s;
-  transition: transform 0.1s, scale 0.1s, box-shadow 0.1s;
-  box-shadow: 12.5px 12.5px 7.6px rgba(0, 0, 0, 0.035),
-    100px 100px 61px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s, scale 0.2s, box-shadow 0.2s;
+  box-shadow: 1px 1px 4px rgb(22, 22, 22);
 }
 
 .shake:hover {
-  transition: 0.5s;
   transform: rotate(1deg);
   box-shadow: 4px 4px 15px rgb(31, 31, 31);
   scale: 1.01;
+}
+
+
+.errMsgDiv {
+  background-color: var(--light-yellow);
+}
+
+.errMsg {
+  border-radius: 5px;
+  color: var(--subtitle);
+
 }

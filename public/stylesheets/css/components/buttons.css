@@ -1,6 +1,6 @@
 .logoutBtn {
   border: var(--black-border-half);
-  background-color: var(--white-yellow);
+  background-color: var(--off-white);
   color: rgba(0, 0, 0, 0.578);
   margin: 2rem 5rem 1rem;
   padding: 1rem 2rem;
@@ -8,7 +8,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   transition: 0.5s;
-  box-shadow: 2px 2px 10px rgb(59, 59, 59);
+  box-shadow: 1px 1px 4px rgb(22, 22, 22);
 }
 
 .backBtn {
