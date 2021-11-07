@@ -218,7 +218,7 @@ This application is operating under the `MIT` license.
 
 This application was a happy collaboration between:
 
-#*Brent Gaines:*
+# *Brent Gaines:*
 
 <img src="https://raw.githubusercontent.com/brentocracy/brentocracy/main/header.png">
 
@@ -232,16 +232,16 @@ Connect with me:
 <a href="https://linkedin.com/in/brent-gaines" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Link to follow Brent on LinkedIn"></a>
 </p>
 
-###[GITHUB PROFILE](https://github.com/brentocracy)
+### [GITHUB PROFILE](https://github.com/brentocracy)
 
-#*Michelle Wehr:*
+# *Michelle Wehr:*
 
 <img src="https://user-images.githubusercontent.com/85959444/137572061-7dd1beba-44b9-4bc5-8a0d-c08d466d5f06.gif">
 
-###[GITHUB PROFILE](https://github.com/michellewehr)
+### [GITHUB PROFILE](https://github.com/michellewehr)
 
-#*Maki A Maki:*
+# *Maki A Maki:*
 
 I'm Maki (pronounced Mekki) from CT USA, and I am a Full-Stack Web Developer. I am passionate about helping create solutions to big problems and collaborating with a team of passionate programmers.
 
-###[GITHUB PROFILE](https://github.com/Makispear)
+### [GITHUB PROFILE](https://github.com/Makispear)
