@@ -1,13 +1,14 @@
-# Team Profile Generator
+# HOMEROOM
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/michellewehr/homeroom?style=rounded-square) ![GitHub last commit](https://img.shields.io/github/last-commit/michellewehr/homeroom?color=red&style=rounded-square) [![Updated Badge](https://badges.pufler.dev/updated/michellewehr/homeroom)](https://badges.pufler.dev)
 
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![Bootstrap](https://img.shields.io/badge/Bootstrap-00B2FF?style=for-the-badge&logo=bootstrap&logoColor=white) ![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express) 
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![Bootstrap](https://img.shields.io/badge/Bootstrap-00B2FF?style=for-the-badge&logo=bootstrap&logoColor=white) ![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express) <br>
+
 ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![Node](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
 
 
 <br>
-<img src="./public/assets/app-screens/landing-page.png" alt="screenshot of the app landing page" width="600px" height="300px">
+<img src="./public/assets/app-screens/landing-page.png" alt="screenshot of the app landing page" width="700px" height="350px">
 
 ## TABLE OF CONTENTS
   1. [Description](#description)
@@ -230,10 +231,16 @@ Kindly reach out at <brentmatthewgaines@gmail.com>!
 <a href="https://linkedin.com/in/brent-gaines" target="blank"><img align="center" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="www.linkedin.com/in/brent-gaines"/></a>
 </p>
 
-###[Check out my GitHub](https://github.com/brentocracy)
+###[GITHUB PROFILE](https://github.com/brentocracy)
 
 #*Michelle Wehr:*
 
 <img src="https://user-images.githubusercontent.com/85959444/137572061-7dd1beba-44b9-4bc5-8a0d-c08d466d5f06.gif">
 
-###[My GitHub](https://github.com/michellewehr)
+###[GITHUB PROFILE](https://github.com/michellewehr)
+
+#*Maki A Maki:*
+
+I'm Maki (pronounced Mekki) from CT USA, and I am a Full-Stack Web Developer. I am passionate about helping create solutions to big problems and collaborating with a team of passionate programmers.
+
+###[GITHUB PROFILE](https://github.com/Makispear)
