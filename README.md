@@ -226,10 +226,10 @@ I am a Full-Stack Web Developer committed to building fun and efficient projects
 
 Kindly reach out at <brentmatthewgaines@gmail.com>!
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<p align="left"> <a href="https://twitter.com/brentocracy" target="blank"><img src="https://img.shields.io/twitter/follow/brentocracy?logo=twitter&style=for-the-badge" alt="brentocracy" </p></a><br>
-<a href="https://linkedin.com/in/brent-gaines" target="blank"><img align="center" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="www.linkedin.com/in/brent-gaines"/></a>
+Connect with me:
+
+<a href="https://twitter.com/brentocracy" target="blank"><img src="https://img.shields.io/twitter/follow/brentocracy?logo=twitter&style=for-the-badge" alt="Link to follow Brent on Twitter"></a>
+<a href="https://linkedin.com/in/brent-gaines" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Link to follow Brent on LinkedIn"></a>
 </p>
 
 ###[GITHUB PROFILE](https://github.com/brentocracy)
