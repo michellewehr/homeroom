@@ -238,6 +238,10 @@ Connect with me:
 
 <img src="https://user-images.githubusercontent.com/85959444/137572061-7dd1beba-44b9-4bc5-8a0d-c08d466d5f06.gif">
 
+Passionate full-stack developer.
+
+You can reach me at <michelle_wehr@icloud.com>. 
+
 ### [GITHUB PROFILE](https://github.com/michellewehr)
 
 # *Maki A Maki:*
