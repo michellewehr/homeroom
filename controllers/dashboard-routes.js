@@ -9,14 +9,14 @@ router.get('/', withAuth, (req, res) => {
             id: req.session.teacher_id
         }
     })
-    .then(dbTeacherData => {
-        const teacher = dbTeacherData.get({ plain: true });
+        .then(dbTeacherData => {
+            const teacher = dbTeacherData.get({ plain: true });
 
-        res.render('dashboard', {
-            teacher,
-            loggedIn: true
+            res.render('dashboard', {
+                teacher,
+                loggedIn: true
+            })
         })
-    })
 })
 
 
