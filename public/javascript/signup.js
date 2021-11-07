@@ -42,8 +42,8 @@ let subjectsArray = ['English', 'Math', 'Science', 'Social Studies'];
 let subjectsPosted = [];
 
 const postSubjects = async () => {
-   subject_value++;
    for (let i = 0; i < subjectsArray.length; i++) {
+      subject_value++;
       let subject_name = subjectsArray[i];
       // Delay next fetch to make sure previous fetch has succeeded
       await delay();
