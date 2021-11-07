@@ -27,7 +27,7 @@ Teacher.init(
       email: {
          type: DataTypes.STRING,
          allowNull: false,
-         unique: true,
+         isUnique: true,
          validate: {
             isEmail: true
          }
