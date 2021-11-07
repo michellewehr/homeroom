@@ -84,6 +84,8 @@
 .addGrade-container {
   background-color: var(--white-yellow);
   padding: 1rem;
+  border-radius: 12px;
+  font-size: 1.4rem;
 }
 
 .viewLessRow {
