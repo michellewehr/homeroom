@@ -140,6 +140,7 @@ The class roster is where you can add a student to your class, complete with the
 
 -- ***Lesson Plans***
 <img src="./assets/img/../../public/assets/app-screens/lesson-plans.png" alt="screenshot of viewing added students through the class roster page" height="250px" width="700px">
+
 *Fig 4: Add, view, filter by subject, or view individually.*
 
 This is where you can add your lesson plans for the day. All fields are required to add a lesson plan, including the date and the subject and the name of the lesson. Once you have added a plan, your plans will be automatically sorted by date (earliest first), and you can view each lesson plan individually by clicking on its title in the table.
