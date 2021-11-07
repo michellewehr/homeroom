@@ -4,17 +4,15 @@
 }
 
 .shake {
+  transition: 0.5s;
   transition: transform 0.1s, scale 0.1s, box-shadow 0.1s;
-  box-shadow: 2px 2px 10px rgb(15, 15, 15);
+  box-shadow: 12.5px 12.5px 7.6px rgba(0, 0, 0, 0.035),
+    100px 100px 61px rgba(0, 0, 0, 0.07);
 }
 
 .shake:hover {
+  transition: 0.5s;
   transform: rotate(1deg);
   box-shadow: 4px 4px 15px rgb(31, 31, 31);
   scale: 1.01;
 }
-
-.text-shadow {
-  text-shadow: 2px 2px 5px rgb(133, 133, 133);
-}
-

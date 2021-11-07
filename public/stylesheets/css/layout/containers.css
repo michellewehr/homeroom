@@ -54,7 +54,7 @@
   text-decoration: inherit;
 }
 .dashboard-container a:hover {
-  color: var(--sea-green);
+  color: var(--subtitle);
 }
 
 .class-roster-container p {
