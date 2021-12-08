@@ -102,6 +102,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 #### *Jest*
 [Jest](https://github.com/facebook/jest) is available to run tests for any utility functions (there are currently two in the application). Jest has already been configured to run robust outputs (coverage) with the command `npm test`.
 
+Feel free to open a branch, make your changes, and open a pull request for review.
+
 ---
 
 ## Usage
@@ -139,6 +141,7 @@ As mentioned above, the dashboard is where you will be making decisions on what 
 The class roster is where you can add a student to your class, complete with their guardian and his or her contact email. Once a student is added, Homeroom fills your database and allows you to select a student from a drop-down menu when you add your grades.
 
 -- ***Lesson Plans***
+
 <img src="./assets/img/../../public/assets/app-screens/lesson-plans.png" alt="screenshot of viewing added students through the class roster page" height="250px" width="700px">
 
 *Fig 4: Add, view, filter by subject, or view individually.*
@@ -148,6 +151,7 @@ This is where you can add your lesson plans for the day. All fields are required
 You may also filter your lessons by subject through the drop-down menu on the left. This is an important organization tool, and the lesson plan data model links the students and their grades through the grade books.
 
 -- ***GradeBooks***
+
 <img src="./assets/img/../../public/assets/app-screens/grades.png" alt="screenshot of the grade book hub with a grade book card for each subject" height="250px" width="700px">
 
 <img src="./assets/img/../../public/assets/app-screens/enter-grade.png" alt="screenshot ofthe add grade form" height="400px" width="600px">
