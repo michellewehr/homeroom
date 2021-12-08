@@ -216,7 +216,7 @@ The name of the test followed by a function which instantiates a mock of whichev
 
 ## Licensing
 
-This application is operating under the `MIT` license.
+This application is not operating under a license.
 
 ## About
 
