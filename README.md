@@ -39,7 +39,7 @@ If you just wish to use the application for your classroom, simply go to the liv
 
 You must have [Node.js](https://nodejs.org/en/) installed.
 
-Go to the [repository](https://github.com/brentocracy/team-profile-generator) and clone it by entering ``` git clone https://github.com/michellewehr/homeroom.git```. You may also fork the repo.
+Go to the [repository](https://github.com/michellewehr/homeroom) and clone it by entering ``` git clone https://github.com/michellewehr/homeroom.git```. You may also fork the repo.
 
 Run `npm install` to include all dependencies. The dependencies include:
 
